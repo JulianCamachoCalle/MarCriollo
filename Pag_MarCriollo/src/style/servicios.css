@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fondo7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+}
+
+header {
+    text-align: center;
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding: 10px;
+}
+
+nav {
+    background-color: rgb(36, 169, 192);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#seleccionado {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding-bottom: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: rgb(23, 86, 116);
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    transition: transform 0.3s;
+}
+
+#no-seleccionado {
+    color: rgb(36, 169, 192);
+    text-decoration: none;
+    padding-bottom: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    transition: transform 0.3s;
+}
+
+nav a:hover {
+    transform: scale(1.2);
+}
+
+.titulo{
+    color: white;
+}
+
+.platos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.plato {
+    background-color: rgba(0, 204, 255, 0.226);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.plato h3,
+.descripcion {
+    color: black;
+    -webkit-text-stroke-width: 0.6px;
+    -webkit-text-stroke-color: white;
+    font-size: 30px;
+    margin-top: 10px;
+    font-weight: 800;
+}
+
+.plato img {
+    width: 100%;
+    height: 250px;
+    max-width: 300px;
+    max-height: 200px;
+}
+
+.descripcion {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.plato:hover .descripcion {
+    opacity: 1;
+    max-height: 1000px;
+}
+
+#servicios h2 {
+    color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+footer {
+    background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
+    color: white;
+    padding: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 2;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#licencias a {
+    color: inherit;
+    line-height: inherit;
+}
+
+#redes a {
+    line-height: inherit;
+    margin-left: 10px;
+}
+
+#contacto a {
+    color: rgb(159, 186, 192);
+    line-height: inherit;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: inherit;
+}
+
+#contacto img {
+    margin-right: 5px;
+}
