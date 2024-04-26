@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -20,15 +24,29 @@ body {
     min-height: 100vh;
 }
 
+.contenedorhead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    font-family: Brandford;
+    color: white;
+    font-size: 100px;
+    padding-left: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
 main {
     flex: 1;
     display: flex;
 }
 
 header {
-    text-align: center;
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding: 10px;
+    padding-top: 30px;
 }
 
 nav {
