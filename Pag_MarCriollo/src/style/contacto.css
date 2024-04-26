@@ -7,6 +7,32 @@
     list-style: none;
 }
 
+header {
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding-top: 30px;
+}
+
+.contenedorhead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    font-family: Brandford;
+    color: white;
+    font-size: 100px;
+    padding-left: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logoprincipal {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 50px;
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url('../img/fondo1.jpg');
@@ -20,12 +46,6 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-header {
-    text-align: center;
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding: 10px;
 }
 
 nav {
@@ -216,6 +236,7 @@ footer {
     font-weight: bold;
     text-align: center;
     line-height: 2;
+    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer a {

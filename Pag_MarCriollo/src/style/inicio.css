@@ -17,16 +17,30 @@ body {
     box-sizing: border-box;
 }
 
-#titulo {
-    font-size: 100px;
-    text-align: center;
-    font-weight: bold;
+header {
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding-top: 30px;
 }
 
-header {
-    text-align: center;
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding: 10px;
+.contenedorhead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    font-family: Brandford;
+    color: white;
+    font-size: 100px;
+    padding-left: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logoprincipal {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 50px;
 }
 
 nav {
@@ -126,7 +140,8 @@ h4 {
 }
 
 h5 {
-    font-size: 35px;
+    font-size: 50px;
+    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 .descripcion {
@@ -191,7 +206,7 @@ h5 {
     display: flex;
     flex: 1;
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Brandford;
     font-weight: bold;
     padding: 60px;
     text-align: center;
@@ -249,32 +264,6 @@ h5 {
     overflow: hidden;
 }
 
-.mapa {
-    overflow: hidden;
-    padding: 30px;
-}
-
-.ubi {
-    color: white;
-    text-align: center;
-    font-size: 70px;
-    font-family: 'Times New Roman', Times, serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-top: 20px;
-    font-weight: bold;
-}
-
-.mapa iframe {
-    padding: 20px;
-    border-radius: 40px;
-}
-
-.cuadro {
-    background-color: rgb(36, 169, 192);
-    border-radius: 40px;
-    width: 600px;
-    height: 450px;
-}
-
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
@@ -283,6 +272,7 @@ footer {
     font-weight: bold;
     text-align: center;
     line-height: 2;
+    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer a {
