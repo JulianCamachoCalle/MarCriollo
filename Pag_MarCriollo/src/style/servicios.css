@@ -6,35 +6,9 @@
     list-style: none;
 }
 
-header {
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
-}
-
-.contenedorhead {
-    display: flex;
-    justify-content: space-between;
-}
-
-.head {
-    font-family: Brandford;
-    color: white;
-    font-size: 100px;
-    padding-left: 50px;
-    display: inline-block;
-    vertical-align: middle;
-    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.logoprincipal {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 50px;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-image: url('../img/fondo7.jpg');
+    background-image: url('../img/restaurante.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -49,6 +23,12 @@ body {
 main {
     flex: 1;
     display: flex;
+}
+
+header {
+    text-align: center;
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding: 10px;
 }
 
 nav {
@@ -153,7 +133,6 @@ footer {
     font-weight: bold;
     text-align: center;
     line-height: 2;
-    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer a {
@@ -181,4 +160,11 @@ footer a {
 
 #contacto img {
     margin-right: 5px;
+}
+
+.precio {
+    color: yellow; /* Cambia el color del texto a amarillo */
+    font-weight: bold; /* Hace que el texto del precio sea más llamativo */
+    margin-top: 10px; /* Espacio arriba del precio para separarlo de la descripción */
+    font-size: 25px;
 }
