@@ -1,3 +1,4 @@
+/* ---- FUENTES ---- */
 @font-face {
     font-family: Pentol_Handwriting;
     src: url('../fonts/Pentol_Handwriting.otf') format(truetype);
@@ -7,24 +8,9 @@
     src: url('../fonts/Bonfire.otf') format(truetype);
 }
 @font-face {
-    font-family: Groundation_Foundation;
-    src: url('../fonts/Groundation_Foundation.ttf') format(truetype);
+    font-family: Monof;
+    src: url('../fonts/Monof.ttf') format(truetype);
 }
-/* FUENTES */
-
-body {
-    background-color: rgb(16, 28, 38);
-    margin: 0%;
-    padding: 0%;
-    background-attachment: fixed;
-    height: 100%;
-    flex-direction: column;
-    min-height: 100vh;
-    display: flex;
-    flex: 1;
-}
-
-/*ENCABEZADO*/
 
 * {
     margin: 0;
@@ -32,6 +18,7 @@ body {
     box-sizing: border-box;
 }
 
+/* ---- ENCABEZADO ---- */
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
@@ -97,138 +84,149 @@ nav li {
 nav a:hover {
     transform: scale(1.2);
 }
-/*FIN ENCABEZADO*/
 
-
-/* Main
-
-    Diseño de cuadro, imagen y texto interior.
-*/
-
-main {
-    flex: 1;
+/* ---- CUERPO ----*/
+body {
+    background-color: rgb(16, 28, 38);
 }
-
-.cuadro-img { /*CUADRO PARA LA IMAGEN*/
-    position: relative;
-    overflow: hidden;
+.conImg-Especial {
     width: 100%;
     height: 300px;
-    border: none;
-    display:flex; /*centrar imagen?*/
+    display: flex;
+    overflow: hidden;
+    /*Centrar imagen*/
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-}
-.capa-gris {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.433);
-}
-.img-transf {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    transform: rotate(-13deg) scale(130%);
-}
-.imagenfamilia {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    transform: rotate(-13deg) scale(150%);
-}
-.cuadro-elemento {
-    position: absolute; /* Encinma de la imagen */
-    text-align: center;
-}
-.cuadro-texto {
-    color: white;
-    font-weight: normal;
-    /*genera espaciado inferior a img*/
-    margin: 0;
-    padding: 0;
-} 
-.cuadro-texto .cocina {
-    text-transform: capitalize;
-    font-family: Bonfire, 'Times New Roman';
-    font-size: 80px;
-}
-/*FIN CUADRO DE IMAGE*/
+    
 
-
-.espacio {
-    display: block;
-    /*background-color: brown;*/
-    height: 70px;
-    width: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-.cuadro-blanco {
-    position: relative;
-    background-color: white;
-    border: 25px solid white;
-    height: auto;
-    overflow: hidden;   /*ocultar lo que salga del contenedor*/
-    /**/
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-}
-.texto-frase {
-    text-align: center;
-    font-family: Pentol_Handwriting, 'Times New Roman';
-}
-.texto-central {
-    line-height: 2em;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.img-contenedor01{
-    position: relative;
-    background-color: rgb(205, 66, 66);
-    width: 100%; /* ??? -borrar si pasa algo-*/
-    max-width: inherit;
-    height: auto;
-    display: flex; /**/
-
-    text-align: center;
-
-    .img-bienvenida {   /*IMPR*/
-        display: block;
-        max-width: 100%;
-        width: inherit;
-        height: auto;
+    #imgContenido {
+        width: 100%;
+    }
+    #capaGris {
+        position: absolute;
+        width: 100%;
+        height: 300px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    }
+    #texCocina {
+        position: absolute;
+        color: white;
+        text-transform: capitalize;
+        font-family: Bonfire, 'Times New Roman';
+        font-size: 90px;
+    }
+    #texFamilia {
+        position: absolute;
+        color: white;
+        font-size: 20px;
+        line-height: 2em;
+        font-family: Monof, 'Times New Roman';
+        text-align: center;
     }
 }
-.img-fundador {
-    position: relative;
+
+.conPrincipal {
+    overflow: hidden;
+    width: auto;
     height: auto;
-    display: flex;
-    width: 50hv;
-    height: 500px;
-}
-.text-fundador {
-    font-family: Bonfire, 'Times New Roman';
-    font-size: 40px;
-    padding-left: 20px;
-    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    .presentacion {
+        height: auto;
+        margin-left: 50px;
+        margin-right: 50px;
+        text-align: center;
+        /*background-color: aqua;*/
+        h1 {
+            margin-top: 80px;
+            font-size: 50px;
+            font-family: Pentol_Handwriting, 'Times New Roman';
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 2em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 50px;
+        }
+    }
+    .textCuadro{
+        height: auto;
+        margin-left: 90px;
+        margin-right: 90px;
+        text-align: center;
+        /*background-color: aqua;*/
+        h1 {
+            margin-top: 40px;
+            font-size: 50px;
+            font-family: Pentol_Handwriting, 'Times New Roman';
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 2em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 30px;
+        }
+    }
+    .conVideo {
+        overflow: hidden;
+        width: auto;
+        height: 500px;
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-bottom: 50px;
+        
+        img {
+            /* Modificar para que la imagen se centre */
+        }
+    }
+    .conFundador {
+        display: flex;
+        width: auto;
+        height: 500px;
+        #conTexto {
+            width: 50%;
+            height: 500px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to top, rgb(16, 88, 156), rgb(3, 24, 43));
+            
+            #texFundador {
+                font-family: Bonfire, 'Times New Roman'; 
+                font-size: 4vw;
+                color: white;
+            }
+            #texFundadorDes {
+                line-height: 2em;
+                font-size: 2vw;
+                font-family: Monof, 'Times New Roman';
+                color: white;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+        }
+        #conImagen {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: rgb(1, 4, 11);
+            
+            img {
+                height: 500px;
+            }
+        }
+    }
 }
 
-.cuadro-familia {
-    text-transform: capitalize;
-    font-size: 30px;
-    font-family: Pentol_Handwriting, 'Times New Roman';
-    padding-right: 50px;
-    padding-left: 50px;
-}
 
-/*PIE DE PAGINA*/
+
+/* ---- PIE DE PAGINA ----*/
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
@@ -237,24 +235,19 @@ footer {
     font-weight: bold;
     text-align: center;
     line-height: 2;
-    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
-
 footer a {
     text-decoration: none;
     color: inherit;
 }
-
 #licencias a {
     color: inherit;
     line-height: inherit;
 }
-
 #redes a {
     line-height: inherit;
     margin-left: 10px;
 }
-
 #contacto a {
     color: rgb(159, 186, 192);
     line-height: inherit;
@@ -262,11 +255,6 @@ footer a {
     margin-left: 10px;
     text-align: inherit;
 }
-
 #contacto img {
     margin-right: 5px;
 }
-
-/*En el corazón de "Sabor Criollo Marino" late la pasión y visión de nuestro fundador, Santiago Gutiérrez. Criado entre los aromas de la cocina peruana y los secretos del mar, Santiago siempre soñó con compartir los sabores de su tierra natal con el mundo.
-line-height: 2em;
-*/
