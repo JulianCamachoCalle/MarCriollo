@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -28,38 +29,45 @@
             <li><a id="seleccionado" href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    <main>
     <H2 class="contactanos">Contáctenos</H2>
-    <div clase="ccara">
-        <div>
-        <img  src="img/contactocara.png" class="contactocara">
-        </div>   
-        <p></p>
-
-    </div>
+    <main>
+        <section class="ladoizquierdo">
+            <div clase="cara">
+                <div class="caracont">
+                <img  src="img/chefcara.jpg" class="contactocara">
+                </div>
+                <p class="informacion">CONTACTO </p>   
+                <a class="chefcont" href="tel:+51950661842">
+                    <img src="img/telef.png" width="15" height="15" alt="Telefono">
+                    +51 950 661 842
+                </a>
+                <p class="info2">
+                    ¡Llámanos para hacer una reserva o para cualquier consulta! Nuestro equipo estará encantado de atenderte y ayudarte con cualquier pregunta que tengas sobre nuestro delicioso menú y nuestros servicios. ¡Esperamos tu llamada!</p>
+            </div>
+        </section>
     <form>
-        <p>No dudes en ponerte en contacto con nosotros para cualquier asunto relacionado con nuestra empresa o nuestros servicios. Nos esforzaremos al máximo para comunicarnos contigo lo más pronto posible.</p>
+        <section class="ladoderecho">
 
-        <div class="input-group">
-            <label for="name">Nombre</label>
-            <input type="text" name="Nombre" placeholder="Nombre">
-            <br>
-           <label for="phone">Numero de telefono</label>
-           <input type="tel" name="phone" id="phone" placeholder="Telefono">
-           <br>
-           <label for="email">Correo electronico</label>
-           <input type="email" name="email" id="email" placeholder="Correo electronico">
-           <br>
-           <label for="affair">Asunto</label>
-           <input type="text" name="affair" id="affair">
-           <br>
-           <label for="message">Pregunta</label>
-           <br>
-           <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
-           <br>
-           <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje">
-
-        </div>
+            <div class="input-group">
+                <label for="name">Nombre</label>
+                <input type="text" name="Nombre" placeholder="Nombre">
+                <br>
+                <label for="phone">Numero de telefono</label>
+                <input type="tel" name="phone" id="phone" placeholder="Telefono">
+                <br>
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" id="email" placeholder="Correo electronico">
+                <br>
+                <label for="affair">Asunto</label>
+                <input type="text" name="affair" id="affair">
+                <br>
+                <label for="message">Pregunta</label>
+                <br>
+                <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                <br>
+                <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje">
+            </div>
+        </section>   
     </form>
     </main>
     <footer>
