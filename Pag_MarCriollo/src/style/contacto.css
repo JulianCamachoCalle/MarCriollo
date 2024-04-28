@@ -144,10 +144,7 @@ main {
     color: black;
     font-size: 25px;     
 }
-.ladoizquierdo, .form {
-    padding: 20px;
-    box-sizing: border-box;
-}
+
 form{
     width: 45%;
     max-width: 600px;
@@ -158,13 +155,6 @@ form{
     color: aliceblue;
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 5%;
-}
-
-.letras{
-    color: black;
-    font-size: 25px;
-    text-align: center;
-    margin-bottom: 33px;
 }
 
 .input-group{
