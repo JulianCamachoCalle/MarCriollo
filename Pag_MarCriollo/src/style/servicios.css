@@ -20,6 +20,11 @@ body {
     min-height: 100vh;
 }
 
+header {
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding-top: 30px;
+}
+
 .contenedorhead {
     display: flex;
     justify-content: space-between;
@@ -35,11 +40,10 @@ body {
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-
-
-header {
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
+.logoprincipal {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 50px;
 }
 
 nav {
