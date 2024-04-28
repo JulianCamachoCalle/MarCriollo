@@ -1,4 +1,4 @@
-<img width="115" height="80" align="left" style="float: left; margin: 0 10px 0 0;" alt="MarCriollo Logo" src="Pag_MarCriollo/src/img/crab.png">
+<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="Prueba" src="https://cdn-icons-png.flaticon.com/512/10001/10001386.png">
 
 # Bienvenido al Repositorio de Desarrollo Web de MarCriollo
 Este repositorio se ha creado con el propósito de facilitar el aprendizaje y desarrollo de páginas web utilizando HTML, CSS y JavaScript, utilizando como proyecto base el restaurante MarCriollo. :smiley:
