@@ -98,20 +98,20 @@ nav a:hover {
     margin: 0 auto;
 }
 
-/* Estilo para los contenedores de texto dentro de los elementos de la lista en el slider */
+/* Estilo para los contenedores de texto dentro de los elementos de la lista */
 .slider li div {
     max-width: 50%;
     color: white;
     font-size: 45px;
 }
 
-/* Invierte la disposición de los elementos de la lista impares del slider */
+/* Invierte la disposición de los elementos de la lista impares */
 .slider li:nth-child(odd) {
     flex-direction: row-reverse;
 }
 
 
-/* Estilo para los elementos de la lista dentro del slider */
+/* Estilo para los elementos de la lista*/
 .slider li {
     margin-top: 20px;
     display: flex;
@@ -123,7 +123,7 @@ nav a:hover {
 }
 
 
-/* Estilo para las imágenes dentro de los elementos de la lista en el slider */
+/* Estilo para las imágenes dentro de los elementos de la lista */
 .slider li img {
     width: 1000px;
     height: 500px;
@@ -131,7 +131,7 @@ nav a:hover {
     transition: transform 0.5s ease;
 }
 
-/* Efecto de escala al pasar el mouse sobre las imágenes en el slider */
+/* Efecto de escala al pasar el mouse sobre las imágenes*/
 .slider li img:hover {
     transform: scale(1.04);
 }
