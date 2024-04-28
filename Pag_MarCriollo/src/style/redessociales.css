@@ -1,22 +1,23 @@
-html {
+/* CSS */
+
+/* Estilos generales */
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0%;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    background-image: url('../img/fondo10.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Header */
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
@@ -43,6 +44,8 @@ header {
     padding-right: 50px;
 }
 
+
+/* Navegación */
 nav {
     background-color: rgb(36, 169, 192);
     padding: 15px 0;
@@ -83,12 +86,76 @@ nav a:hover {
     transform: scale(1.2);
 }
 
+/* Contenido principal */
+main {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 20px; /* Añadido padding */
+    color: white; /* Cambiado color del texto */
+}
 
+h1 {
+    font-size: 36px; /* Reducido el tamaño del título */
+    color:white;
+    margin-bottom: 20px; /* Añadido espacio inferior */
+    text-align: center;
+}
 
+.social-media {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    background-color: aliceblue;
+}
+.red1 {
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; /* Añadido margen superior */
+}
+    
+.whatsapp {
+    background-color:rgba(12, 78, 116, 0.8);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; /* Añadido margen superior */
+}
+#whatsapp-container:hover {
+    background-color: green;
+    color: white;
+}
+.social-media li {
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(255, 255, 255); /* Cambio de color del texto */
+    background-color: rgba(12, 78, 116, 0.8); /* Añadido fondo */
+    border-radius: 10px; /* Añadido borde redondeado */
+    padding: 10px; /* Añadido espacio interno */
+    margin: 0 10px; /* Añadido margen */
 
-
-
-
+}
+.social-media li a {
+    text-decoration: none; /* Quita el subrayado */
+    font-size: 25px;
+    color: rgb(255, 255, 255); /* Cambia el color */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
+}
+.social-media li:hover {
+    background-color: #4c70ba; /* Cambio de color al pasar el ratón */
+}
+.whatsapp a{
+    text-decoration: none; /* Quita el subrayado */
+    font-size: 25px;
+    color: rgb(255, 255, 255); /* Cambia el color */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
+}
+/* Footer */
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
