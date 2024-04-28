@@ -1,54 +1,53 @@
-html {
+/* CSS */
+
+/* Estilos generales */
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0%;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    background-image: url('../img/fondo10.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Header */
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
+    padding: 30px 0;
 }
 
 .contenedorhead {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .head {
-    font-family: Brandford;
+    font-family: 'Brandford', sans-serif;
     color: white;
-    font-size: 100px;
-    padding-left: 50px;
-    display: inline-block;
-    vertical-align: middle;
+    font-size: 48px; /* Reducido el tamaño del texto */
+    padding-left: 20px; /* Ajustado el padding */
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.logoprincipal {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 50px;
+.logoprincipal img {
+    height: 80px; /* Ajustado el tamaño del logo */
+    width: auto; /* Mantener la proporción */
+    padding-right: 20px; /* Ajustado el padding */
 }
 
+/* Navegación */
 nav {
     background-color: rgb(36, 169, 192);
     padding: 15px 0;
     text-align: center;
-    font-size: 25px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 nav ul {
@@ -63,66 +62,74 @@ nav li {
     margin: 0 20px;
 }
 
-#seleccionado, #no-seleccionado {
-    color:  rgb(36, 169, 192);
+nav a {
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    display: inline-block;
-    line-height: 20px;
-    transition: transform 0.3s;
-}
-
-#seleccionado {
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 86, 116);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav a:hover {
     transform: scale(1.2);
 }
 
+#seleccionado {
+    background-color: rgb(23, 86, 116);
+}
 
+/* Contenido principal */
+main {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 20px; /* Añadido padding */
+    color: white; /* Cambiado color del texto */
+}
 
+h1 {
+    font-size: 36px; /* Reducido el tamaño del título */
+    color:white;
+    margin-bottom: 20px; /* Añadido espacio inferior */
+}
 
+.social-media {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    background-color: aliceblue;
+}
+.whatsapp {
+    background-color:rgba(12, 78, 116, 0.8);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; /* Añadido margen superior */
+}
 
+.social-media li {
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(255, 255, 255); /* Cambio de color del texto */
+    background-color: rgba(12, 78, 116, 0.8); /* Añadido fondo */
+    border-radius: 10px; /* Añadido borde redondeado */
+    padding: 10px; /* Añadido espacio interno */
+    margin: 0 10px; /* Añadido margen */
+}
 
-
+/* Footer */
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
     padding: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     text-align: center;
     line-height: 2;
     text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
-footer a {
-    text-decoration: none;
-    color: inherit;
-}
-
-#licencias a {
-    color: inherit;
-    line-height: inherit;
-}
-
 #redes a {
-    line-height: inherit;
-    margin-left: 10px;
-}
-
-#contacto a {
-    color: rgb(159, 186, 192);
-    line-height: inherit;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: inherit;
-}
-
-#contacto img {
-    margin-right: 5px;
+    margin: 0 5px; /* Ajustado el margen */
 }
