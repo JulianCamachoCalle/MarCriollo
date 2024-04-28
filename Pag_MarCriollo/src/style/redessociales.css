@@ -109,7 +109,6 @@ h1 {
     background-color: aliceblue;
 }
 .red1 {
-    background-color:rgba(12, 78, 116, 0.8);
     border-radius: 10px;
     color: rgb(255, 255, 255);
     font-size: 20px;
@@ -127,6 +126,10 @@ h1 {
     padding: 10px;
     margin-top: 20px; /* Añadido margen superior */
 }
+#whatsapp-container:hover {
+    background-color: green;
+    color: white;
+}
 .social-media li {
     flex-grow: 1;
     text-align: center;
@@ -142,6 +145,9 @@ h1 {
     font-size: 25px;
     color: rgb(255, 255, 255); /* Cambia el color */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
+}
+.social-media li:hover {
+    background-color: #4c70ba; /* Cambio de color al pasar el ratón */
 }
 .whatsapp a{
     text-decoration: none; /* Quita el subrayado */
