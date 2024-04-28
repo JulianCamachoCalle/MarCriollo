@@ -1,67 +1,63 @@
+/* Estilo para todos los elementos */
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
 }
 
+/* Estilo para el cuerpo del documento */
 body {
     font-family: Arial, sans-serif;
     background-image: url('../img/fondo7.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100%;
-    margin: 0;
-    padding: 0%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
+
+/* Estilo para el contenedor del encabezado */
 .contenedorhead {
     display: flex;
     justify-content: space-between;
 }
 
+/* Estilo para el texto del encabezado */
 .head {
     font-family: Brandford;
     color: white;
     font-size: 100px;
     padding-left: 50px;
-    display: inline-block;
-    vertical-align: middle;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 
-
+/* Estilo para el encabezado */
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
 }
 
+/* Estilo para la barra de navegación */
 nav {
     background-color: rgb(36, 169, 192);
     padding: 15px 0;
-    text-align: center;
     font-size: 25px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* Estilo para la lista no ordenada en la barra de navegación */
 nav ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
 }
 
+/* Estilo para los elementos de la lista en la barra de navegación */
 nav li {
     margin: 0 20px;
 }
 
+
+/* Estilo para los enlaces seleccionados y no seleccionados en la barra de navegación */
 #seleccionado, #no-seleccionado {
     color:  rgb(36, 169, 192);
     text-decoration: none;
@@ -73,113 +69,74 @@ nav li {
     transition: transform 0.3s;
 }
 
+/* Estilo para el enlace seleccionado en la barra de navegación */
 #seleccionado {
     color: rgb(255, 255, 255);
     background-color: rgb(23, 86, 116);
 }
 
+
+/* Efecto de escala al pasar el mouse sobre los enlaces en la barra de navegación */
 nav a:hover {
     transform: scale(1.2);
 }
 
 
+/* Estilo para el contenedor del título */
 .contenedor-titulo {
     display: flex;
-    justify-content: center;
     margin-top: 20px;
 }
 
+/* Estilo para el título */
 .titulo {
+    font-size: 35px;
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 40px; /* Borde redondeado */
-    margin-bottom: 20px; /* Espacio entre el título y el slider */
-    max-width: 30%; /* Ancho máximo del contenedor del título */
-    margin: 0 auto; /* Centro el título horizontalmente */
+    padding: 25px;
+    border-radius: 40px;
+    margin: 0 auto;
 }
 
-.titulo h2 {
-    font-size: 40px; /* Tamaño del título */
-}
-
-
-.slider {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.slider li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.slider li img {
-    width: 900px; /* Ancho fijo para todas las imágenes */
-    height: 500px; /* Altura fija para todas las imágenes */
-    margin-right: 50px; /* Espacio entre la imagen y el texto */
-}
-
+/* Estilo para los contenedores de texto dentro de los elementos de la lista en el slider */
 .slider li div {
-    max-width: 50%; /* Tamaño del contenedor de texto */
-    color: white; /* Cambia el color del texto a blanco */
-    font-size: 45px; /* Cambia el tamaño de la letra */
+    max-width: 50%;
+    color: white;
+    font-size: 45px;
 }
 
+/* Invierte la disposición de los elementos de la lista impares del slider */
 .slider li:nth-child(odd) {
     flex-direction: row-reverse;
 }
 
-.slider li:nth-child(even) {
-    flex-direction: row;
-}
 
+/* Estilo para los elementos de la lista dentro del slider */
 .slider li {
+    margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;/* Separacion entre cuadros verdes */
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding: 20px; /* Espacio interno para separar el contenido del borde */
-    border-radius: 40px; /* Borde redondeado */
-}
-
-
-.slider li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #2a4850; /* Color de fondo */
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding: 20px;
     border-radius: 40px;
-    transition: transform 0.3s ease; /* Transición para el efecto de movimiento */
 }
 
-.slider li:hover {
-    transform: translateY(-5px); /* Movimiento hacia arriba cuando el mouse pasa por encima */
-}
 
+/* Estilo para las imágenes dentro de los elementos de la lista en el slider */
 .slider li img {
     width: 1000px;
     height: 500px;
     margin-right: 100px;
-    transition: transform 0.5s ease; /* Agregamos una transición para suavizar el efecto */
+    transition: transform 0.5s ease;
 }
 
+/* Efecto de escala al pasar el mouse sobre las imágenes en el slider */
 .slider li img:hover {
-    transform: scale(1.04); /* Ajustamos la escala de la imagen al hacer hover */
+    transform: scale(1.04);
 }
 
-
+/* Estilo para el pie de página */
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
@@ -190,36 +147,29 @@ footer {
     line-height: 2;
 }
 
+/* Estilo para los enlaces dentro del pie de página */
 footer a {
     text-decoration: none;
-    color: inherit;
 }
 
+/* Estilo para los enlaces de licencias en el pie de página */
 #licencias a {
     color: inherit;
-    line-height: inherit;
 }
 
+/* Estilo para los enlaces de redes sociales en el pie de página */
 #redes a {
-    line-height: inherit;
     margin-left: 10px;
 }
 
+/* Estilo para los enlaces de contacto en el pie de página */
 #contacto a {
     color: rgb(159, 186, 192);
-    line-height: inherit;
     margin-right: 10px;
     margin-left: 10px;
-    text-align: inherit;
 }
 
+/* Estilo para las imágenes de contacto en el pie de página */
 #contacto img {
     margin-right: 5px;
-}
-
-.precio {
-    color: yellow;
-    font-weight: bold;
-    margin-top: 10px;
-    font-size: 25px;
 }
