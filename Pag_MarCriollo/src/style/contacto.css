@@ -117,6 +117,7 @@ nav a:hover {
 
 form{
     max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0 0 5px;
@@ -124,6 +125,10 @@ form{
     width: 100%;
     color: aliceblue;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+.ccara{
+    display: block;
 }
 
 main {
@@ -148,7 +153,10 @@ p{
 .input-group{
     margin-bottom: 20px;
 }
+.contactocara{
+    width: ;
 
+}
 label{
     font-size: 20px;
     color: black;
