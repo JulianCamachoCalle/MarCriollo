@@ -21,7 +21,7 @@ Se busca comprender todos los medios utilizados por el restaurante para generar 
 Se proporcionan los medios necesarios para que el cliente pueda encontrar rápidamente nuestras sedes y obtener indicaciones detalladas sobre cómo llegar. Ya sea que esté buscando nuestro restaurante principal, sucursales o cualquier ubicación asociada.
 
 ### Inicio de Contactos:
-
+Se ofrece un formulario donde el cliente puede introducir sus datos personales, lo que permite que un asesor del restaurante se comunique con él para ofrecerle asesoramiento o brindarle servicios adicionales.
 
 ## Avances Realizados
 - [x] ~~Avance Trabajo Final 01~~ (ATF1)
