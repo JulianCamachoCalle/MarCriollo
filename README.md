@@ -3,6 +3,8 @@
 # Bienvenido al Repositorio de Desarrollo Web de MarCriollo
 Este repositorio se ha creado con el propósito de facilitar el aprendizaje y desarrollo de páginas web utilizando HTML, CSS y JavaScript, utilizando como proyecto base el restaurante MarCriollo. :smiley:
 
+<img width="auto" height="auto" align="center" alt="Inicio" src=".readmes/img/Encabezado.png">
+
 ## Avances Realizados
 - [x] ~~Avance Trabajo Final 01~~ (ATF1)
 - [ ] Avance Trabajo Final 02 (ATF2) :shipit:
