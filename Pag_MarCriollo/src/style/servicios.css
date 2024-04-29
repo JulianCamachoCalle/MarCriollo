@@ -100,7 +100,7 @@ nav a:hover {
 
 /* Estilo para los contenedores de texto dentro de los elementos de la lista */
 .slider li div {
-    max-width: 50%;
+    max-width: 50%; /* tamaño del contenedor de texto */
     color: white;
     font-size: 45px;
 }
