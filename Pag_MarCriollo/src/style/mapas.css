@@ -1,33 +1,38 @@
-html {
-    height: 100%;
+/* ---- FUENTES ---- */
+@font-face {
+    font-family: Pentol_Handwriting;
+    src: url('../fonts/Pentol_Handwriting.otf') format(truetype);
 }
 
-body {
+html, body {
     height: 100%;
-    margin: 0;
-    padding: 0%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/fondo10.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+/* Header */
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
 }
-
-.contenedorhead {
+.contenedorhead { /*Posicion Cangrejo*/
     display: flex;
     justify-content: space-between;
 }
-
-.head {
+.logoprincipal {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 50px;
+}
+.head { /*Titulo Marcriollo*/
     font-family: Brandford;
     color: white;
     font-size: 100px;
@@ -36,13 +41,7 @@ header {
     vertical-align: middle;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
-
-.logoprincipal {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 50px;
-}
-
+/* ------ Navegacion */
 nav {
     background-color: rgb(36, 169, 192);
     padding: 15px 0;
@@ -50,7 +49,6 @@ nav {
     font-size: 25px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -58,12 +56,14 @@ nav ul {
     display: flex;
     justify-content: center;
 }
-
 nav li {
     margin: 0 20px;
 }
-
 #seleccionado, #no-seleccionado {
+    /*
+    * ¡¡FALLA!!.
+    * Sobresale de la pagina
+    */
     color:  rgb(36, 169, 192);
     text-decoration: none;
     padding: 10px 20px;
@@ -73,22 +73,71 @@ nav li {
     line-height: 20px;
     transition: transform 0.3s;
 }
-
 #seleccionado {
     color: rgb(255, 255, 255);
     background-color: rgb(23, 86, 116);
 }
-
 nav a:hover {
     transform: scale(1.2);
 }
 
+/* Contenido Principal - Main */
+.conPrincipal {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /*border: 2px solid;*/
+    
+    #conTitulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px;
+        p {
+            font-family: Pentol_Handwriting, 'Times New Roman';
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 30px;
+        }
+    }
+    #conDescripcion {
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 10px 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
+        margin-bottom: 30px;
+    }
+    #conMapa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+        margin-left: 30px;
+        height: 800px;
+        background-color: rgba(146, 146, 146, 0.5);
+        box-shadow: 0 0 10px rgb(146, 146, 146);
+        transition: background-color 0.5s ease;
+        
+        #elemMapa {
+            width: 100%;
+            height: 770px;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    }
+    #conMapa:hover{
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+}
 
-
-
-
-
-
+/* Encabezado - Footer*/
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
@@ -99,22 +148,18 @@ footer {
     line-height: 2;
     text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
-
 footer a {
     text-decoration: none;
     color: inherit;
 }
-
 #licencias a {
     color: inherit;
     line-height: inherit;
 }
-
 #redes a {
     line-height: inherit;
     margin-left: 10px;
 }
-
 #contacto a {
     color: rgb(159, 186, 192);
     line-height: inherit;
@@ -122,7 +167,6 @@ footer a {
     margin-left: 10px;
     text-align: inherit;
 }
-
 #contacto img {
     margin-right: 5px;
 }
