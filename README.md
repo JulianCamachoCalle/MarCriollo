@@ -7,8 +7,8 @@ Este repositorio se ha creado con el propósito de facilitar el aprendizaje y de
 
 ## Avances Realizados
 - [x] ~~Avance Trabajo Final 01~~ (ATF1)
-- [ ] Avance Trabajo Final 02 (ATF2) :shipit:
-- [ ] Avance Trabajo Final 03 (ATF3)
+- [X] Avance Trabajo Final 02 (ATF2)
+- [ ] Avance Trabajo Final 03 (ATF3) :shipit:
 - [ ] Avance Trabajo Final 04 (ATF4)
 - [ ] Avance Trabajo Final 05 (ATF5)
 - [ ] Trabajo Final (TF) :skull:
