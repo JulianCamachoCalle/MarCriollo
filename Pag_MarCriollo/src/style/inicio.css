@@ -1,7 +1,5 @@
-html {
-    height: 100%;
-}
 
+/*Establecer medidas, eliminar margenes y direccion en columna*/
 body {
     height: 100%;
     margin: 0;
@@ -17,16 +15,19 @@ body {
     box-sizing: border-box;
 }
 
+/*Header, degradado de color*/
 header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
 }
 
+/*Class Contenedor de imagen y texto*/
 .contenedorhead {
     display: flex;
     justify-content: space-between;
 }
 
+/*Class head para el texto, que no se mueva y alineado al medio*/
 .head {
     font-family: Brandford;
     color: white;
@@ -37,12 +38,14 @@ header {
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/*Class para el logo, que no se mueva y alineado al medio*/
 .logoprincipal {
     display: inline-block;
     vertical-align: middle;
     padding-right: 50px;
 }
 
+/*Barra de navegacion*/
 nav {
     background-color: rgb(36, 169, 192);
     padding: 15px 0;
@@ -51,6 +54,7 @@ nav {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/*Lista centrada y sin estilos ni margenes*/
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -63,6 +67,8 @@ nav li {
     margin: 0 20px;
 }
 
+
+/*ID para cambio de color y de los botones de enlace*/
 #seleccionado, #no-seleccionado {
     color:  rgb(36, 169, 192);
     text-decoration: none;
@@ -74,15 +80,18 @@ nav li {
     transition: transform 0.3s;
 }
 
+/*ID Color diferente para el que esta en uso*/
 #seleccionado {
     color: rgb(255, 255, 255);
     background-color: rgb(23, 86, 116);
 }
 
+/*Animacion al pasar el mouse por encima*/
 nav a:hover {
     transform: scale(1.2);
 }
 
+/*Fondo de imagenes del contenido, y centrado*/
 main {
     flex: 1;
     background-image: url('../img/fondo7.jpg'), url('../img/fondo1.jpg');
@@ -96,6 +105,7 @@ main {
     background-attachment: fixed;
 }
 
+/*Class para mostrar la Bienvenida*/
 .informacion {
     text-align: center;
     color: white;
@@ -105,6 +115,7 @@ main {
     padding: 200px;
 }
 
+/*Class para el boton de Menu*/
 .informacion a {
     color: black;
     text-decoration: none;
@@ -119,10 +130,12 @@ main {
     transition: transform 0.3s;
 }
 
+/*Animacion para el boton menu*/
 .informacion a:hover {
     transform: scale(1.2);
 }
 
+/*Titulos y subtitulos*/
 h1 {
     font-size: 80px;
 }
@@ -144,6 +157,7 @@ h5 {
     text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
+/*Class para informacion acerca del restaurante y con su respectivo espacio*/
 .descripcion {
     width: 100%;
     height: auto;
@@ -157,6 +171,7 @@ h5 {
     padding: 60px;
 }
 
+/*Class para circulo de Desayuno*/
 .circulo-verde {
     margin: auto;
     width: 90px;
@@ -168,6 +183,7 @@ h5 {
     display: flex;
 }
 
+/*Class para circulo de Almuerzo*/
 .circulo-gris {
     margin: auto;
     width: 90px;
@@ -179,6 +195,7 @@ h5 {
     display: flex;
 }
 
+/*Class para circulo de Cena*/
 .circulo-azul {
     margin: auto;
     width: 90px;
@@ -190,6 +207,7 @@ h5 {
     display: flex;
 }
 
+/*Class para cada espacio entre Desayuno, Almuerzo y Cena*/
 .division {
     flex: 1;
     text-align: center;
@@ -197,10 +215,12 @@ h5 {
     width: auto;
 }
 
+/*Class para ubicar las imagenes segun los circulos*/
 .division img {
     margin: auto;
 }
 
+/*Class para el Texto de Platos del Dia*/
 .principal {
     align-items: center;
     display: flex;
@@ -212,6 +232,7 @@ h5 {
     text-align: center;
 }
 
+/*Class para ordenar y delimitar las imagenes*/
 .principal img {
     margin-right: 50px;
     margin-left: 50px;
@@ -223,10 +244,12 @@ h5 {
     transition: transform 0.3s;
 }
 
+/*Class para animar las imagenes de los platos*/
 .principal img:hover {
     transform: scale(1.2);
 }
 
+/*Class para Titulo Platos del Dia*/
 .subtitulo {
     color: white;
     padding-top: 50px;
@@ -236,6 +259,7 @@ h5 {
     line-height: 100px;
 }
 
+/*Class para el contenedor de Platos del Dia*/
 .ovalo {
     background-color: rgb(36, 169, 192);
     border-radius: 50px;
@@ -244,6 +268,7 @@ h5 {
     align-items: center;
 }
 
+/*Class para el mensaje final*/
 .final {
     width: 100%;
     height: auto;
@@ -257,6 +282,7 @@ h5 {
     padding: 100px;
 }
 
+/*Class para definir el tamano del texto*/
 .texto {
     width: 100%;
     max-width: 600px;
@@ -264,6 +290,7 @@ h5 {
     overflow: hidden;
 }
 
+/*Pie de pagina con un degrado de color y definiendo su lugar*/
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
@@ -275,21 +302,25 @@ footer {
     text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
+/*Eliminando la decoracion de los enlaces*/
 footer a {
     text-decoration: none;
     color: inherit;
 }
 
+/*Agregando el mismo diseno para Terminos y Condiciones/Politcas y Privacidad*/
 #licencias a {
     color: inherit;
     line-height: inherit;
 }
 
+/*Igualmente para las redes*/
 #redes a {
     line-height: inherit;
     margin-left: 10px;
 }
 
+/*Dandole color y diseno a el numero de telefono y el correo*/
 #contacto a {
     color: rgb(159, 186, 192);
     line-height: inherit;
@@ -298,6 +329,7 @@ footer a {
     text-align: inherit;
 }
 
+/*Dandole margenes de separacion para las imagenes de las redes sociales*/
 #contacto img {
     margin-right: 5px;
 }
