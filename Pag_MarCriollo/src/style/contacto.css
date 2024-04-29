@@ -182,55 +182,12 @@ input, textarea{
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
-    text-transform: capitalize; /*Prim. letra mayuscula*/
     
 }
 .btn-enviar:hover{
 background-color: rgb(36, 169, 192);
 
 }
-.contact-info{
-    position: sticky;
-    top: 20px;
-    right: 20px;
-}
-.contact-info a{
-    color: black;
-    line-height: inherit;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: inherit;
-}
-.social{
-    background-color: rgb(36, 169, 192);
-    height: 250px;
-    text-align: center;
-    margin-top: 100px;
-}
-.social a{
-    font-size: 24px;
-    color: white;
-    margin: 0 10px;
-}
-
-.iconos{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    bottom: 10px;
-}
- .iconos a{
-    font-size: 30px;
-    color: white;
-    transition: all ease 300ms;
-    
-
-}
- .iconos .a:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
 footer {
     background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
     color: white;
