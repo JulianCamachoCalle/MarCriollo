@@ -16,7 +16,7 @@ Este repositorio se ha creado con el propósito de facilitar el aprendizaje y de
 ## División de las paginas
 
 ### Inicio de Pagina:
-Al comienzo se mostraba mensaje de bienvenida al cliente junto con un botón para acceder al menú de MarCriollo. Además, presenta los horarios en los que se sirven los distintos platos (desayuno, almuerzo y cena), así como los "Platillos del Día", destacando lo más importante del restaurante. Finalmente, ofrece una breve descripción de la oferta culinaria de MarCriollo :fish:.
+Al comienzo se muestra un mensaje de bienvenida al cliente junto con un botón para acceder al menú de MarCriollo. Además, presenta los horarios en los que se sirven los distintos platos (desayuno, almuerzo y cena), así como los "Platillos del Día", destacando lo más importante del restaurante. Finalmente, ofrece una breve descripción de la oferta culinaria de MarCriollo :fish:.
 
 <img width="auto" height="auto" align="center" alt="Inicio" src=".readmes/img/Inicio.png">
 
