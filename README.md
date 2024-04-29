@@ -1,4 +1,4 @@
-<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="Prueba" src="https://cdn.pixabay.com/photo/2021/05/25/02/03/restaurant-6281067_1280.png">
+<img width="100" height="100" align="left" style="float: left; margin: 0 10px 0 0;" alt="Prueba" src="https://static.vecteezy.com/system/resources/previews/028/597/164/original/restaurant-3d-rendering-icon-illustration-free-png.png">
 
 # Bienvenido al Repositorio de Desarrollo Web de MarCriollo
 Este repositorio se ha creado con el propósito de facilitar el aprendizaje y desarrollo de páginas web utilizando HTML, CSS y JavaScript, utilizando como proyecto base el restaurante MarCriollo. :smiley:
