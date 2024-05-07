@@ -1,0 +1,208 @@
+
+@media only screen and (min-width: 769px) {
+    footer {
+        padding: 30px;
+        font-size: 15px;
+    }
+
+    .head {
+        font-size: 70px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        padding: 8px 16px;
+        font-size: 22px;
+    }
+
+    .logoprincipal img {
+        height: 70px;
+        width: 120px;
+    }
+
+    #redes img {
+        height: 31px;
+        width: 31px;
+    }
+
+    #contacto img {
+        height: 15px;
+        width: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        padding: 20px;
+        font-size: 13px;
+    }
+
+    .head {
+        font-size: 60px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        padding: 6px 14px;
+        font-size: 20px;
+    }
+
+    .logoprincipal img {
+        height: 60px;
+        width: 110px;
+    }
+
+    #redes img {
+        height: 29px;
+        width: 29px;
+    }
+
+    #contacto img {
+        height: 13px;
+        width: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    footer {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .head {
+        font-size: 50px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        padding: 4px 12px;
+        font-size: 18px;
+    }
+
+    .logoprincipal img {
+        height: 50px;
+        width: 100px;
+    }
+
+    #redes img {
+        height: 27px;
+        width: 27px;
+    }
+
+    #contacto img {
+        height: 11px;
+        width: 14px;
+    }
+}
+
+/*Header, degradado de color*/
+header {
+    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    padding-top: 30px;
+    text-align: center;
+}
+
+/*Class Contenedor de imagen y texto*/
+.contenedorhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/*Class head para el texto, que no se mueva y alineado al medio*/
+.head {
+    font-family: Brandford;
+    color: white;
+    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*Class para el logo, que no se mueva y alineado al medio*/
+.logoprincipal {
+    padding-right: 20px;
+}
+
+/*Barra de navegacion*/
+nav {
+    background-color: rgb(36, 169, 192);
+    padding: 15px 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x: auto;
+}
+
+/*Lista centrada y sin estilos ni margenes*/
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*ID para cambio de color y de los botones de enlace*/
+#seleccionado, #no-seleccionado {
+    color:  rgb(36, 169, 192);
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    display: inline-block;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+/*ID Color diferente para el que esta en uso*/
+#seleccionado {
+    color: rgb(255, 255, 255);
+    background-color: rgb(23, 86, 116);
+}
+
+/*Animacion al pasar el mouse por encima*/
+nav a:hover {
+    transform: scale(1.2);
+}
+
+
+
+
+/*Pie de pagina con un degrado de color y definiendo su lugar*/
+footer {
+    background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 2;
+    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*Eliminando la decoracion de los enlaces*/
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Agregando el mismo diseno para Terminos y Condiciones/Politcas y Privacidad*/
+#licencias a {
+    color: inherit;
+    line-height: inherit;
+}
+
+/*Igualmente para las redes*/
+#redes a {
+    line-height: inherit;
+    margin-left: 10px;
+}
+
+/*Dandole color y diseno a el numero de telefono y el correo*/
+#contacto a {
+    color: rgb(159, 186, 192);
+    line-height: inherit;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: inherit;
+}
+
+/*Dandole margenes de separacion para las imagenes de las redes sociales*/
+#contacto img {
+    margin-right: 5px;
+}
