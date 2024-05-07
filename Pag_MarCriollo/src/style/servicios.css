@@ -1,3 +1,5 @@
+@import url("headerfooter.css");
+
 /* Estilo para todos los elementos */
 *{
     margin: 0;
@@ -12,75 +14,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
-
-/* Estilo para el contenedor del encabezado */
-.contenedorhead {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Estilo para el texto del encabezado */
-.head {
-    font-family: Brandford;
-    color: white;
-    font-size: 100px;
-    padding-left: 50px;
-    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-
-/* Estilo para el encabezado */
-header {
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
-}
-
-/* Estilo para la barra de navegación */
-nav {
-    background-color: rgb(36, 169, 192);
-    padding: 15px 0;
-    font-size: 25px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Estilo para la lista no ordenada en la barra de navegación */
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-}
-
-/* Estilo para los elementos de la lista en la barra de navegación */
-nav li {
-    margin: 0 20px;
-}
-
-
-/* Estilo para los enlaces seleccionados y no seleccionados en la barra de navegación */
-#seleccionado, #no-seleccionado {
-    color:  rgb(36, 169, 192);
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    display: inline-block;
-    line-height: 20px;
-    transition: transform 0.3s;
-}
-
-/* Estilo para el enlace seleccionado en la barra de navegación */
-#seleccionado {
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 86, 116);
-}
-
-
-/* Efecto de escala al pasar el mouse sobre los enlaces en la barra de navegación */
-nav a:hover {
-    transform: scale(1.2);
-}
-
 
 /* Estilo para el contenedor del título */
 .contenedor-titulo {
@@ -134,42 +67,4 @@ nav a:hover {
 /* Efecto de escala al pasar el mouse sobre las imágenes*/
 .slider li img:hover {
     transform: scale(1.04);
-}
-
-/* Estilo para el pie de página */
-footer {
-    background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
-    color: white;
-    padding: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    line-height: 2;
-}
-
-/* Estilo para los enlaces dentro del pie de página */
-footer a {
-    text-decoration: none;
-}
-
-/* Estilo para los enlaces de licencias en el pie de página */
-#licencias a {
-    color: inherit;
-}
-
-/* Estilo para los enlaces de redes sociales en el pie de página */
-#redes a {
-    margin-left: 10px;
-}
-
-/* Estilo para los enlaces de contacto en el pie de página */
-#contacto a {
-    color: rgb(159, 186, 192);
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-/* Estilo para las imágenes de contacto en el pie de página */
-#contacto img {
-    margin-right: 5px;
 }

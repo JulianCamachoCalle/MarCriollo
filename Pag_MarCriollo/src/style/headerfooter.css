@@ -158,7 +158,7 @@ nav ul {
 
 /*Animacion al pasar el mouse por encima*/
 nav a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 

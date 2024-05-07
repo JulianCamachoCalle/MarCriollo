@@ -1,3 +1,4 @@
+@import url("headerfooter.css");
 
 /*Establecer medidas, eliminar margenes y direccion en columna*/
 body {
@@ -13,82 +14,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/*Header, degradado de color*/
-header {
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
-}
-
-/*Class Contenedor de imagen y texto*/
-.contenedorhead {
-    display: flex;
-    justify-content: space-between;
-}
-
-/*Class head para el texto, que no se mueva y alineado al medio*/
-.head {
-    font-family: Brandford;
-    color: white;
-    font-size: 100px;
-    padding-left: 50px;
-    display: inline-block;
-    vertical-align: middle;
-    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/*Class para el logo, que no se mueva y alineado al medio*/
-.logoprincipal {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 50px;
-}
-
-/*Barra de navegacion*/
-nav {
-    background-color: rgb(36, 169, 192);
-    padding: 15px 0;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/*Lista centrada y sin estilos ni margenes*/
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 20px;
-}
-
-
-/*ID para cambio de color y de los botones de enlace*/
-#seleccionado, #no-seleccionado {
-    color:  rgb(36, 169, 192);
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    display: inline-block;
-    line-height: 20px;
-    transition: transform 0.3s;
-}
-
-/*ID Color diferente para el que esta en uso*/
-#seleccionado {
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 86, 116);
-}
-
-/*Animacion al pasar el mouse por encima*/
-nav a:hover {
-    transform: scale(1.2);
 }
 
 /*Fondo de imagenes del contenido, y centrado*/
@@ -288,48 +213,4 @@ h5 {
     max-width: 600px;
     text-align: justify;
     overflow: hidden;
-}
-
-/*Pie de pagina con un degrado de color y definiendo su lugar*/
-footer {
-    background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
-    color: white;
-    padding: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    line-height: 2;
-    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
-}
-
-/*Eliminando la decoracion de los enlaces*/
-footer a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/*Agregando el mismo diseno para Terminos y Condiciones/Politcas y Privacidad*/
-#licencias a {
-    color: inherit;
-    line-height: inherit;
-}
-
-/*Igualmente para las redes*/
-#redes a {
-    line-height: inherit;
-    margin-left: 10px;
-}
-
-/*Dandole color y diseno a el numero de telefono y el correo*/
-#contacto a {
-    color: rgb(159, 186, 192);
-    line-height: inherit;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: inherit;
-}
-
-/*Dandole margenes de separacion para las imagenes de las redes sociales*/
-#contacto img {
-    margin-right: 5px;
 }

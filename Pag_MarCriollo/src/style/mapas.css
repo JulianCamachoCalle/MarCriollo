@@ -1,3 +1,5 @@
+@import url("headerfooter.css");
+
 /* ---- FUENTES ---- */
 @font-face {
     font-family: Pentol_Handwriting;
@@ -10,7 +12,6 @@ html, body {
     padding: 0;
 }
 body {
-    display: flex;
     flex-direction: column;
     background-image: url('../img/fondo10.webp');
     background-size: cover;
@@ -18,68 +19,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Header */
-header {
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
-    padding-top: 30px;
-}
-.contenedorhead { /*Posicion Cangrejo*/
-    display: flex;
-    justify-content: space-between;
-}
-.logoprincipal {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right: 50px;
-}
-.head { /*Titulo Marcriollo*/
-    font-family: Brandford;
-    color: white;
-    font-size: 100px;
-    padding-left: 50px;
-    display: inline-block;
-    vertical-align: middle;
-    text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
-}
-/* ------ Navegacion */
-nav {
-    background-color: rgb(36, 169, 192);
-    padding: 15px 0;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-nav li {
-    margin: 0 20px;
-}
-#seleccionado, #no-seleccionado {
-    /*
-    * ¡¡FALLA!!.
-    * Sobresale de la pagina
-    */
-    color:  rgb(36, 169, 192);
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    display: inline-block;
-    line-height: 20px;
-    transition: transform 0.3s;
-}
-#seleccionado {
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 86, 116);
-}
-nav a:hover {
-    transform: scale(1.2);
-}
 
 /* Contenido Principal - Main */
 .conPrincipal {
@@ -135,38 +74,4 @@ nav a:hover {
         background-color: rgba(255, 255, 255, 0.5);
         box-shadow: 0 0 10px rgb(255, 255, 255);
 }
-}
-
-/* Encabezado - Footer*/
-footer {
-    background-image: linear-gradient(to top, rgb(7, 75, 124), rgb(36, 169, 192));
-    color: white;
-    padding: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    line-height: 2;
-    text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
-}
-footer a {
-    text-decoration: none;
-    color: inherit;
-}
-#licencias a {
-    color: inherit;
-    line-height: inherit;
-}
-#redes a {
-    line-height: inherit;
-    margin-left: 10px;
-}
-#contacto a {
-    color: rgb(159, 186, 192);
-    line-height: inherit;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: inherit;
-}
-#contacto img {
-    margin-right: 5px;
 }
