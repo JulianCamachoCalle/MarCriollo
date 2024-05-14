@@ -1,0 +1,216 @@
+@import url("headerfooter.css");
+
+/*Establecer medidas, eliminar margenes y direccion en columna*/
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Fondo de imagenes del contenido, y centrado*/
+main {
+    flex: 1;
+    background-image: url('../img/fondo7.jpg'), url('../img/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+}
+
+/*Class para mostrar la Bienvenida*/
+.informacion {
+    text-align: center;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 200px;
+}
+
+/*Class para el boton de Menu*/
+.informacion a {
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 20px;
+    background-color: white;
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    line-height: 30px;
+    transition: transform 0.3s;
+}
+
+/*Animacion para el boton menu*/
+.informacion a:hover {
+    transform: scale(1.2);
+}
+
+/*Titulos y subtitulos*/
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 45px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 50px;
+    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+/*Class para informacion acerca del restaurante y con su respectivo espacio*/
+.descripcion {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 60px;
+}
+
+/*Class para circulo de Desayuno*/
+.circulo-verde {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(116, 192, 116);
+    border-radius: 50%;
+    justify-content: inherit;
+    align-items: inherit;
+    display: flex;
+}
+
+/*Class para circulo de Almuerzo*/
+.circulo-gris {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(182, 182, 182);
+    border-radius: 50%;
+    justify-content: inherit;
+    align-items: inherit;
+    display: flex;
+}
+
+/*Class para circulo de Cena*/
+.circulo-azul {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(108, 100, 180);
+    border-radius: 50%;
+    justify-content: inherit;
+    align-items: inherit;
+    display: flex;
+}
+
+/*Class para cada espacio entre Desayuno, Almuerzo y Cena*/
+.division {
+    flex: 1;
+    text-align: center;
+    height: auto;
+    width: auto;
+}
+
+/*Class para ubicar las imagenes segun los circulos*/
+.division img {
+    margin: auto;
+}
+
+/*Class para el Texto de Platos del Dia*/
+.principal {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    color: white;
+    font-family: Brandford;
+    font-weight: bold;
+    padding: 60px;
+    text-align: center;
+}
+
+/*Class para ordenar y delimitar las imagenes*/
+.principal img {
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 50%;
+    height: 350px;
+    width: 350px;
+    border-color: white;
+    border-style: solid;
+    transition: transform 0.3s;
+}
+
+/*Class para animar las imagenes de los platos*/
+.principal img:hover {
+    transform: scale(1.2);
+}
+
+/*Class para Titulo Platos del Dia*/
+.subtitulo {
+    color: white;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    line-height: 100px;
+}
+
+/*Class para el contenedor de Platos del Dia*/
+.ovalo {
+    background-color: rgb(36, 169, 192);
+    border-radius: 50px;
+    width: 400px;
+    height: inherit;
+    align-items: center;
+}
+
+/*Class para el mensaje final*/
+.final {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 100px;
+}
+
+/*Class para definir el tamano del texto*/
+.texto {
+    width: 100%;
+    max-width: 600px;
+    text-align: justify;
+    overflow: hidden;
+}
