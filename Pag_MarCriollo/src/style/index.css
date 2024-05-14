@@ -1,10 +1,452 @@
 @import url("headerfooter.css");
 
-/*Establecer medidas, eliminar margenes y direccion en columna*/
+@keyframes girar {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@media only screen and (min-width: 769px) {
+
+    /*Class para mostrar la Bienvenida*/
+    .informacion {
+        font-size: 25px;
+        padding: 150px 0;
+    }
+
+    .informacion img {
+        width: 200px;
+        height: 120px;
+    }
+
+    /*Class para el boton de Menu*/
+    .informacion a {
+        width: 130px;
+        height: 40px;
+    }
+
+    /*Titulos y subtitulos*/
+    h1 {
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 45px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 50px;
+    }
+
+    /*Class para informacion acerca del restaurante y con su respectivo espacio*/
+    .descripcion {
+        padding: 60px;
+    }
+
+    /*Class para circulo de Desayuno*/
+    .circulo-verde {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Class para circulo de Almuerzo*/
+    .circulo-gris {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Class para circulo de Cena*/
+    .circulo-azul {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Flecha izquierda*/
+    #anteriorBtn {
+        font-size: 100px;
+    }
+
+    /*Flecha derecha*/
+    #siguienteBtn {
+        font-size: 100px;
+    }
+
+    /* Estilos para los platos */
+    .carrusel {
+        margin: 30px;
+    }
+
+    .plato img {
+        width: 500px;
+        height: 300px;
+    }
+
+    /*Class para Titulo Platos del Dia*/
+    .subtitulo {
+        padding: 30px;
+    }
+
+    /*Class para el mensaje final*/
+    .final {
+        padding: 100px;
+    }
+
+    /*Class para definir el tamano del texto*/
+    .texto {
+        max-width: 600px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    /*Class para mostrar la Bienvenida*/
+    .informacion {
+        font-size: 20px;
+        padding: 150px 0;
+    }
+
+    .informacion p {
+        font-size: 18px;
+    }
+
+    /*Class para el boton de Menu*/
+    .informacion a {
+        width: 100px;
+        height: 40px;
+    }
+
+    .informacion img {
+        width: 150px;
+        height: 80px;
+    }
+
+    /*Animacion para el boton menu*/
+    .informacion a:hover {
+        transform: scale(1.2);
+    }
+
+    /*Titulos y subtitulos*/
+    h1 {
+        font-size: 70px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 40px;
+    }
+
+    /*Class para informacion acerca del restaurante y con su respectivo espacio*/
+    .descripcion {
+        padding: 50px;
+    }
+
+    .descripcion p {
+        font-size: 14px;
+    }
+
+    /*Class para circulo de Desayuno*/
+    .circulo-verde {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Class para circulo de Almuerzo*/
+    .circulo-gris {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Class para circulo de Cena*/
+    .circulo-azul {
+        width: 90px;
+        height: 90px;
+    }
+
+    /*Flecha izquierda*/
+    #anteriorBtn {
+        font-size: 70px;
+    }
+
+    /*Flecha derecha*/
+    #siguienteBtn {
+        font-size: 70px;
+    }
+
+    /* Estilos para los platos */
+    .carrusel {
+        margin: 30px;
+    }
+
+    .plato img {
+        width: 350px;
+        height: 180px;
+    }
+
+    /*Class para Titulo Platos del Dia*/
+    .subtitulo {
+        padding: 30px;
+    }
+
+    /*Class para el mensaje final*/
+    .final {
+        padding: 80px;
+    }
+
+    /*Class para definir el tamano del texto*/
+    .texto {
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    /*Class para mostrar la Bienvenida*/
+    .informacion {
+        font-size: 18px;
+        padding: 100px 0;
+    }
+
+    .informacion p {
+        font-size: 16px;
+    }
+
+    .informacion img {
+        width: 100px;
+        height: 60px;
+    }
+
+    /*Class para el boton de Menu*/
+    .informacion a {
+        width: 100px;
+        height: 40px;
+    }
+
+    /*Titulos y subtitulos*/
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 35px;
+    }
+
+    h4 {
+        font-size: 17px;
+    }
+
+    h5 {
+        font-size: 30px;
+    }
+
+    /*Class para informacion acerca del restaurante y con su respectivo espacio*/
+    .descripcion {
+        padding: 40px;
+    }
+
+    .descripcion p {
+        font-size: 13px;
+    }
+
+    /*Class para circulo de Desayuno*/
+    .circulo-verde {
+        width: 80px;
+        height: 80px;
+    }
+
+    /*Class para circulo de Almuerzo*/
+    .circulo-gris {
+        width: 80px;
+        height: 80px;
+    }
+
+    /*Class para circulo de Cena*/
+    .circulo-azul {
+        width: 80px;
+        height: 80px;
+    }
+
+    /*Flecha izquierda*/
+    #anteriorBtn {
+        font-size: 50px;
+    }
+
+    /*Flecha derecha*/
+    #siguienteBtn {
+        font-size: 50px;
+    }
+
+    /* Estilos para los platos */
+    .carrusel {
+        margin: 25px;
+    }
+
+    .plato img {
+        width: 300px;
+        height: 150px;
+    }
+
+    /*Class para Titulo Platos del Dia*/
+    .subtitulo {
+        padding: 25px;
+    }
+
+    /*Class para el mensaje final*/
+    .final {
+        padding: 70px;
+    }
+
+    /*Class para definir el tamano del texto*/
+    .texto {
+        max-width: 400px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    /*Class para mostrar la Bienvenida*/
+    .informacion {
+        font-size: 14px;
+        padding: 80px 0;
+    }
+
+    .informacion p {
+        font-size: 14px;
+    }
+
+    .informacion img {
+        width: 80px;
+        height: 40px;
+    }
+
+    /*Class para el boton de Menu*/
+    .informacion a {
+        width: 70px;
+        height: 40px;
+    }
+
+    /*Titulos y subtitulos*/
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    h5 {
+        font-size: 25px;
+    }
+
+    /*Class para informacion acerca del restaurante y con su respectivo espacio*/
+    .descripcion {
+        padding: 30px;
+    }
+
+    .descripcion p {
+        font-size: 11px;
+    }
+
+    /*Class para circulo de Desayuno*/
+    .circulo-verde {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*Class para circulo de Almuerzo*/
+    .circulo-gris {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*Class para circulo de Cena*/
+    .circulo-azul {
+        width: 60px;
+        height: 60px;
+    }
+
+    /*Class para ubicar las imagenes segun los circulos*/
+    .division img {
+        height: 25px;
+        width: 25px;
+    }
+
+    /*Flecha izquierda*/
+    #anteriorBtn {
+        font-size: 30px;
+    }
+
+    /*Flecha derecha*/
+    #siguienteBtn {
+        font-size: 30px;
+    }
+
+    /* Estilos para los platos */
+    .carrusel {
+        margin: 25px;
+    }
+
+    .plato img {
+        width: 200px;
+        height: 120px;
+    }
+
+    /*Class para Titulo Platos del Dia*/
+    .subtitulo {
+        padding: 25px;
+    }
+
+    /*Class para el mensaje final*/
+    .final {
+        padding: 50px;
+    }
+
+    /*Class para definir el tamano del texto*/
+    .texto {
+        max-width: 200px;
+        font-size: 13px;
+    }
+}
+
+/* Estilos comunes */
 body {
     height: 100%;
     margin: 0;
-    padding: 0%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,10 +458,8 @@ body {
     box-sizing: border-box;
 }
 
-/*Fondo de imagenes del contenido, y centrado*/
 main {
-    flex: 1;
-    background-image: url('../img/fondo7.jpg'), url('../img/fondo1.jpg');
+    background-image: url('../img/fondo7.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,14 +470,16 @@ main {
     background-attachment: fixed;
 }
 
-/*Class para mostrar la Bienvenida*/
 .informacion {
     text-align: center;
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 25px;
-    padding: 200px;
+    text-shadow: 5px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.informacion img {
+    animation: girar 5s linear infinite alternate;
 }
 
 /*Class para el boton de Menu*/
@@ -48,8 +490,6 @@ main {
     margin: 0 20px;
     background-color: white;
     border-radius: 30px;
-    width: 150px;
-    height: 40px;
     display: inline-block;
     line-height: 30px;
     transition: transform 0.3s;
@@ -60,26 +500,10 @@ main {
     transform: scale(1.2);
 }
 
-/*Titulos y subtitulos*/
-h1 {
-    font-size: 80px;
-}
-
-h2 {
-    font-size: 30px;
-}
-
-h3 {
-    font-size: 45px;
-}
-
-h4 {
-    font-size: 20px;
-}
-
 h5 {
-    font-size: 50px;
     text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    color: white;
 }
 
 /*Class para informacion acerca del restaurante y con su respectivo espacio*/
@@ -90,17 +514,15 @@ h5 {
     color: black;
     text-align: center;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 60px;
 }
 
 /*Class para circulo de Desayuno*/
 .circulo-verde {
     margin: auto;
-    width: 90px;
-    height: 90px;
     background-color: rgb(116, 192, 116);
     border-radius: 50%;
     justify-content: inherit;
@@ -111,8 +533,6 @@ h5 {
 /*Class para circulo de Almuerzo*/
 .circulo-gris {
     margin: auto;
-    width: 90px;
-    height: 90px;
     background-color: rgb(182, 182, 182);
     border-radius: 50%;
     justify-content: inherit;
@@ -123,8 +543,6 @@ h5 {
 /*Class para circulo de Cena*/
 .circulo-azul {
     margin: auto;
-    width: 90px;
-    height: 90px;
     background-color: rgb(108, 100, 180);
     border-radius: 50%;
     justify-content: inherit;
@@ -147,50 +565,79 @@ h5 {
 
 /*Class para el Texto de Platos del Dia*/
 .principal {
-    align-items: center;
     display: flex;
-    flex: 1;
-    color: white;
-    font-family: Brandford;
-    font-weight: bold;
-    padding: 60px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/*Class para ordenar y delimitar las imagenes*/
-.principal img {
-    margin-right: 50px;
-    margin-left: 50px;
-    border-radius: 50%;
-    height: 350px;
-    width: 350px;
-    border-color: white;
-    border-style: solid;
+/*Flecha izquierda*/
+#anteriorBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     transition: transform 0.3s;
 }
 
-/*Class para animar las imagenes de los platos*/
-.principal img:hover {
-    transform: scale(1.2);
+#anteriorBtn::before {
+    content: '\2039';
+    color: white;
+}
+
+#anteriorBtn:hover {
+    transform: scale(1.1);
+}
+
+/*Flecha derecha*/
+#siguienteBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#siguienteBtn::before {
+    content: '\203A';
+    color: white;
+}
+
+#siguienteBtn:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para los platos */
+.carrusel {
+    justify-content: center;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Estilos para cada plato */
+.plato {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.plato img {
+    transition: transform 0.3s;
+}
+
+.plato img:hover {
+    transform: scale(1.1);
 }
 
 /*Class para Titulo Platos del Dia*/
 .subtitulo {
     color: white;
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    text-align: center;
-    line-height: 100px;
+    justify-content: center;
 }
 
 /*Class para el contenedor de Platos del Dia*/
 .ovalo {
     background-color: rgb(36, 169, 192);
     border-radius: 50px;
-    width: 400px;
-    height: inherit;
-    align-items: center;
+    padding: 10px 20px 10px 20px;
+    margin: 0px;
 }
 
 /*Class para el mensaje final*/
@@ -204,13 +651,11 @@ h5 {
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 100px;
 }
 
 /*Class para definir el tamano del texto*/
 .texto {
     width: 100%;
-    max-width: 600px;
     text-align: justify;
     overflow: hidden;
 }
