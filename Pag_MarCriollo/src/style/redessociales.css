@@ -1,14 +1,24 @@
 /* CSS */
 @import url("headerfooter.css");
 
-/* Estilos generales */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+.section-title {
+    display: inline-block; /* Hacer que el cuadro solo envuelva el texto */
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    font-size: 60px; /* Tamaño de fuente más grande */
+    margin: auto; /* Centrar el elemento */
 }
 
+.section-description {
+    background-color:  rgba(4, 35, 52, 0.427);
+    color: white;
+    border-radius: 8px;
+    padding: 9px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out; /* Agregamos transiciones */
+}
 * {
     margin: 0;
     padding: 0;
@@ -24,71 +34,59 @@ body {
 }
 
 /* Contenido principal */
-main {
-    flex: 1; /* Ocupa todo el espacio disponible */
-    padding: 20px; /* Añadido padding */
-    color: white; /* Cambiado color del texto */
-}
-
-h1 {
-    font-size: 36px; /* Reducido el tamaño del título */
-    color:white;
-    margin-bottom: 20px; /* Añadido espacio inferior */
-    text-align: center;
-}
 
 .social-media {
     display: flex;
     font-size: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
     list-style-type: none;
     padding: 0;
-    background-color: aliceblue;
+    margin-top: 40px;
+
 }
-.red1 {
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+
+red1 {
+    background-color:rgb(36, 169, 192); /* Color de fondo con transparencia */
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
     text-align: center;
-    padding: 10px;
-    margin-top: 20px; /* Añadido margen superior */
-}
-    
-.whatsapp {
-    background-color:rgba(12, 78, 116, 0.8);
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px; /* Añadido margen superior */
-}
-#whatsapp-container:hover {
-    background-color: green;
-    color: white;
 }
 .social-media li {
     flex-grow: 1;
     text-align: center;
     color: rgb(255, 255, 255); /* Cambio de color del texto */
-    background-color: rgba(12, 78, 116, 0.8); /* Añadido fondo */
-    border-radius: 10px; /* Añadido borde redondeado */
-    padding: 10px; /* Añadido espacio interno */
+    background-color:rgb(36, 169, 192); /* Añadido fondo */
+    border-radius: 50px; /* Añadido borde redondeado */
+    padding: 15px; /* Añadido espacio interno */
     margin: 0 10px; /* Añadido margen */
-
 }
+
 .social-media li a {
     text-decoration: none; /* Quita el subrayado */
     font-size: 25px;
-    color: rgb(255, 255, 255); /* Cambia el color */
+    color: #0b3954; /* Cambia el color */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
 }
+
 .social-media li:hover {
-    background-color: #174cb8; /* Cambio de color al pasar el ratón */
+    background-color: rgba(4, 35, 52, 0.427); /* Cambio de color al pasar el ratón */
+    
 }
-.whatsapp a{
-    text-decoration: none; /* Quita el subrayado */
-    font-size: 25px;
-    color: rgb(255, 255, 255); /* Cambia el color */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
+
+.social-link {
+    display: inline-block;
+    transition: transform 0.3s ease-out;
+    animation: moveLogo 3s infinite alternate;
+}
+@keyframes moveLogo {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px); /* Movimiento hacia arriba */
+    }
+}
+.social-link:hover {
+    transform: scale(1.2);
 }
