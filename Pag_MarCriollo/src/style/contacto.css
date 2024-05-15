@@ -110,7 +110,7 @@ input, textarea{
     border: 2px solid #ccc;
 }
 .btn-enviar{
-    width: 30%;
+    width: 40%;
     padding: 20px;
     border: none;
     border-radius: 10px;
@@ -119,11 +119,44 @@ input, textarea{
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
-    
+    font-size: 15px; 
 }
 .btn-enviar:hover{
 background-color: rgb(36, 169, 192);
 
+}
+@media only screen and (min-width: 769px) {
+
+    .contactanos {
+        font-size: 35px;
+        padding: 20px;
+    }
+
+    .ladoizquierdo,
+    form {
+        width: 90%; 
+    }
+
+    form {
+        order: 2; 
+    }
+    
+    .contactocara {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .informacion,
+    .info2 {
+        font-size: 25px;
+    }
+    .btn-enviar {
+        padding-right: 24px; 
+        text-align: center; 
+        width: 40%;
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -156,5 +189,73 @@ background-color: rgb(36, 169, 192);
         padding-right: 20px; 
         text-align: center; 
         width: 40%;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    
+    .contactanos {
+        font-size: 25px;
+        padding: 18px;
+    }
+
+    .ladoizquierdo,
+    form {
+        width: 90%; 
+    }
+
+    form {
+        order: 2; 
+    }
+    
+    .contactocara {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 18px;
+    }
+
+    .informacion,
+    .info2 {
+        font-size: 18px;
+    }
+    .btn-enviar {
+        padding-right: 18px; 
+        text-align: center; 
+        width: 45%;
+        font-size: 11px;
+    }
+}
+@media only screen and (max-width: 320px){
+    
+    .contactanos {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .ladoizquierdo,
+    form {
+        width: 90%; 
+    }
+
+    form {
+        order: 2; 
+    }
+    
+    .contactocara {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 14px;
+    }
+
+    .informacion,
+    .info2 {
+        font-size: 14px;
+    }
+    .btn-enviar {
+        padding-right: 14px; 
+        text-align: center; 
+        width: 40%;
+        font-size: 10px;
     }
 }
