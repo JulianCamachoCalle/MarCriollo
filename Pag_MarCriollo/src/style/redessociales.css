@@ -28,13 +28,14 @@
 
 /* Estilos para la descripción */
 .section-description {
-    color: white;
-    margin-bottom: 30px;
-    font-size: 20px;
-    text-align: center;
-    font-family:'Times New Roman', Times, serif;
-    transition: transform 0.3s ease-out, background-color 0.3s ease-out; /* Agregamos transiciones */
-}
+        color: white;
+        margin-bottom: 30px;
+        font-size: 20px;
+        text-align: center;
+        font-family:'Times New Roman', Times, serif;
+        transition: transform 0.3s ease-out, background-color 0.3s ease-out; /* Agregamos transiciones */
+        background-color: transparent; /* Hacemos que el fondo sea transparente */
+    }
 
 /* Estilos generales */
 * {
@@ -130,7 +131,6 @@ body {
       font-size: 40px; /* Reducir el tamaño de la fuente del título */
     }
     .section-description {
-        background-color: transparent; /* Quitamos el fondo azul en dispositivos móviles */
       font-size: 16px; /* Reducir el tamaño de la fuente de la descripción */
     }
     .social-media {
