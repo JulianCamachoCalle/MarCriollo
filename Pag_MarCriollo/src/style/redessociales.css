@@ -129,6 +129,7 @@ body {
       font-size: 40px; /* Reducir el tamaño de la fuente del título */
     }
     .section-description {
+        background-color: transparent; /* Quitamos el fondo azul en dispositivos móviles */
       font-size: 16px; /* Reducir el tamaño de la fuente de la descripción */
     }
     .social-media {
