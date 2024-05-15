@@ -8,7 +8,6 @@
     color: white; /* Color del texto */
     padding: 10px; /* Espaciado interno */
     font-size: 60px; /* Tamaño de fuente más grande */
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     animation: moveTitle 8s linear infinite; /* Animación infinita */
 }
@@ -28,14 +27,12 @@
 
 /* Estilos para la descripción */
 .section-description {
-    background-color: rgba(4, 35, 52, 0.039);
     color: white;
-    border-radius: 8px;
-    padding: 9px;
     margin-bottom: 30px;
     font-size: 20px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-family:'Times New Roman', Times, serif;
     transition: transform 0.3s ease-out, background-color 0.3s ease-out; /* Agregamos transiciones */
 }
 
