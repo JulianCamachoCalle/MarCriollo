@@ -1,24 +1,45 @@
 /* CSS */
 @import url("headerfooter.css");
 
+
+/* Estilos para el título */
 .section-title {
     display: inline-block; /* Hacer que el cuadro solo envuelva el texto */
     color: white; /* Color del texto */
     padding: 10px; /* Espaciado interno */
     font-size: 60px; /* Tamaño de fuente más grande */
-    margin: auto; /* Centrar el elemento */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: moveTitle 8s linear infinite; /* Animación infinita */
 }
 
+/* Animación del título */
+@keyframes moveTitle {
+    0% {
+        transform: translateX(-80%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+/* Estilos para la descripción */
 .section-description {
-    background-color:  rgba(4, 35, 52, 0.427);
+    background-color: rgba(4, 35, 52, 0.039);
     color: white;
     border-radius: 8px;
     padding: 9px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-out, background-color 0.3s ease-out; /* Agregamos transiciones */
 }
+
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -31,37 +52,31 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenido principal */
-
 .social-media {
     display: flex;
     font-size: 20px;
     justify-content: space-around;
     list-style-type: none;
     padding: 0;
-    margin-top: 40px;
-
+    margin-top: 60px;
 }
 
-red1 {
-    background-color:rgb(36, 169, 192); /* Color de fondo con transparencia */
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center;
-}
+/* Estilos para los elementos dentro de .social-media */
 .social-media li {
     flex-grow: 1;
     text-align: center;
     color: rgb(255, 255, 255); /* Cambio de color del texto */
-    background-color:rgb(36, 169, 192); /* Añadido fondo */
+    background-color: rgb(36, 169, 192); /* Añadido fondo */
     border-radius: 50px; /* Añadido borde redondeado */
     padding: 15px; /* Añadido espacio interno */
     margin: 0 10px; /* Añadido margen */
 }
 
+/* Estilos para los enlaces dentro de .social-media li */
 .social-media li a {
     text-decoration: none; /* Quita el subrayado */
     font-size: 25px;
@@ -69,27 +84,34 @@ red1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Cambia la fuente */
 }
 
+/* Cambio de color al pasar el ratón sobre .social-media li */
 .social-media li:hover {
-    background-color: rgba(4, 35, 52, 0.427); /* Cambio de color al pasar el ratón */
-    
+    background-color: rgba(4, 35, 52, 0.427);
 }
 
+/* Estilos para los enlaces de redes sociales */
 .social-link {
     display: inline-block;
     transition: transform 0.3s ease-out;
-    animation: moveLogo 3s infinite alternate;
+    animation: moveLogo 1s infinite alternate;
 }
+
+/* Animación para los enlaces de redes sociales */
 @keyframes moveLogo {
     0% {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-5px); /* Movimiento hacia arriba */
+        transform: translateY(-9px); /* Movimiento hacia arriba */
     }
 }
+
+/* Efecto de escala al pasar el ratón sobre los enlaces de redes sociales */
 .social-link:hover {
     transform: scale(1.2);
 }
+
+
 @media screen and (max-width: 600px) {
     /* Estilos para dispositivos con un ancho máximo de 600px */
     .section-title {
@@ -105,4 +127,5 @@ red1 {
     .social-media li {
       margin: 10px 0; /* Añadir espacio entre los íconos de redes sociales */
     }
-  }  
+  }
+  
