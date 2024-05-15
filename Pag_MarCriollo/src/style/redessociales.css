@@ -90,3 +90,19 @@ red1 {
 .social-link:hover {
     transform: scale(1.2);
 }
+@media screen and (max-width: 600px) {
+    /* Estilos para dispositivos con un ancho máximo de 600px */
+    .section-title {
+      font-size: 40px; /* Reducir el tamaño de la fuente del título */
+    }
+    .section-description {
+      font-size: 16px; /* Reducir el tamaño de la fuente de la descripción */
+    }
+    .social-media {
+      flex-direction: column; /* Colocar los íconos de redes sociales en columna */
+      align-items: center; /* Centrar íconos de redes sociales */
+    }
+    .social-media li {
+      margin: 10px 0; /* Añadir espacio entre los íconos de redes sociales */
+    }
+  }  
