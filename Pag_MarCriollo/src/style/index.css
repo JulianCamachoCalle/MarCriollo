@@ -459,6 +459,7 @@ body {
 }
 
 main {
+    flex: 1;
     background-image: url('../img/fondo7.jpg');
     background-size: cover;
     background-position: center;
