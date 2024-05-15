@@ -15,7 +15,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    height: 100%;
     margin: 0;
     padding: 0%;
     display: flex;
@@ -49,8 +48,9 @@ main {
     background-image: url(Imagenes/fondo1.jpg);
     background-size: cover;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    flex: 1;
 }
 .ladoizquierdo{
     background-color: rgba(255, 255, 255, 0.8);
@@ -62,12 +62,14 @@ main {
     box-shadow: 0 0 5px;
     overflow: hidden;
     border-radius: 5%;
+    
 }
 
 .contactocara{
     border-radius: 50%;
     height: 230px;
     width: 230px;
+    margin-bottom: 20px;
     
 }
 .informacion{
@@ -122,4 +124,37 @@ input, textarea{
 .btn-enviar:hover{
 background-color: rgb(36, 169, 192);
 
+}
+
+@media only screen and (max-width: 768px) {
+
+    .contactanos {
+        font-size: 30px;
+        padding: 20px;
+    }
+
+    .ladoizquierdo,
+    form {
+        width: 90%; 
+    }
+
+    form {
+        order: 2; 
+    }
+    
+    .contactocara {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .informacion,
+    .info2 {
+        font-size: 20px;
+    }
+    .btn-enviar {
+        padding-right: 20px; 
+        text-align: center; 
+        width: 40%;
+    }
 }
