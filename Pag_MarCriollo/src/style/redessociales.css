@@ -141,5 +141,8 @@ body {
       margin: 10px 0; /* Añadir espacio entre los íconos de redes sociales */
       
     }
+    body {
+        background-color: transparent; /* Hacer el fondo del body transparente en dispositivos móviles */
+    }
   }
   
