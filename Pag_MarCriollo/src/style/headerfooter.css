@@ -1,17 +1,52 @@
 
 @media only screen and (min-width: 769px) {
-    footer {
-        padding: 30px;
-        font-size: 15px;
-    }
-
     .head {
         font-size: 70px;
     }
 
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(36, 169, 192);
+    }
+
     #seleccionado, #no-seleccionado {
-        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+        transition: transform 0.3s;
+        margin: 15px 10px 15px 10px;
+        padding: 5px 8px 5px 8px;
+    } 
+
+    #seleccionado {
+        color: rgb(255, 255, 255);
+        background-color: rgb(23, 86, 116);
+    }
+    
+    #no-seleccionado {
+        color: rgb(36, 169, 192);
+        background-color: rgb(255, 255, 255);
+    }
+
+    .opciones {
+        list-style-type: none;
+        display: flex;
         font-size: 22px;
+    }
+    
+    .opciones a:hover {
+        transform: scale(1.2);
+    }
+
+    .menu-desplegable {
+        display: none;
+    }
+
+    footer {
+        padding: 30px;
+        font-size: 15px;
     }
 
     .logoprincipal img {
@@ -31,23 +66,86 @@
 }
 
 @media only screen and (max-width: 768px) {
-    footer {
-        padding: 20px;
-        font-size: 13px;
-    }
-
     .head {
         font-size: 60px;
-    }
-
-    #seleccionado, #no-seleccionado {
-        padding: 6px 14px;
-        font-size: 20px;
     }
 
     .logoprincipal img {
         height: 60px;
         width: 110px;
+    }
+
+    .navbar {
+        display: block;
+        justify-content: left;
+        background-color: rgb(36, 169, 192);
+    }
+
+    .menu-desplegable {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.3s;
+        font-weight: bold;
+    }
+
+    #seleccionado {
+        color: rgb(7, 75, 124);
+    }
+    
+    .opciones a:hover {
+        transform: scale(1.2);
+    }
+
+    .opciones {
+        font-size: 22px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(36, 169, 192);
+    }
+
+    .opciones.open {
+        display: flex;
+    }
+
+    .opciones li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .menu-desplegable {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .bar {
+        display: block;
+        flex-direction: column;
+        width: 20px;
+        height: 3px;
+        background-color: #ffffff;
+        margin: 5px;
+    }
+
+    .menu-desplegable:hover .bar {
+        background-color: #221a72;
+    }
+
+    footer {
+        padding: 20px;
+        font-size: 13px;
     }
 
     #redes img {
@@ -62,23 +160,57 @@
 }
 
 @media only screen and (max-width: 480px) {
-    footer {
-        padding: 10px;
-        font-size: 12px;
-    }
-
     .head {
         font-size: 50px;
-    }
-
-    #seleccionado, #no-seleccionado {
-        padding: 4px 12px;
-        font-size: 18px;
     }
 
     .logoprincipal img {
         height: 50px;
         width: 100px;
+    }
+
+    .menu-desplegable {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    #seleccionado {
+        color: rgb(7, 75, 124);
+    }
+    
+    .opciones a:hover {
+        transform: scale(1.2);
+    }
+
+    .opciones {
+        font-size: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .opciones.open {
+        display: flex;
+    }
+
+    .opciones li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 12px;
     }
 
     #redes img {
@@ -89,6 +221,71 @@
     #contacto img {
         height: 11px;
         width: 14px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .head {
+        font-size: 30px;
+    }
+
+    .logoprincipal img {
+        height: 30px;
+        width: 60px;
+    }
+
+    .menu-desplegable {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    #seleccionado, #no-seleccionado {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    #seleccionado {
+        color: rgb(7, 75, 124);
+    }
+    
+    .opciones a:hover {
+        transform: scale(1.2);
+    }
+
+    .opciones {
+        font-size: 15px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .opciones.open {
+        display: flex;
+    }
+
+    .opciones li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 9px;
+    }
+
+    #redes img {
+        height: 22px;
+        width: 22px;
+    }
+
+    #contacto img {
+        height: 10px;
+        width: 13px;
     }
 }
 
@@ -119,50 +316,9 @@ header {
     padding-right: 20px;
 }
 
-/*Barra de navegacion*/
-nav {
-    background-color: rgb(36, 169, 192);
-    padding: 15px 0;
+.opciones {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    overflow-x: auto;
 }
-
-/*Lista centrada y sin estilos ni margenes*/
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/*ID para cambio de color y de los botones de enlace*/
-#seleccionado, #no-seleccionado {
-    color:  rgb(36, 169, 192);
-    text-decoration: none;
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    display: inline-block;
-    margin: 5px;
-    transition: transform 0.3s;
-}
-
-/*ID Color diferente para el que esta en uso*/
-#seleccionado {
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 86, 116);
-}
-
-/*Animacion al pasar el mouse por encima*/
-nav a:hover {
-    transform: scale(1.1);
-}
-
-
-
 
 /*Pie de pagina con un degrado de color y definiendo su lugar*/
 footer {
