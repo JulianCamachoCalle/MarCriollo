@@ -25,6 +25,7 @@
     }
 }
 
+
 /* Estilos para la descripción */
 .section-description {
     color: white;
@@ -106,6 +107,19 @@ body {
 /* Efecto de escala al pasar el ratón sobre los enlaces de redes sociales */
 .social-link:hover {
     transform: scale(1.2);
+}
+#scrollUp {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 
 
