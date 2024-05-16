@@ -1,18 +1,13 @@
+@import url("../style/headerfooter.css");
 
-@import url("headerfooter.css");
-
-/* ---- FUENTES ---- */
-@font-face {
-    font-family: Pentol_Handwriting;
-    src: url('../fonts/Pentol_Handwriting.otf') format(truetype);
-}
-@font-face {
-    font-family: Bonfire;
-    src: url('../fonts/Bonfire.otf') format(truetype);
-}
-@font-face {
-    font-family: Monof;
-    src: url('../fonts/Monof.ttf') format(truetype);
+/*Establecer medidas, eliminar margenes y direccion en columna*/
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 * {
@@ -21,143 +16,407 @@
     box-sizing: border-box;
 }
 
+/* Contenido ventana mayor*/
+@media only screen and (min-width: 769px) {
+    .conImg-Primero {
+        background-color: violet;
+        height: 400px;
+    }
 
-/* ---- CUERPO ----*/
-body {
-    background-color: rgb(16, 28, 38);
-}
-.conImg-Especial {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    overflow: hidden;
-    /*Centrar imagen*/
-    justify-content: center;
-    align-items: center;
-    
-
-    #imgContenido {
-        width: 100%;
-    }
-    #capaGris {
-        position: absolute;
-        width: 100%;
-        height: 300px;
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
-    }
-    #texCocina {
-        position: absolute;
-        color: white;
-        text-transform: capitalize;
-        font-family: Bonfire, 'Times New Roman';
-        font-size: 90px;
-    }
-    #texFamilia {
-        position: absolute;
-        color: white;
-        font-size: 20px;
-        line-height: 2em;
-        font-family: Monof, 'Times New Roman';
-        text-align: center;
-    }
-}
-
-.conPrincipal {
-    overflow: hidden;
-    width: auto;
-    height: auto;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-
-    .presentacion {
-        height: auto;
-        margin-left: 50px;
-        margin-right: 50px;
-        text-align: center;
-        /*background-color: aqua;*/
-        h1 {
-            margin-top: 80px;
-            font-size: 50px;
-            font-family: Pentol_Handwriting, 'Times New Roman';
-            margin-bottom: 30px;
-        }
-        p {
-            line-height: 2em;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin-bottom: 50px;
-        }
-    }
-    .textCuadro{
-        height: auto;
-        margin-left: 90px;
-        margin-right: 90px;
-        text-align: center;
-        /*background-color: aqua;*/
-        h1 {
-            margin-top: 40px;
-            font-size: 50px;
-            font-family: Pentol_Handwriting, 'Times New Roman';
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 2em;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin-bottom: 30px;
-        }
-    }
-    .conVideo {
-        overflow: hidden;
-        width: auto;
-        height: 500px;
-        margin-left: 60px;
-        margin-right: 60px;
-        margin-bottom: 50px;
+    .conTex-Presentacion {
+        margin-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
         
-        img {
-            /* Modificar para que la imagen se centre */
+        #conBig-Text {
+            width: 60%;
+            height: auto;
+            h1 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 60px;
+                /* Falta cuando el texto es separa con - */
+            }
+        }
+        #conShort-Text01{
+            margin-top: 15px;
+            width: 50%;
+            height: auto;
+
+            line-height: 1.6em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            text-align: justify;
+        }
+        #conShort-Text02 {
+            margin-top: 25px;
+            width: 60%;
+            height: auto;
+
+            line-height: 1.5em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            /*font-weight: bold;*/
+            text-align: justify;
         }
     }
-    .conFundador {
+
+    .conVid-Primero {
+        height: auto;
         display: flex;
-        width: auto;
-        height: 500px;
-        #conTexto {
-            width: 50%;
-            height: 500px;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(to top, rgb(16, 88, 156), rgb(3, 24, 43));
-            
-            #texFundador {
-                font-family: Bonfire, 'Times New Roman'; 
-                font-size: 4vw;
-                color: white;
-            }
-            #texFundadorDes {
-                line-height: 2em;
-                font-size: 2vw;
-                font-family: Monof, 'Times New Roman';
-                color: white;
-                margin-left: 50px;
-                margin-right: 50px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+        #conTex-Frase {
+            width: 80%;
+            margin-top: 50px;
+            h1 {
+                font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
             }
         }
-        #conImagen {
-            display: flex;
-            width: 50%;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background-color: rgb(1, 4, 11);
+        #conVideo {
+            margin-top: 20px;
+            width: 97%;
+            height: 450px;
+
+            iframe {
+                background-color: rgb(187, 187, 187);
+            }
+        }
+    }
+
+    .conTex-Fundador {
+        /* border: 2px solid black; */
+        width: 100%;
+        height: auto;
+
+        #titulo {
             
+            margin-top: 100px;
+            /* width: 100%;
+            height: auto;
+            display: block; */
+            margin-left: 5%;
+            margin-right: 5%;
+
+            #tit01 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.3em;
+            }
+            #tit02 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 45px;
+                text-transform: uppercase;
+                /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
+            }
+            p {
+                margin-top: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 18px;
+                line-height: 1.6em;
+            }
+        }
+        #conImg {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+          
+            #carta01 {
+                position: absolute;
+                width: 30%;
+                height: 450px;
+                
+                top: 60px;
+                left: -5%;;
+                transform: rotate(3deg);
+
+                background-color: rgb(150, 150, 150);
+                z-index: 1;
+            }
+            #carta02 {
+                position: absolute;
+                width: 33%;
+                height: 440px;
+                
+                top: 120px;
+                left: 20%;
+                transform: rotate(5deg);
+
+                background-color: rgb(167, 167, 167);
+                z-index: 2;    
+            }
+            #carta03 {
+                position: absolute;
+                width: 35%;
+                height: 390px;
+                background-color: rgb(200, 200, 200);
+
+                top: 170px;
+                left: 45%;
+                /*transform: translate(80px, 50px);*/
+                transform: rotate(10deg);
+                z-index: 3;  
+            }
+            #conTexto {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                z-index: 10;
+                h1 {
+                    width: 40%;
+                    height: auto;
+                    margin-top: 25px;
+                    margin-right: 40px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 80%;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    text-align: justify;
+                    line-height: 1.4em;
+                    float: right;
+                }
+            }
             img {
-                height: 500px;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .conMetas{
+        height: auto;
+        #conCuadros{
+            /* border: 2px solid black; */
+            margin-top: 80px;
+            margin-bottom: 80px;
+            width: 100%;
+            height: 350px;
+            display: flex;
+            #conMision {
+                background-color: rgb(96, 106, 125);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-emphasis: center;
+                text-align: center;
+
+                width: 50%;
+                height: auto;
+                               
+            }
+            #conVision {
+                background-color: rgb(148, 165, 191);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-emphasis: center;
+                text-align: center;
+
+                width: 50%;
+                height: auto;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 5vh;
+                
+            }
+            p {
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-top: 10px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 3vh;
+                line-height: 2em;
             }
         }
     }
 }
 
+
+/* Contenido ventana menor*/
+@media only screen and (max-width: 768px) {
+    .conImg-Primero {
+        background-color: violet;
+        height: 400px;
+    }
+    .conTex-Presentacion {
+        width: 100%;
+        height: auto;
+        
+        #conBig-Text {
+            width: 90%;
+            height: 50%;
+            margin-top: 80px;
+            margin-bottom: 30px;
+            margin-left: 20px; /* ??? */
+            h1 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 45px;
+                /* Falta cuando el texto es separa con - */
+            }
+        }
+        #conShort-Text01{
+            /*border: 2px solid black;*/
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            margin-left: 20px; /* ??? */
+            line-height: 1.6em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+        }
+        #conShort-Text02 {
+            /*border: 2px solid black;*/
+            
+            width: 90%; /*REPARAR SALE DEL CONTENEDOR*/
+            height: auto;
+            margin-left: 20px; /* ??? */
+            margin-bottom: 60px; /* Espaciado Final del contenedor :: conTex-Presentacion*/
+            line-height: 1.5em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+        }
+    }
+    .conVid-Primero {
+        height: auto;
+        
+        #conTex-Frase {
+            margin-left: 20px;
+            margin-right: 20px;
+            text-align: center;
+            h1 {
+                font-size: 17px;
+                font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+        #conVideo {
+            height: auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            #video {
+                margin-top: 40px;
+                margin-bottom: 100px; /* Espaciado Final del contenedor :: conVid-Primero*/
+                height: 350px;
+                width: 95%;
+                background-color: rgb(187, 187, 187);
+            }
+        }
+    }
+    .conTex-Fundador {
+        width: 100%;
+        height: auto;
+
+        #titulo {
+            height: auto;
+            width: 85%;
+            margin-left: 40px; /*Aun falta corregir*/
+            margin-bottom: 20px; /* Espacio final del texto*/
+            #tit01 {
+                
+                font-size: 14px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+            }
+            #tit02 {
+                
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 45px;
+                text-transform: uppercase;
+                /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+            }
+            p {
+                
+                margin-top: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 18px;
+                line-height: 1.6em;
+            }
+        }
+        #conImg {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 100px;
+          
+            #carta01 {
+                position: absolute;
+                width: 25%;
+                height: 400px;
+                background-color: rgb(150, 150, 150);
+
+                top: 20px;
+                left: -30px;
+                /*transform: translate(80px, 50px);*/
+                transform: rotate(8deg);
+                z-index: 1;
+            }
+            #carta02 {
+                position: absolute;
+                width: 35%;
+                height: 350px;
+                background-color: rgb(167, 167, 167);
+
+                top: 80px;
+                left: 60px;
+                /*transform: translate(80px, 50px);*/
+                transform: rotate(12deg);
+                z-index: 2;    
+            }
+            #carta03 {
+                position: absolute;
+                width: 40%;
+                height: 320px;
+                background-color: rgb(200, 200, 200);
+
+                top: 150px;
+                left: 160px;
+                /*transform: translate(80px, 50px);*/
+                transform: rotate(20deg);
+                z-index: 3;  
+            }
+            #conTexto {
+                position: absolute; /*Adelante de todo Z = 10*/
+                width: 100%;
+                height: auto;
+                z-index: 10;
+                p {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    width: 40%;
+                    height: auto;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    margin-right: 10px;
+                    float: right;
+                }
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+    }
+    .conTex-Metas {
+        
+    }
+}
