@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<html>
 <head> <!-- Información sobre el documento  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,75 +34,59 @@
         </ul>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
-        <main> <!-- Contenido principal de la pagina -->
-            <div class="contenedor-titulo">
-                <div class="titulo">
-                    <h2>Te brindamos</h2>
-                </div>
+    <main>
+        <div class="contenedor-titulo">
+            <div class="titulo">
+                <h2>Te brindamos</h2>
             </div>
-            <div class="slider">
-                <ul> <!-- Lista de elementos -->
-                    <li>
-                        <img src="images/carrusel1.jpg" alt="">
-                        <div>
-                            <h3>Barra y Cocteles</h3>
-                            <p>
-                                Vive un momento especial e inolvidable en nuestro bar,
-                                buena musica y las mejores bebidas nacionales e importadas,
-                                sodas y snacks.
-                            </p>
-                            <p>
-                                Te esperamos para atenderte...
-                            </p>
+        </div>
+        <section class="services-slider">
+            <ul class="slider-list">
+                <li class="animate-slide">
+                    <img src="images/carrusel1.jpg" alt="Barra y Cocteles">
+                    <div class="slider-content">
+                        <h3>Barra y Cocteles</h3>
+                        <p>Vive un momento especial e inolvidable en nuestro bar...</p>
+                        <p>Te esperamos para atenderte...</p>
+                    </div>
+                </li>
+                <li class="animate-slide">
+                    <img src="images/carrusel2.jpg" alt="">
+                    <div class="slider-content">
+                        <h3>Buffet</h3>
+                        <p>
+                            Contamos con un equipo de chefs, hombres y mujeres con gran
+                            experiencia en producción de una gran variedad de menús tipo
+                            buffet basados en comida típica de la región.
+                        </p>
                         </div>
                     </li>
-                    <li>
-                        <img src="images/carrusel2.jpg" alt="">
-                        <div>
-                            <h3>Buffet</h3>
-                            <p>
-                                Contamos con un equipo de chefs, hombres y mujeres con gran
-                                experiencia en producción de una gran variedad de menús tipo
-                                buffet basados en comida típica de la región.
-                            </p>
-                        </div>
-                    </li>
-                    <li>
+                    <li class="animate-slide">
                         <img src="images/carrusel3.jpg" alt="">
-                        <div>
+                        <div class="slider-content">
                             <h3>Catering</h3>
-                            <p>
-                                Somos tu mejor aliado en servicios de catering para eventos.
-                            </p>
+                            <p>Somos tu mejor aliado en servicios de catering para eventos.</p>
                             <p>
                                 Nuestro servicio de catering se define como una solución integra
                                 y espectacularmente deliciosa para todas tus fiestas y reuniones.
                             </p>
-                            <p>
-    
-                            </p>
                         </div>
                     </li>
-                    <li>
+                    <li class="animate-slide">
                         <img src="images/carrusel4.jpg" alt="">
-                        <div>
+                        <div class="slider-content">
                             <h3>Salón de eventos</h3>
-                            <p id="especial">
-                                “Construimos tus mejores recuerdos”
-                            </p>
                             <P>
                                 Tenemos a su disposición un gran salón climatizado con capacidad para 60 personas,
                                 con un maravilloso juego de luces y velos que le dan la escala y ambiente perfecto
                                 para engalonar su celebración.
                             </p>
-                            <p>
-                                ​Nuestro personal más capacitado estará contigo en cada momento de tu evento,
-                                ayudara a realizar lo que soñaste para tu evento.
-                            </p>
                         </div>
                     </li>
                 </ul>
-            </div>
+                <button class="slider-prev">&#10094;</button>
+                <button class="slider-next">&#10095;</button>
+            </section>
         </main>
         <footer>
             <section id="redes">
@@ -130,5 +115,6 @@
             </section>
             &copy; 2024 Creado por Grupo
         </footer>
+        <script src="JavaScript/sliderservicios.js"></script>
 </body>
 </html>

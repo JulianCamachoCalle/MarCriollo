@@ -1,70 +1,127 @@
 @import url("headerfooter.css");
 
-/* Estilo para todos los elementos */
-*{
+/* variables */
+:root {
+    --primary-color: rgb(7, 75, 124);
+    --secondary-color: rgb(36, 169, 192);
+    --font-family: Arial, sans-serif;
+}
+/* reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilo para el cuerpo del documento */
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     background-image: url('../img/fondo7.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* Estilo para el contenedor del título */
 .contenedor-titulo {
     display: flex;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-/* Estilo para el título */
 .titulo {
-    font-size: 35px;
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+    font-size: 30px;
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 25px;
     border-radius: 40px;
     margin: 0 auto;
 }
 
-/* Estilo para los contenedores de texto dentro de los elementos de la lista */
-.slider li div {
-    max-width: 50%; /* tamaño del contenedor de texto */
-    color: white;
-    font-size: 45px;
-}
-
-/* Invierte la disposición de los elementos de la lista impares */
-.slider li:nth-child(odd) {
-    flex-direction: row-reverse;
-}
-
-
-/* Estilo para los elementos de la lista*/
-.slider li {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
+.services-slider {
+    position: relative;
+    max-width: 100%;
+    margin: 15px auto;
     padding: 20px;
-    border-radius: 40px;
+    background-color: var(--secondary-color);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide overflowing content */
 }
 
 
-/* Estilo para las imágenes dentro de los elementos de la lista */
-.slider li img {
-    width: 1000px;
-    height: 500px;
-    margin-right: 100px;
-    transition: transform 0.5s ease;
+.slider-list {
+    display: flex; /* Use flexbox to align slides */
+    transition: transform 0.5s ease; /* Smooth transition */
 }
 
-/* Efecto de escala al pasar el mouse sobre las imágenes*/
-.slider li img:hover {
-    transform: scale(1.04);
+.slider-list li {
+    min-width: 100%; /* Ensure each slide takes up full width */
+    background-color: var(--secondary-color);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    list-style-type: none;
+}
+
+.slider-prev,.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.slider-prev {
+    left: 1px;
+}
+
+.slider-next {
+    right: 1px;
+}
+
+.slider-list figure {
+    margin: 0;
+}
+
+.slider-list img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.slider-list figcaption {
+    padding: 20px;
+    text-align: center;
+}
+
+.slider-list h3 {
+    font-size: 50px; /* Ajusta el tamaño de fuente según sea necesario */
+    margin: 10px 0;
+}
+
+.slider-list p {
+    font-size: 40px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+    .services-slider {
+        max-width: 600px;
+    }
+    .slider-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .services-slider {
+        max-width: 400px;
+    }
+    .slider-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
