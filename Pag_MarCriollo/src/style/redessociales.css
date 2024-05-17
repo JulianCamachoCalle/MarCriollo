@@ -126,7 +126,7 @@ body {
 }
 
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 600px) {
     /* Estilos para dispositivos con un ancho máximo de 600px */
     
     .section-title {
@@ -144,7 +144,7 @@ body {
       
     }
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 764px) {
     .section-description {
         background: fixed;
          
