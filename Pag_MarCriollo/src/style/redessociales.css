@@ -4,9 +4,7 @@
 
 /* Estilos para el título */
 .section-title {
-    display: inline-block; /* Hacer que el cuadro solo envuelva el texto */
     color: white; /* Color del texto */
-    padding: 10px; /* Espaciado interno */
     font-size: 60px; /* Tamaño de fuente más grande */
     text-align: center;
     animation: moveTitle 8s linear infinite; /* Animación infinita */
