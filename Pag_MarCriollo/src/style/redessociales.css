@@ -128,9 +128,7 @@ body {
 
 @media screen and (max-width: 414px) {
     /* Estilos para dispositivos con un ancho máximo de 600px */
-    .body{
-        background-color: transparent;
-    }
+    
     .section-title {
       font-size: 40px; /* Reducir el tamaño de la fuente del título */
     }
@@ -146,5 +144,10 @@ body {
       
     }
 }
-
+@media screen and (max-width: 414px) {
+    .section-description {
+        background: fixed;
+         
+    }
+}
   
