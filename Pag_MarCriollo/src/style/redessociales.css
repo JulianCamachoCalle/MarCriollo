@@ -126,28 +126,75 @@ body {
 }
 
 
+/* Media Queries */
 @media screen and (max-width: 600px) {
-    /* Estilos para dispositivos con un ancho máximo de 600px */
-    
     .section-title {
-      font-size: 40px; /* Reducir el tamaño de la fuente del título */
+        font-size: 35px;
     }
     .section-description {
-      font-size: 16px; /* Reducir el tamaño de la fuente de la descripción */
+        font-size: 17px;
     }
     .social-media {
-      flex-direction: column; /* Colocar los íconos de redes sociales en columna */
-      align-items: center; /* Centrar íconos de redes sociales */
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5vh;
     }
     .social-media li {
-      margin: 10px 0; /* Añadir espacio entre los íconos de redes sociales */
-      
+        margin: 2vh 0;
     }
 }
-@media screen and (max-width: 764px) {
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Ajustes para tablets y dispositivos más grandes */
+    .section-title {
+        font-size: 40px;
+    }
     .section-description {
-        background: fixed;
-         
+        font-size: 20px;
+    }
+    .social-media {
+        font-size: 20px;
+        margin-top: 3vh;
+    }
+    .social-media li {
+        padding: 2vw;
+        margin: 1vh 1vw;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    /* Ajustes para laptops de tamaño mediano */
+    .section-title {
+        font-size: 50px;
+    }
+    .section-description {
+        font-size: 30px;
+    }
+    .social-media {
+        font-size: 30px;
+        margin-top: 3vh;
+    }
+    .social-media li {
+        padding: 1.5vw;
+        margin: 1vh 0.5vw;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    /* Ajustes para laptops y monitores de pantalla grande */
+    .section-title {
+        font-size: 70px;
+    }
+    .section-description {
+        font-size: 35px;
+    }
+    .social-media {
+        font-size: 35px;
+        margin-top: 2vh;
+    }
+    .social-media li {
+        padding: 1vw;
+        margin: 0.5vh 0.3vw;
     }
 }
   
