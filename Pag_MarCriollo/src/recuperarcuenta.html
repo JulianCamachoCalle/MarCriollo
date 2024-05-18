@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
     <link rel="stylesheet" href="style/recuperarcuenta.css">
+    <script src="lib/mysql2.min.js"></script>
 </head>
 
 <body>
@@ -40,10 +41,25 @@
     <main id="main" class="main">
         <div class="registro">
             <div class="divisionprincipal">
-                Hola
+                <img src="img/hatchef.webp" alt="chef" class="imagenpos">
+                <div class="iniciarsesion">
+                    <label class="label">
+                        <input type="text" id="correo" placeholder=" " class="input">
+                        <span class="label_name">Ingrese su correo</span>
+                    </label>
+                    <label class="label">
+                        <input type="password" id="password" placeholder=" " class="input">
+                        <span class="label_name">Contraseña</span>
+                        <button class="togglePassword" onclick="togglePassword('password')">Mostrar</button>
+                    </label>
+                    <button class="boton" id="btniniciar" onclick="login()">Cambiar Contraseña</button>
+                </div>
             </div>
             <div class="divisionsecundaria">
-                Adios
+                <div class="mensaje">
+                    <h3>Unete para no perderdete todas las novedades!</h3>
+                </div>
+                <img src="img/crab.png" id="crab" class="crab">
             </div>
         </div>
     </main>
