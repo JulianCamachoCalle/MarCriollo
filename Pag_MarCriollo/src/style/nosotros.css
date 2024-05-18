@@ -5,6 +5,11 @@
     font-family: Monof;
     src: url('../fonts/Monof.ttf') format(truetype);
 }
+@font-face {
+    font-family: Bonfire;
+    src: url('../fonts/Bonfire.otf') format(truetype);
+}
+
 /*Establecer medidas, eliminar margenes y direccion en columna*/
 body {
     height: 100%;
@@ -23,9 +28,32 @@ body {
 
 /* Contenido ventana mayor*/
 @media only screen and (min-width: 769px) {
-    .conImg-Primero {
-        background-color: violet;
+    .conVideo {
+        border: 0;
+        width: 100%;
         height: 400px;
+        display: flex;
+        overflow: hidden;
+
+        justify-content: center;
+        align-items: center;
+        
+        #capaGris {
+            position: absolute;
+            width: 100%;
+            height: 400px;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+        }
+        #texCocina {
+            position: absolute;
+            text-transform: capitalize;
+            font-family: 'Bonfire', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            font-size: 7vw;
+        }
+        video {
+            width: 100%;
+        }
     }
 
     .conTex-Presentacion {
@@ -288,9 +316,33 @@ body {
 
 /* Contenido ventana menor*/
 @media only screen and (max-width: 768px) {
-    .conImg-Primero {
-        background-color: violet;
-        height: 400px;
+    .conVideo {
+        border: 0;
+        width: 100%;
+        height: 250px;
+        display: flex;
+        overflow: hidden;
+
+        justify-content: center;
+        align-items: center;
+        
+        #capaGris {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            /* background-color: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)); */
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+        }
+        #texCocina {
+            position: absolute;
+            text-transform: capitalize;
+            font-family: 'Bonfire', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            font-size: 7vw;
+        }
+        video {
+            width: 100%;
+        }
     }
     .conTex-Presentacion {
         margin-top: 50px;
