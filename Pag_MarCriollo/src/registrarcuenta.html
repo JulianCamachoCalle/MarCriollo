@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarCriollo</title>
+    <link rel="stylesheet" href="style/registrarcuenta.css">
+</head>
+
+<body>
+    <header>
+        <div class="contenedorhead">
+            <div class="head">
+                MarCriollo
+            </div>
+            <div class="logoprincipal">
+                <img src="img/crab.png" alt="Logo">
+            </div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <button id="menu-desplegable" class="menu-desplegable" aria-label="Menu Desplegable">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="opciones">
+            <li><a id="no-seleccionado" href="index.html">Inicio</a></li>
+            <li><a id="no-seleccionado" href="nosotros.html">Nosotros</a></li>
+            <li><a id="no-seleccionado" href="servicios.html">Servicios</a></li>
+            <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
+            <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
+            <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
+            <li><a id="seleccionado" href="intranet.html">Intranet</a></li>
+        </ul>
+    </nav>
+    <script src="JavaScript/headerfooter.js"></script>
+    <main id="main" class="main">
+        <div class="registro">
+            <div class="divisionprincipal">
+                <img src="img/hatchef.webp" alt="chef" class="imagenpos">
+                <div class="registrar">
+                    <label class="label">
+                        <input type="text" id="nombres" placeholder=" " class="input">
+                        <span class="label_name">Nombres y Apellidos</span>
+                    </label>
+                    <label class="label">
+                        <input type="text" id="direccion" placeholder=" " class="input">
+                        <span class="label_name">Dirección</span>
+                    </label>
+                    <select id="distritos" name="distritos">
+                        <option value="">Distrito</option>
+                        <option value="Ancón">Ancón</option>
+                        <option value="Ate">Ate</option>
+                        <option value="Barranco">Barranco</option>
+                        <option value="Breña">Breña</option>
+                        <option value="Carabayllo">Carabayllo</option>
+                        <option value="Chaclacayo">Chaclacayo</option>
+                        <option value="Chorrillos">Chorrillos</option>
+                        <option value="Cieneguilla">Cieneguilla</option>
+                        <option value="Comas">Comas</option>
+                        <option value="El Agustino">El Agustino</option>
+                        <option value="Independencia">Independencia</option>
+                        <option value="Jesús María">Jesús María</option>
+                        <option value="La Molina">La Molina</option>
+                        <option value="La Victoria">La Victoria</option>
+                        <option value="Lince">Lince</option>
+                        <option value="Los Olivos">Los Olivos</option>
+                        <option value="Lurigancho">Lurigancho</option>
+                        <option value="Lurín">Lurín</option>
+                        <option value="Magdalena del Mar">Magdalena del Mar</option>
+                        <option value="Miraflores">Miraflores</option>
+                        <option value="Pachacámac">Pachacámac</option>
+                        <option value="Pucusana">Pucusana</option>
+                        <option value="Pueblo Libre">Pueblo Libre</option>
+                        <option value="Puente Piedra">Puente Piedra</option>
+                        <option value="Punta Hermosa">Punta Hermosa</option>
+                        <option value="Punta Negra">Punta Negra</option>
+                        <option value="Rímac">Rímac</option>
+                        <option value="San Bartolo">San Bartolo</option>
+                        <option value="San Borja">San Borja</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Martín de Porres">San Martín de Porres</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="Santa Anita">Santa Anita</option>
+                        <option value="Santa María del Mar">Santa María del Mar</option>
+                        <option value="Santa Rosa">Santa Rosa</option>
+                        <option value="Santiago de Surco">Santiago de Surco</option>
+                        <option value="Surquillo">Surquillo</option>
+                        <option value="Villa El Salvador">Villa El Salvador</option>
+                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                    </select>
+                    <label class="label">
+                        <input type="text" id="correo" placeholder=" " class="input">
+                        <span class="label_name">Correo</span>
+                    </label>
+                    <label class="label">
+                        <input type="password" id="password" placeholder=" " class="input">
+                        <span class="label_name">Contraseña</span>
+                        <button class="togglePassword" onclick="togglePassword('password')">Mostrar</button>
+                    </label>
+                    <label class="label">
+                        <input type="password" id="password2" placeholder=" " class="input">
+                        <span class="label_name">Repetir Contraseña</span>
+                        <button class="togglePassword" onclick="togglePassword('password2')">Mostrar</button>
+                    </label>
+                    <button class="boton" id="btnregistrar" onclick="register()">Registrar</button>
+                </div>
+            </div>
+            <div class="divisionsecundaria">
+                <div class="mensaje">
+                    <h3>Recuerda completar todos los campos de manera correcta!</h3>
+                </div>
+                <img src="img/crab.png" id="crab" class="crab">
+            </div>
+        </div>
+    </main>
+    <script src="JavaScript/intranet.js"></script>
+    <footer>
+        <section id="redes">
+            <a href="https://www.instagram.com/">
+                <img src="img/logoig.png" alt="Instagram"></a>
+            <a href="https://twitter.com/">
+                <img src="img/logotw.png" alt="Twitter"></a>
+            <a href="https://Facebook.com/">
+                <img src="img/face.png" alt="Facebook"></a>
+        </section>
+        Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
+        <section id="licencias">
+            <a href="https://www.google.com/">Terminos y Condiciones</a>
+            <br>
+            <a href="https://www.google.com/">Política de Privacidad</a>
+        </section>
+        <section id="contacto">
+            <a href="tel:+51950661842">
+                <img src="img/telef.png" alt="Telefono">
+                +51 950 661 842
+            </a>
+            <a href="mailto:MarCriollo@gmail.com">
+                <img src="img/correo.png" alt="Correo">
+                MarCriollo@gmail.com
+            </a>
+        </section>
+        &copy; 2024 Creado por Grupo
+    </footer>
+</body>
+
+</html>
