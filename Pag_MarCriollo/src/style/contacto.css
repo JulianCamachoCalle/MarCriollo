@@ -42,8 +42,8 @@ body{
     color: white;
     text-align: center;
     padding: 30px;
-    text-transform: uppercase;
 }
+
 main {
     background-image: url(Imagenes/fondo1.jpg);
     background-size: cover;
