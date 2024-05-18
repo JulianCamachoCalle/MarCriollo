@@ -22,8 +22,9 @@
         border-radius: 30px;
         display: inline-block;
         transition: transform 0.3s;
-        margin: 15px 10px 15px 10px;
-        padding: 5px 8px 5px 8px;
+        margin: 20px 10px;
+        padding: 5px 8px;
+        font-size: 19px;
     } 
 
     #seleccionado {
@@ -101,6 +102,7 @@
         display: inline-block;
         transition: transform 0.3s;
         font-weight: bold;
+        margin: 10px 10px;
     }
 
     #seleccionado {
@@ -167,7 +169,7 @@
 
 @media only screen and (max-width: 480px) {
     .head {
-        font-size: 50px;
+        font-size: 45px;
     }
 
     .logoprincipal img {
@@ -188,6 +190,7 @@
         text-decoration: none;
         display: inline-block;
         transition: transform 0.3s;
+        margin: 10px 10px;
     }
 
     #seleccionado {
@@ -300,6 +303,7 @@ header {
     background-image: linear-gradient(to top, rgb(36, 169, 192), rgb(7, 75, 124));
     padding-top: 30px;
     text-align: center;
+    width: 100%;
 }
 
 /*Class Contenedor de imagen y texto*/
