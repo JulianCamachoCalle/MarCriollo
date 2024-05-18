@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
     <link rel="stylesheet" href="style/recuperarcuenta.css">
-    <script src="lib/mysql2.min.js"></script>
 </head>
 
 <body>
@@ -49,21 +48,30 @@
                     </label>
                     <label class="label">
                         <input type="password" id="password" placeholder=" " class="input">
-                        <span class="label_name">Contraseña</span>
-                        <button class="togglePassword" onclick="togglePassword('password')">Mostrar</button>
+                        <span class="label_name">Nueva Contraseña</span>
+                        <button class="togglePassword" onclick="togglePassword('password')">
+                            <img src="img/ojo.webp" alt="eye" class="imgojo">
+                        </button>
                     </label>
-                    <button class="boton" id="btniniciar" onclick="login()">Cambiar Contraseña</button>
+                    <label class="label">
+                        <input type="password" id="password" placeholder=" " class="input">
+                        <span class="label_name">Repetir Contraseña</span>
+                        <button class="togglePassword" onclick="togglePassword('password2')">
+                            <img src="img/ojo.webp" alt="eye" class="imgojo">
+                        </button>
+                    </label>
+                    <button class="boton" id="btniniciar" onclick="recuperar()">Cambiar Contraseña</button>
                 </div>
             </div>
             <div class="divisionsecundaria">
                 <div class="mensaje">
-                    <h3>Unete para no perderdete todas las novedades!</h3>
+                    <h3>Actualiza tus datos de manera correcta!</h3>
                 </div>
                 <img src="img/crab.png" id="crab" class="crab">
             </div>
         </div>
     </main>
-    <script src="intranet.js"></script>
+    <script src="JavaScript/intranet.js"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

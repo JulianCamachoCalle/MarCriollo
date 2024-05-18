@@ -43,6 +43,10 @@
     h3 {
         font-size: 43px;
     }
+
+    .togglePassword {
+        margin-left: 265px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -76,6 +80,10 @@
     h3 {
         font-size: 36px;
     }
+
+    .togglePassword {
+        margin-left: 265px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -108,6 +116,10 @@
 
     h3 {
         font-size: 28px;
+    }
+
+    .togglePassword {
+        margin-left: 215px;
     }
 }
 
@@ -166,7 +178,7 @@ main {
 
 .label {
     width: max-content;
-    margin: 50px auto;
+    margin: 65px auto;
     display: grid;
     grid-template-areas: "input";
 }
@@ -233,4 +245,28 @@ main {
 
 h3 {
     margin: 10px 0;
+}
+
+.togglePassword {
+    grid-area: input;
+    z-index: 100;
+    width: max-content;
+    align-self: center;
+    height: 50%;
+    width: 8%;
+    ;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.togglePassword img {
+    margin-top: 22px;
+    margin-left: 11px;
+    grid-area: input;
+    width: 20px;
+    height: 15px;
+    align-self: center;
 }

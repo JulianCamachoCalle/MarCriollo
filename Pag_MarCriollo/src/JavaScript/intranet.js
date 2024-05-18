@@ -1,34 +1,29 @@
-const mysql = require('mysql2');
-// Función para establecer la conexión a la base de datos
-function establecerConexion() {
-    // Configuración de la conexión a la base de datos
-    const conexionConfig = {
-        host: 'bv7xx9bbke21yomtrc0m-mysql.services.clever-cloud.com',
-        user: 'uu57wycwjgena4uo',
-        password: 'tvX7fUiY8xKHp0zVuOMx',
-        database: 'bv7xx9bbke21yomtrc0m'
-    };
+const fs = require('fs');
 
-    // Crear la conexión
-    const conexion = new mysql.createConnection(conexionConfig);
+const usuariosPath = './usuarios.json';
 
-    // Manejar errores de conexión
-    conexion.connect((err) => {
-        if (err) {
-            console.error('Error al conectar a la base de datos:', err);
-            return null;
-        }
-        console.log('Conexión a la base de datos establecida exitosamente.');
-    });
-
-    return conexion; // Retornar la conexión establecida
+// Función para leer los usuarios desde el archivo JSON
+function leerUsuarios() {
+    try {
+        const usuariosData = fs.readFileSync(usuariosPath);
+        return JSON.parse(usuariosData);
+    } catch (error) {
+        console.error('Error al leer usuarios:', error);
+        return [];
+    }
 }
 
-// Inicializar la conexión a la base de datos
-let connection = establecerConexion();
+// Función para escribir los usuarios en el archivo JSON
+function escribirUsuarios(usuarios) {
+    try {
+        fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+        console.log('Usuarios actualizados correctamente.');
+    } catch (error) {
+        console.error('Error al escribir usuarios:', error);
+    }
+}
 
 function register() {
-
     // Obtener los valores de los campos
     let nombres = document.getElementById('nombres').value;
     let direccion = document.getElementById('direccion').value;
@@ -37,29 +32,45 @@ function register() {
     let password = document.getElementById('password').value;
     let password2 = document.getElementById('password2').value;
 
-    // Crear la consulta de inserción
-    let sql = 'INSERT INTO usuarios (nombres, direccion, distrito, correo, password) VALUES (?, ?, ?, ?, ?)';
-    let values = [nombres, direccion, distrito, correo, password];
+    // Validar que no haya campos vacíos
+    if (!nombres || !direccion || !distrito || !correo || !password || !password2) {
+        alert('Por favor, rellene todos los campos.');
+        return;
+    }
 
-    // Ejecutar la consulta de inserción
-    connection.query(sql, values, (error, result) => {
-        if (error) {
-            console.error('Error al insertar usuario:', error);
-            alert('Ocurrió un error al registrar el usuario. Por favor, inténtalo de nuevo.');
-        } else {
-            console.log('Usuario registrado con éxito:', result);
-            alert('Registro exitoso para: ' + nombres);
+    // Validar que las contraseñas coincidan
+    if (password != password2) {
+        alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
+        return;
+    }
 
-            // Limpiar los campos después del registro
-            limpiarCampos();
+    // Leer los usuarios actuales
+    const usuarios = leerUsuarios();
 
-            // Redirigir a la pantalla de inicio de sesión
-            window.location.href = 'intranet.html';
-        }
-    });
-}
+    // Verificar si el correo ya está registrado
+    if (usuarios.some(user => user.correo === correo)) {
+        alert('El correo electrónico ya está registrado. Por favor, utilice otro correo.');
+        return;
+    }
 
-// Función para limpiar los campos después del registro
+    // Agregar el nuevo usuario
+    usuarios.push({ nombres, direccion, distrito, correo, password });
+
+    // Escribir los usuarios actualizados en el archivo JSON
+    escribirUsuarios(usuarios);
+
+    // Ejecutar el registro si todas las validaciones pasan
+    console.log('Usuario registrado con éxito!');
+    alert('Registro exitoso!');
+
+    // Limpiar los campos después del registro
+    limpiarCampos();
+
+    // Redirigir a la pantalla de inicio de sesión
+    window.location.href = 'intranet.html';
+};
+
+
 function limpiarCampos() {
     document.getElementById('nombres').value = '';
     document.getElementById('direccion').value = '';
@@ -69,13 +80,11 @@ function limpiarCampos() {
     document.getElementById('password2').value = '';
 }
 
-// Función para validar un correo electrónico
 function validateEmail(email) {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
 
-// Función para mostrar u ocultar la contraseña
 function togglePassword(fieldId) {
     const passwordField = document.getElementById(fieldId);
     if (passwordField.type === 'password') {
@@ -85,7 +94,6 @@ function togglePassword(fieldId) {
     }
 }
 
-// Función para iniciar sesión
 function login() {
     let correo = document.getElementById('correo').value;
     let password = document.getElementById('password').value;
@@ -93,49 +101,25 @@ function login() {
     // Validar datos
     if (correo.trim() === '' || password.trim() === '') {
         alert('Por favor ingrese su correo y contraseña.');
+        return;
     } else if (!validateEmail(correo)) {
         alert('Por favor ingrese un correo electrónico válido.');
-    } else {
-        // Buscar el usuario en la base de datos
-        let sql = 'SELECT * FROM usuarios WHERE correo = ?';
-        connection.query(sql, [correo], (error, results) => {
-            if (error) {
-                console.error('Error al consultar usuario:', error);
-                alert('Ocurrió un error al iniciar sesión. Por favor, inténtalo de nuevo.');
-            } else if (results.length === 0) {
-                alert('Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.');
-            } else {
-                let usuario = results[0];
+        return;
+    }
+    
+    // Simulación de búsqueda de usuario en el archivo JSON
+    const usuarios = leerUsuarios();
+    const usuario = usuarios.find(user => user.correo === correo && user.password === password);
 
-                // Verificar la contraseña (asumiendo que la contraseña está hasheada)
-                if (bcrypt.compareSync(password, usuario.password)) {
-                    // Crear una sesión para el usuario
-                    createSession(usuario);
-                    alert('Inicio de sesión exitoso!');
-                } else {
-                    alert('Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.');
-                }
-            }
-        });
+    if (usuario) {
+        // Si las credenciales son válidas, redirigir a la página principal
+        window.location.href = 'index.html';
+    } else {
+        // Si las credenciales no son válidas, mostrar un mensaje de error
+        alert('Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.');
     }
 }
 
-// Función para crear una sesión de usuario
-function createSession(usuario) {
-    // Generar un token de sesión único
-    let sessionToken = generateSessionToken();
-
-    // Almacenar el token de sesión en la base de datos o en una caché
-    let sql = 'UPDATE usuarios SET session_token = ? WHERE id = ?';
-    connection.query(sql, [sessionToken, usuario.id], (error, result) => {
-        if (error) {
-            console.error('Error al crear la sesión:', error);
-        } else {
-            // Almacenar el token de sesión en una cookie o en el almacenamiento del navegador
-            localStorage.setItem('session_token', sessionToken);
-        }
-    });
-}
 
 function recordarSeleccion() {
     let recordarCheckbox = document.getElementById('recordar');
