@@ -191,7 +191,7 @@ main {
 
 .label {
     width: max-content;
-    margin: 40px auto;
+    margin: 30px auto;
     display: grid;
     grid-template-areas: "input";
 }
