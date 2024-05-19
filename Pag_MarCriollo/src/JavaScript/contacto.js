@@ -1,8 +1,8 @@
 //letras de contactanos
 const typed = new Typed('.typed', {
     strings: [
-        '<i class="contactanoss ">ontactanos </i>', 
-        '<i class="contactanoss">ONTACTANOS </i>' 
+        '<i class="contactanoss ">ontactenos </i>', 
+        '<i class="contactanoss">ONTACTENOS </i>' 
     ],
     stringsElement: '#cadenas-texto',//ID del elemento que contiene cadenas de texto por mostrar.
     typeSpeed: 75,//Velocidad en milisegundos para poner una letra.
