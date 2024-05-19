@@ -1,8 +1,6 @@
 @font-face {
-    font-family: 'Brandford';
+    font-family: Brandford;
     src: url('../fonts/Brandford.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @media only screen and (min-width: 769px) {
