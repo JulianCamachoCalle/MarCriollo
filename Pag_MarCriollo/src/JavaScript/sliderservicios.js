@@ -1,3 +1,4 @@
+/* Selección de Elementos */
 document.addEventListener('DOMContentLoaded', function () {
     const sliderList = document.querySelector('.slider-list');
     const slides = document.querySelectorAll('.slider-list li');
@@ -6,10 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
     const totalSlides = slides.length;
 
+    /* Actualización de la Posición del Slider */
     function updateSliderPosition() {
         sliderList.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
+    /* Navegación Entre Slides */
     function showNextSlide() {
         if (currentIndex < totalSlides - 1) {
             currentIndex++;
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateSliderPosition();
     }
 
+    /* Event Listeners */
     nextButton.addEventListener('click', showNextSlide);
     prevButton.addEventListener('click', showPrevSlide);
 });

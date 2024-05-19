@@ -35,33 +35,33 @@ body {
     margin: 0 auto;
 }
 
+/* Contenedor del Slider */
 .services-slider {
     position: relative;
     max-width: 100%;
     margin: 15px auto;
     padding: 20px;
     background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
-
+/* Lista de slides */
 .slider-list {
     display: flex;
     transition: transform 0.5s ease;
 }
 
+/* Elementos de la Lista: */
 .slider-list li {
     background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
     min-width: 100%;
     border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     list-style-type: none;
     color: white;
 }
 
+/* Botones de navegación */
 .slider-prev,.slider-next {
     position: absolute;
     top: 50%;
@@ -71,7 +71,6 @@ body {
     padding: 10px;
     font-size: 30px;
     cursor: pointer;
-    z-index: 1000;
 }
 
 .slider-prev {
@@ -82,21 +81,11 @@ body {
     right: 1px;
 }
 
-.slider-list figure {
-    margin: 0;
-}
-
 .slider-list img {
     width: 100%;
     height: auto;
     max-height: 550px;
-    object-fit: cover;
     border-radius: 10px 10px 0 0;
-}
-
-.slider-list figcaption {
-    padding: 20px;
-    text-align: center;
 }
 
 .slider-list h3 {
@@ -108,7 +97,8 @@ body {
     font-size: 40px;
 }
 
-/* responsive design */
+/* Diseño responsivo */
+/* dispositivos medianos */
 @media (max-width: 768px) {
     .services-slider {
         max-width: 600px;
@@ -118,6 +108,7 @@ body {
     }
 }
 
+/* dispositivos pequeños */
 @media (max-width: 480px) {
     .services-slider {
         max-width: 400px;
