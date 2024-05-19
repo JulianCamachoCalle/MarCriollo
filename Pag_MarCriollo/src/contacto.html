@@ -53,26 +53,26 @@
                     ¡Llámanos para hacer una reserva o para cualquier consulta! Nuestro equipo estará encantado de atenderte y ayudarte con cualquier pregunta que tengas sobre nuestro delicioso menú y nuestros servicios. ¡Esperamos tu llamada!</p>
             </div>
         </section>
-        <form>
+        <form id="form">
         <section class="ladoderecho">
             <div class="input-group">
-                <label for="name">Nombre</label>
-                <input type="text" name="Nombre" placeholder="Nombre">
+                <label for="from_name">Nombre</label>
+                <input type="text" name="from_name" placeholder="Nombre" id="from_name">
                 <br>
-                <label for="phone">Numero de telefono</label>
-                <input type="tel" name="phone" id="phone" placeholder="Telefono">
+                <label for="phone_id">Numero de telefono</label>
+                <input type="tel" name="phone_id" id="phone_id" placeholder="Telefono">
                 <br>
                 <label for="email">Correo electronico</label>
-                <input type="email" name="email" id="email" placeholder="Correo electronico">
+                <input type="email" name="email_id" id="email_id" placeholder="Correo electronico">
                 <br>
-                <label for="affair">Asunto</label>
-                <input type="text" name="affair" id="affair">
+                <label for="affair_id">Asunto</label>
+                <input type="text" name="affair_id" id="affair_id">
                 <br>
                 <label for="message">Pregunta</label>
                 <br>
                 <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
                 <br>
-                <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje">
+                <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje" id="button">
 
 
             </div>
@@ -106,7 +106,14 @@
         </section>
         &copy; 2024 Creado por Grupo
     </footer>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('2PycRQz0__5oeSeui')</script>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
     <script src="JavaScript/contacto.js"></script>
 </body>
 </html>
