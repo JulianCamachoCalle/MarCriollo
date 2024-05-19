@@ -314,7 +314,7 @@ header {
 
 /*Class head para el texto, que no se mueva y alineado al medio*/
 .head {
-    font-family: 'Brandford';
+    font-family: Brandford;
     color: white;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
