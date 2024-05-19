@@ -1,8 +1,6 @@
 @font-face {
-    font-family: 'Brandford';
-    src: url('../fonts/Brandford.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
+    font-family: Brandford;
+    src: url('../fonts/Brandford.otf') format(truetype);
 }
 
 @media only screen and (min-width: 769px) {
@@ -316,7 +314,7 @@ header {
 
 /*Class head para el texto, que no se mueva y alineado al medio*/
 .head {
-    font-family: 'Brandford';
+    font-family: 'Brandford', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     text-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
 }
