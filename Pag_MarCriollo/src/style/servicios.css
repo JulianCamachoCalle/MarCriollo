@@ -2,7 +2,7 @@
 
 /* variables */
 :root {
-    --primary-color: rgb(7, 75, 124);
+    --primary-color: rgb(0, 109, 182);
     --secondary-color: rgb(36, 169, 192);
     --font-family: Arial, sans-serif;
 }
@@ -40,7 +40,7 @@ body {
     max-width: 100%;
     margin: 15px auto;
     padding: 20px;
-    background-color: var(--secondary-color);
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -53,12 +53,13 @@ body {
 }
 
 .slider-list li {
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
     min-width: 100%;
-    background-color: var(--secondary-color);
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     list-style-type: none;
+    color: white;
 }
 
 .slider-prev,.slider-next {
