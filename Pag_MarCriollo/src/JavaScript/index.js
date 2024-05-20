@@ -31,4 +31,4 @@ function cambiarPlato(direccion) {
     mostrarPlato(currentIndex);
 }
 
-mostrarPlato(currentIndex);
+mostrarPlato(currentIndex); 

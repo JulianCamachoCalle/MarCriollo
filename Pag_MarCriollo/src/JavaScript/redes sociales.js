@@ -1,32 +1,25 @@
-
 // Abrir los enlaces de las redes sociales en una nueva pestaña
 document.querySelectorAll('.social-link').forEach(link => {
     link.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.open(this.href, '_blank');
+        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        window.open(this.href, '_blank'); // Abre el enlace en una nueva pestaña
     });
 });
-// Datos simulados de comentarios
-var comentarios = [
-    { nombre: "Juan", comentario: "¡La comida es deliciosa! Definitivamente volveré.", fecha: "2024-05-15" },
-    { nombre: "María", comentario: "El servicio es excelente, el ambiente muy acogedor.", fecha: "2024-05-14" },
-    { nombre: "Pedro", comentario: "¡Los precios son muy accesibles! Recomiendo el ceviche.", fecha: "2024-05-13" }
-];
 
 // Función para desplazarse hacia arriba de la página
 function scrollToTop() {
     window.scrollTo({
-        top: 0,
+        top: 0, // Desplaza hasta la parte superior de la página
         behavior: "smooth" // Desplazamiento suave
     });
 }
 
 // Mostrar u ocultar el botón de scroll arriba según la posición del usuario
 window.addEventListener("scroll", function() {
-    var scrollButton = document.getElementById("scrollUp");
-    if (document.documentElement.scrollTop > 20) {
-        scrollButton.style.display = "block";
+    var scrollButton = document.getElementById("scrollUp"); // Obtén el botón de scroll arriba
+    if (document.documentElement.scrollTop > 20) { // Si el desplazamiento vertical es mayor a 20 pixels
+        scrollButton.style.display = "block"; // Muestra el botón de scroll arriba
     } else {
-        scrollButton.style.display = "none";
+        scrollButton.style.display = "none"; // Oculta el botón de scroll arriba
     }
 });
