@@ -8,6 +8,10 @@
     <title>MarCriollo</title>
     <link rel="stylesheet" href="style/intranet.css">
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -39,40 +43,115 @@
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
     <main id="main" class="main">
-        <div class="registro">
-            <div class="divisionprincipal">
-                <img src="img/hatchef.webp" alt="chef" class="imagenpos">
-                <div class="iniciarsesion">
-                    <label class="label">
-                        <input type="text" id="correo" placeholder=" " class="input">
-                        <span class="label_name">Ingrese su correo</span>
-                    </label>
-                    <label class="label">
-                        <input type="password" id="password" placeholder=" " class="input">
-                        <span class="label_name">Contraseña</span>
-                        <button class="togglePassword" onclick="togglePassword('password')">
-                            <img src="img/ojo.webp" alt="eye" class="imgojo">
-                        </button>
-                    </label>
-                    <div class="extras">
-                        <div class="recordar">
-                            <input type="checkbox" id="recordar"> Recordar
-                        </div>
-                        <div class="recuperar">
-                            <a href="recuperarcuenta.html">¿Olvidaste tu contraseña?</a>
-                        </div>
+        <div class="contenedor" id="contenedor">
+            <div class="form-contenedor crear-cuenta">
+                <form>
+                    <h1>Create una Cuenta</h1>
+                    <div class="social-iconos">
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
-                    <button class="boton" id="btniniciar" onclick="login()">Iniciar Sesión</button>
-                    <div class="registrarse">
-                        <a href="registrarcuenta.html">Registrarse</a>
-                    </div>
-                </div>
+                    <span>O usa tu correo y contraseña</span>
+                    <input type="name" id="nombres" placeholder="Nombres y Apellidos">
+                    <input type="direccion" id="direccion" placeholder="Direccion">
+                    <select id="distritos" name="distritos">
+                        <option value="">Distrito</option>
+                        <option value="Ancón">Ancón</option>
+                        <option value="Ate">Ate</option>
+                        <option value="Barranco">Barranco</option>
+                        <option value="Breña">Breña</option>
+                        <option value="Carabayllo">Carabayllo</option>
+                        <option value="Chaclacayo">Chaclacayo</option>
+                        <option value="Chorrillos">Chorrillos</option>
+                        <option value="Cieneguilla">Cieneguilla</option>
+                        <option value="Comas">Comas</option>
+                        <option value="El Agustino">El Agustino</option>
+                        <option value="Independencia">Independencia</option>
+                        <option value="Jesús María">Jesús María</option>
+                        <option value="La Molina">La Molina</option>
+                        <option value="La Victoria">La Victoria</option>
+                        <option value="Lince">Lince</option>
+                        <option value="Los Olivos">Los Olivos</option>
+                        <option value="Lurigancho">Lurigancho</option>
+                        <option value="Lurín">Lurín</option>
+                        <option value="Magdalena del Mar">Magdalena del Mar</option>
+                        <option value="Miraflores">Miraflores</option>
+                        <option value="Pachacámac">Pachacámac</option>
+                        <option value="Pucusana">Pucusana</option>
+                        <option value="Pueblo Libre">Pueblo Libre</option>
+                        <option value="Puente Piedra">Puente Piedra</option>
+                        <option value="Punta Hermosa">Punta Hermosa</option>
+                        <option value="Punta Negra">Punta Negra</option>
+                        <option value="Rímac">Rímac</option>
+                        <option value="San Bartolo">San Bartolo</option>
+                        <option value="San Borja">San Borja</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="San Martín de Porres">San Martín de Porres</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="Santa Anita">Santa Anita</option>
+                        <option value="Santa María del Mar">Santa María del Mar</option>
+                        <option value="Santa Rosa">Santa Rosa</option>
+                        <option value="Santiago de Surco">Santiago de Surco</option>
+                        <option value="Surquillo">Surquillo</option>
+                        <option value="Villa El Salvador">Villa El Salvador</option>
+                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                    </select>
+                    <input type="email" id="correo" placeholder="Correo">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <input type="password" id="password2" placeholder="Repetir Contraseña">
+                    <button>Registrarse</button>
+                </form>
             </div>
-            <div class="divisionsecundaria">
-                <div class="mensaje">
-                    <h3>Unete para no perderdete todas las novedades!</h3>
+            <div class="form-contenedor iniciar-sesion">
+                <form>
+                    <h1>Inicia Sesion</h1>
+                    <div class="social-iconos">
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="iconos">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                    <span>Usa tu correo y contraseña</span>
+                    <input type="email" placeholder="Correo">
+                    <input type="password" placeholder="Contraseña">
+                    <a href="#">Olvidaste tu contraseña?</a>
+                    <button>Iniciar Sesion</button>   
+                </form>
+            </div>
+            <div class="cambiar-contenedor">
+                <div class="cambiar">
+                    <div class="cambiar-panel cambiar-izquierda">
+                        <h1>Bienvenido!</h1>
+                        <p>Ingresa todos tus datos correspondientes</p>
+                        <button class="ocultar" id="login">Iniciar Sesion</button>
+                    </div>
+                    <div class="cambiar-panel cambiar-derecha">
+                        <h1>Buen Dia!</h1>
+                        <p>Registra todos tus datos!</p>
+                        <button class="ocultar" id="register">Registrarse</button>
+                    </div>
                 </div>
-                <img src="img/crab.png" id="crab" class="crab">
             </div>
         </div>
     </main>
