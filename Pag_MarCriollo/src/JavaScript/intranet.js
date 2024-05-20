@@ -34,9 +34,6 @@ function register() {
   
     // Limpiar los campos después del registro
     limpiarCampos();
-  
-    // Redirigir a la pantalla de inicio de sesión
-    window.location.href = 'intranet.html';
   }
   
   function login() {
@@ -126,5 +123,5 @@ function register() {
     contenedor.classList.remove("active")
   });
   
-  document.getElementById('btnregistrar').addEventListener('click', register);
-  document.getElementById('btniniciar').addEventListener('click', login);
+  document.getElementById('register').addEventListener('click', register);
+  document.getElementById('login').addEventListener('click', login);
