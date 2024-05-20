@@ -24,27 +24,31 @@ registerForm.addEventListener('submit', (e) => {
     const password = registerForm.querySelector('#password').value;
     const password2 = registerForm.querySelector('#password2').value;
 
-    if (password === password2) {
-        // Crear un objeto usuario
-        const usuario = {
-            nombres,
-            direccion,
-            distrito,
-            correo,
-            password
-        };
+    if (nombres != "" && direccion != "" && correo != "" && password != "" && password2 != "") {
+        if (password === password2) {
+            // Crear un objeto usuario
+            const usuario = {
+                nombres,
+                direccion,
+                distrito,
+                correo,
+                password
+            };
 
-        // Almacenar el usuario en el almacenamiento local
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        usuarios.push(usuario);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            // Almacenar el usuario en el almacenamiento local
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(usuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-        // Mostrar mensaje de éxito
-        alert('Registro exitoso!');
-        limpiarFormulario();
+            // Mostrar mensaje de éxito
+            alert('Registro exitoso!');
+            limpiarFormulario();
+        } else {
+            // Mostrar mensaje de error
+            alert('Las contraseñas no coinciden');
+        }
     } else {
-        // Mostrar mensaje de error
-        alert('Las contraseñas no coinciden');
+        alert('Rellene todos los campos!')
     }
 });
 
@@ -72,9 +76,9 @@ loginForm.addEventListener('submit', (e) => {
 
 // Limpiar Campos
 function limpiarFormulario() {
-  const form = document.querySelector('form');
-  const camposEntrada = form.querySelectorAll('input, textarea, select');
-  camposEntrada.forEach(campo => {
-    campo.value = '';
-  });
+    const form = document.querySelector('form');
+    const camposEntrada = form.querySelectorAll('input, textarea, select');
+    camposEntrada.forEach(campo => {
+        campo.value = '';
+    });
 }
