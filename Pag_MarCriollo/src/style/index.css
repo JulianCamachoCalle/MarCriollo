@@ -451,7 +451,19 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
+#scrollUp {
+    display: none; /* No se muestra */
+    position: fixed; /* Posición fija */
+    bottom: 20px; /* Abajo */
+    right: 20px; /* Derecha */
+    z-index: 99; /* Z-index */
+    cursor: pointer; /* Cursor */
+    padding: 10px; /* Espacio interno */
+    background-color: #333; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+}
 * {
     margin: 0;
     padding: 0;
