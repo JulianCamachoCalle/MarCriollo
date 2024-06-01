@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<html>
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +9,8 @@
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,7 +44,7 @@
     <main id="main" class="main">
         <div class="contenedor" id="contenedor">
             <div class="form-contenedor crear-cuenta">
-                <form action="PHP/formulario.php" method="post">
+                <form action="PHP/formulario.php">
                     <h1>Create una Cuenta</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -116,7 +115,7 @@
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form action="PHP/formulario.php" method="post">
+                <form action="PHP/formulario.php">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -136,7 +135,7 @@
                     <input type="email" name="correo" placeholder="Correo">
                     <input type="password" name="password" placeholder="Contraseña">
                     <a href="#">Olvidaste tu contraseña?</a>
-                    <button>Iniciar Sesion</button>   
+                    <button>Iniciar Sesion</button>
                 </form>
             </div>
             <div class="cambiar-contenedor">
