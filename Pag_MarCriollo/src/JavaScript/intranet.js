@@ -13,23 +13,3 @@ registerButton.addEventListener('click', () => {
 loginButton.addEventListener('click', () => {
     contenedor.classList.remove('active');
 });
-
-// Eventos para el formulario de registro
-registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    registerForm.submit();
-});
-
-// Eventos para el formulario de inicio de sesión
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    loginForm.submit();
-});
-
-// Limpiar Campos (Opcional)
-function limpiarFormulario(form) {
-    const camposEntrada = form.querySelectorAll('input, textarea, select');
-    camposEntrada.forEach(campo => {
-        campo.value = '';
-    });
-}

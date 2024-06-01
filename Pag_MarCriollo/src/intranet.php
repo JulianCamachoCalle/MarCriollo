@@ -37,15 +37,19 @@
             <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
             <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
             <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
-            <li><a id="seleccionado" href="intranet.html">Intranet</a></li>
+            <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
     <main id="main" class="main">
         <div class="contenedor" id="contenedor">
             <div class="form-contenedor crear-cuenta">
-                <form action="PHP/formulario.php">
+                <form action="" method="post" class="formulario">
                     <h1>Create una Cuenta</h1>
+                    <?php
+                    include("PHP/conexion.php");
+                    include("PHP/registrar.php");
+                    ?>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
                             <i class="fa-brands fa-google-plus-g"></i>
@@ -111,11 +115,11 @@
                     <input type="email" name="correo" id="correo" placeholder="Correo">
                     <input type="password" name="password" id="password" placeholder="Contraseña">
                     <input type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
-                    <button>Registrarse</button>
+                    <button name="registrar">Registrarse</button>
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form action="PHP/formulario.php">
+                <form action="" method="post" class="formulario">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -135,7 +139,7 @@
                     <input type="email" name="correo" placeholder="Correo">
                     <input type="password" name="password" placeholder="Contraseña">
                     <a href="#">Olvidaste tu contraseña?</a>
-                    <button>Iniciar Sesion</button>
+                    <button name="iniciar">Iniciar Sesion</button>
                 </form>
             </div>
             <div class="cambiar-contenedor">
