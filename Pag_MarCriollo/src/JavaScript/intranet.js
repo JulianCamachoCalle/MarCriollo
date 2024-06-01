@@ -17,66 +17,17 @@ loginButton.addEventListener('click', () => {
 // Eventos para el formulario de registro
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nombres = registerForm.querySelector('#nombres').value;
-    const direccion = registerForm.querySelector('#direccion').value;
-    const distrito = registerForm.querySelector('#distritos').value;
-    const correo = registerForm.querySelector('#correo').value;
-    const password = registerForm.querySelector('#password').value;
-    const password2 = registerForm.querySelector('#password2').value;
-
-    if (nombres != "" && direccion != "" && correo != "" && password != "" && password2 != "") {
-        if (password === password2) {
-            // Crear un objeto usuario
-            const usuario = {
-                nombres,
-                direccion,
-                distrito,
-                correo,
-                password
-            };
-
-            // Almacenar el usuario en el almacenamiento local
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-            usuarios.push(usuario);
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-            // Mostrar mensaje de éxito
-            alert('Registro exitoso!');
-            limpiarFormulario();
-        } else {
-            // Mostrar mensaje de error
-            alert('Las contraseñas no coinciden');
-        }
-    } else {
-        alert('Rellene todos los campos!')
-    }
+    registerForm.submit();
 });
 
-// Inicio de sesion
+// Eventos para el formulario de inicio de sesión
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const correo = loginForm.querySelector('input[type="email"]').value;
-    const password = loginForm.querySelector('input[type="password"]').value;
-
-    // Obtener los usuarios del almacenamiento local
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-    // Buscar el usuario que coincide con el correo y contraseña
-    const usuario = usuarios.find((usuario) => usuario.correo === correo && usuario.password === password);
-
-    if (usuario) {
-        // Mostrar mensaje de éxito
-        alert('Inicio de sesión exitoso!');
-        window.location.href = "index.html";
-    } else {
-        // Mostrar mensaje de error
-        alert('Correo o contraseña incorrectos');
-    }
+    loginForm.submit();
 });
 
-// Limpiar Campos
-function limpiarFormulario() {
-    const form = document.querySelector('form');
+// Limpiar Campos (Opcional)
+function limpiarFormulario(form) {
     const camposEntrada = form.querySelectorAll('input, textarea, select');
     camposEntrada.forEach(campo => {
         campo.value = '';

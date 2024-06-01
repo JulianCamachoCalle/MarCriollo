@@ -45,7 +45,7 @@
     <main id="main" class="main">
         <div class="contenedor" id="contenedor">
             <div class="form-contenedor crear-cuenta">
-                <form>
+                <form action="PHP/formulario.php" method="post">
                     <h1>Create una Cuenta</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -62,8 +62,8 @@
                         </a>
                     </div>
                     <span>O usa tu correo y contraseña</span>
-                    <input type="name" id="nombres" placeholder="Nombres y Apellidos">
-                    <input type="direccion" id="direccion" placeholder="Direccion">
+                    <input type="name" name="nombres" id="nombres" placeholder="Nombres y Apellidos">
+                    <input type="direccion" name="direccion" id="direccion" placeholder="Direccion">
                     <select id="distritos" name="distritos">
                         <option value="">Distrito</option>
                         <option value="Ancón">Ancón</option>
@@ -109,14 +109,14 @@
                         <option value="Villa El Salvador">Villa El Salvador</option>
                         <option value="Villa María del Triunfo">Villa María del Triunfo</option>
                     </select>
-                    <input type="email" id="correo" placeholder="Correo">
-                    <input type="password" id="password" placeholder="Contraseña">
-                    <input type="password" id="password2" placeholder="Repetir Contraseña">
+                    <input type="email" name="correo" id="correo" placeholder="Correo">
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <input type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
                     <button>Registrarse</button>
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form>
+                <form action="PHP/formulario.php" method="post">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -133,8 +133,8 @@
                         </a>
                     </div>
                     <span>Usa tu correo y contraseña</span>
-                    <input type="email" placeholder="Correo">
-                    <input type="password" placeholder="Contraseña">
+                    <input type="email" name="correo" placeholder="Correo">
+                    <input type="password" name="password" placeholder="Contraseña">
                     <a href="#">Olvidaste tu contraseña?</a>
                     <button>Iniciar Sesion</button>   
                 </form>
