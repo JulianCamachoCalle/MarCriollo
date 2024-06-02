@@ -1,15 +1,3 @@
-/*Cambiar fondo
-const mainElement = document.getElementById('main');
-const backgrounds = ['fondo1', 'fondo2', 'fondo3'];
-let currentIndex = 0;
-
-function cambiarFondo() {
-    mainElement.className = `main ${backgrounds[currentIndex]}`;
-    currentIndex = (currentIndex + 1) % backgrounds.length;
-}
-
-setInterval(cambiarFondo, 5000);*/
-
 //PLATOS
 const carrusel = document.querySelector('.carrusel');
 const platos = document.querySelectorAll('.plato');
@@ -52,6 +40,9 @@ window.addEventListener("scroll", function() {
 });
 
 
+
+
+
                             //Buscador de contenido
 
 
@@ -90,7 +81,7 @@ function ocultar_buscador(){
 }
 
 
-//Creando filtrado de busqueda en tiempo real
+//Funcion de filtrado de busqueda en tiempo real
 
 document.getElementById("inputSearch").addEventListener("keyup", buscador_interno);
 
