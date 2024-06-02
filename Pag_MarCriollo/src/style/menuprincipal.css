@@ -40,7 +40,7 @@ main {
     flex-direction: row;
 }
 
-.contenedor-slider{
+.contenedor-slider {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +63,7 @@ main {
 }
 
 .contenedor-foto {
-    background-color: white; 
+    background-color: white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -80,9 +80,12 @@ main {
 .contenedor-informacion {
     border-radius: 50px;
     display: flex;
-    width: 65%;
+    width: 50%;
     justify-content: center;
     align-items: center;
+}
+
+.contenedor-informacion .texto {
     font-size: 30px;
     color: white;
 }

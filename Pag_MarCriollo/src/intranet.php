@@ -48,7 +48,7 @@ if(isset($_SESSION['usuario'])) {
             <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
             <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
             <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
-            <li><a id="seleccionado" href="intranet.html">Intranet</a></li>
+            <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>

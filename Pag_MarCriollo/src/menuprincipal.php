@@ -1,31 +1,3 @@
-<?php
-
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    echo "<body>";
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
-    echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Inicia Sesion!',
-            });
-        </script>
-        </body>";
-    session_destroy();
-    die();
-}
-
-session_destroy();
-
-?>
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -76,9 +48,11 @@ session_destroy();
                     <img src="img/usuario.webp" alt="img-perfil">
                 </div>
                 <div class="contenedor-informacion">
-                    <?php
-                    include("PHP/datos.php")
-                    ?>
+                    <div class="texto">
+                        <?php
+                        include 'PHP/datos.php';
+                        ?>
+                    </div>
                 </div>
             </div>
             <div class="contenedor-slider">
