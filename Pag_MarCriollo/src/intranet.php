@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['usuario'])) {
+    header("location: menuprincipal.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>
@@ -115,7 +126,7 @@
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form action="" method="post">
+                <form action="PHP/iniciosesion.php" method="POST">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -155,6 +166,7 @@
         </div>
     </main>
     <script src="JavaScript/intranet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
