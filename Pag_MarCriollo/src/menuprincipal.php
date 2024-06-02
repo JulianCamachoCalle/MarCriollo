@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    echo "<body>";
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+
+    echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Inicia Sesion!',
+            });
+        </script>
+        </body>";
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,7 +58,7 @@
             <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
             <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
             <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
-            <li><a id="seleccionado" href="intranet.html">Intranet</a></li>
+            <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
@@ -50,8 +71,25 @@
                 <div class="contenedor-informacion">
                     <div class="texto">
                         <?php
-                        include 'PHP/datos.php';
+                        if (isset($_SESSION['usuario'])) {
+                            $correo = $_SESSION['usuario'];
+                            include 'PHP/conexion.php';
+                            // Consulta a la base de datos para obtener los datos del usuario
+                            $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
+                            $datos_usuario = mysqli_fetch_assoc($consulta);
+
+                            // Mostrar los datos del usuario
+                            echo '<div>';
+                            echo 'Nombres Y Apellidos: ' . $datos_usuario['nombres'] . '<br>';
+                            echo 'Correo electrónico: ' . $datos_usuario['correo'] . '<br>';
+                            echo 'Direccion: ' . $datos_usuario['direccion'] . '<br>';
+                            echo 'Distrito: ' . $datos_usuario['distrito'] . '<br>';
+                            echo '</div>';
+                        }
                         ?>
+                    </div>
+                    <div class="cerrar-sesion">
+                        <a href="PHP/cerrarsesion.php">Cerrar Sesion</a>
                     </div>
                 </div>
             </div>

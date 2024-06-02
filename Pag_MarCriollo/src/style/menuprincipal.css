@@ -81,11 +81,20 @@ main {
     border-radius: 50px;
     display: flex;
     width: 50%;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 .contenedor-informacion .texto {
     font-size: 30px;
     color: white;
+}
+
+a {
+    border-radius: 10px;
+    background-color: red;
+    font-size: 30px;
+    padding: 10px;
+    font-style: none;
 }
