@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
-    <link rel="stylesheet" href="style/recuperarcuenta.css">
+    <link rel="stylesheet" href="style/menuprincipal.css">
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -38,41 +41,9 @@
         </ul>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
-    <main id="main" class="main">
-        <div class="registro">
-            <div class="divisionprincipal">
-                <img src="img/hatchef.webp" alt="chef" class="imagenpos">
-                <div class="iniciarsesion">
-                    <label class="label">
-                        <input type="text" id="correo" placeholder=" " class="input">
-                        <span class="label_name">Ingrese su correo</span>
-                    </label>
-                    <label class="label">
-                        <input type="password" id="password" placeholder=" " class="input">
-                        <span class="label_name">Nueva Contraseña</span>
-                        <button class="togglePassword" onclick="togglePassword('password')">
-                            <img src="img/ojo.webp" alt="eye" class="imgojo">
-                        </button>
-                    </label>
-                    <label class="label">
-                        <input type="password" id="password" placeholder=" " class="input">
-                        <span class="label_name">Repetir Contraseña</span>
-                        <button class="togglePassword" onclick="togglePassword('password2')">
-                            <img src="img/ojo.webp" alt="eye" class="imgojo">
-                        </button>
-                    </label>
-                    <button class="boton" id="btniniciar" onclick="recuperar()">Cambiar Contraseña</button>
-                </div>
-            </div>
-            <div class="divisionsecundaria">
-                <div class="mensaje">
-                    <h3>Actualiza tus datos de manera correcta!</h3>
-                </div>
-                <img src="img/crab.png" id="crab" class="crab">
-            </div>
-        </div>
+    <main>
+
     </main>
-    <script src="JavaScript/intranet.js"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
