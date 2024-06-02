@@ -1,6 +1,3 @@
-// Seleccionar elementos del DOM
-const registerForm = document.querySelector('.crear-cuenta form');
-const loginForm = document.querySelector('.iniciar-sesion form');
 const registerButton = document.getElementById('register');
 const loginButton = document.getElementById('login');
 const contenedor = document.getElementById('contenedor');

@@ -47,7 +47,6 @@
                 <form action="" method="post" class="formulario">
                     <h1>Create una Cuenta</h1>
                     <?php
-                    include("PHP/conexion.php");
                     include("PHP/registrar.php");
                     ?>
                     <div class="social-iconos">
@@ -115,11 +114,11 @@
                     <input type="email" name="correo" id="correo" placeholder="Correo">
                     <input type="password" name="password" id="password" placeholder="Contraseña">
                     <input type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
-                    <button name="registrar">Registrarse</button>
+                    <button type="submit" name="registro">Registrarse</button>
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form action="" method="post" class="formulario">
+                <form action="" method="post">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -139,7 +138,7 @@
                     <input type="email" name="correo" placeholder="Correo">
                     <input type="password" name="password" placeholder="Contraseña">
                     <a href="#">Olvidaste tu contraseña?</a>
-                    <button name="iniciar">Iniciar Sesion</button>
+                    <button>Iniciar Sesion</button>
                 </form>
             </div>
             <div class="cambiar-contenedor">
