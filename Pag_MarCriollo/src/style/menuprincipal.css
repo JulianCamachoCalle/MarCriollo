@@ -1,5 +1,119 @@
 @import url("headerfooter.css");
 
+@media only screen and (min-width: 1440px) {
+
+    .contenedor-principal,
+    .contenedor-slider {
+        height: 45%;
+    }
+
+    .texto {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 30px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+
+    .contenedor-principal,
+    .contenedor-slider {
+        height: 45%;
+    }
+
+    .texto {
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .contenedor-principal,
+    .contenedor-slider {
+        height: 45%;
+    }
+
+    .texto {
+        font-size: 20px;
+        line-height: 50px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contenedor-principal{
+        height: 30%;
+    }
+
+    .contenedor-slider {
+        height: 30%;
+    }
+
+    .texto {
+        font-size: 15px;
+        line-height: 35px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 15px;
+        padding: 8px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contenedor-principal{
+        height: 20%;
+    }
+
+    .contenedor-slider {
+        height: 20%;
+    }
+
+    .texto {
+        font-size: 12px;
+        line-height: 30px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .contenedor-principal{
+        height: 15%;
+    }
+
+    .contenedor-slider {
+        height: 15%;
+    }
+
+    .texto {
+        font-size: 8px;
+        line-height: 30px;
+    }
+
+    .cerrar-sesion a {
+        font-size: 8px;
+        padding: 4px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,12 +129,12 @@ main {
 
 .contenedor {
     display: flex;
-    background-image: url(../img/fondo10.webp);
+    background-image: url(../img/fondo20.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
@@ -29,8 +143,6 @@ main {
 .contenedor-slider {
     display: flex;
     width: 100%;
-    height: 50%;
-    margin: 10px;
     border-radius: 50px;
 }
 
@@ -58,12 +170,11 @@ main {
 .contenedor-informacion {
     display: flex;
     height: 90%;
-    margin: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
 
 .contenedor-foto {
-    background-color: white;
+    background-image: linear-gradient(to right, rgb(36, 169, 192), rgb(7, 75, 124));
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -81,20 +192,22 @@ main {
     border-radius: 50px;
     display: flex;
     width: 50%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
+    background-image: linear-gradient(to right, rgb(91, 184, 201), rgb(36, 169, 192), rgb(7, 75, 124));
 }
 
-.contenedor-informacion .texto {
-    font-size: 30px;
+.texto {
     color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
 
-a {
-    border-radius: 10px;
+.cerrar-sesion a {
+    border-radius: 20px;
     background-color: red;
-    font-size: 30px;
-    padding: 10px;
-    font-style: none;
+    color: white;
+    text-decoration: none;
+    font-family: monospace, Courier, monospace;
 }

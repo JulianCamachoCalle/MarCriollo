@@ -1,5 +1,7 @@
 <?php
 
+//Verificar que haya un inicio de sesion
+
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -11,9 +13,16 @@ if (!isset($_SESSION['usuario'])) {
             icon: 'error',
             title: 'Oops...',
             text: 'Inicia Sesion!',
-            });
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '../src/intranet.php';
+            }
+        });
         </script>
         </body>";
+    //Cerrar sesion
     session_destroy();
     die();
 }
@@ -69,18 +78,20 @@ if (!isset($_SESSION['usuario'])) {
                     <img src="img/usuario.webp" alt="img-perfil">
                 </div>
                 <div class="contenedor-informacion">
-                    <div class="texto">
+                    <div class="info">
                         <?php
+                        // Verificar el inicio de sesion
                         if (isset($_SESSION['usuario'])) {
                             $correo = $_SESSION['usuario'];
+                            // Establecer la conexion
                             include 'PHP/conexion.php';
                             // Consulta a la base de datos para obtener los datos del usuario
                             $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
                             $datos_usuario = mysqli_fetch_assoc($consulta);
 
                             // Mostrar los datos del usuario
-                            echo '<div>';
-                            echo 'Nombres Y Apellidos: ' . $datos_usuario['nombres'] . '<br>';
+                            echo '<div class="texto">';
+                            echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'] . '<br>';
                             echo 'Correo electrónico: ' . $datos_usuario['correo'] . '<br>';
                             echo 'Direccion: ' . $datos_usuario['direccion'] . '<br>';
                             echo 'Distrito: ' . $datos_usuario['distrito'] . '<br>';
