@@ -1,1 +1,40 @@
 @import url("headerfooter.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1;
+    background-image: url(../img/fondo5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    background-color: black;
+    display: flex;
+}
+
+.contenedor-principal {
+    background-color: red;
+}
+
+.contenedor-foto {
+    background-color: green;
+}
+
+.contenedor-informacion {
+    background-color: violet;
+}
+
+.contenedor-secundario {
+    background-color: blue;
+}

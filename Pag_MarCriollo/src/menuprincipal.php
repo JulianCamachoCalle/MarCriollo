@@ -42,7 +42,19 @@
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
     <main>
+        <div class="contenedor">
+            <div class="contenedor-principal">
+                <div class="contenedor-foto">
 
+                </div>
+                <div class="contenedor-informacion">
+
+                </div>
+            </div>
+            <div class="contenedor-secundario">
+
+            </div>
+        </div>
     </main>
     <footer>
         <section id="redes">
