@@ -48,7 +48,7 @@
         margin: 15px 0 10px;
     }
 
-    .contenedor button {
+    .contenedor button, .button {
         font-size: 12px;
         padding: 10px 45px;
     }
@@ -93,7 +93,7 @@
         margin: 13px 0 8px;
     }
 
-    .contenedor button {
+    .contenedor button, .button {
         font-size: 7px;
         padding: 10px 35px;
     }
@@ -136,7 +136,7 @@
         margin: 13px 0 8px;
     }
 
-    .contenedor button {
+    .contenedor button, .button {
         font-size: 6px;
         padding: 10px 20px;
     }
@@ -179,7 +179,7 @@
         font-size: 8px;
     }
 
-    .contenedor button {
+    .contenedor button, .button {
         font-size: 6px;
         padding: 10px 15px;
     }
@@ -221,7 +221,7 @@ main {
     text-decoration: none;
 }
 
-.contenedor button {
+.contenedor button, .button {
     background-color: rgb(7, 75, 124);
     color: white;
     border: 1px solid transparent;
