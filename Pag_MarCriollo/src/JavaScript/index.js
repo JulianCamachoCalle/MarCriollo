@@ -90,7 +90,7 @@ function ocultar_buscador(){
 }
 
 
-//Creando filtrado de busqueda
+//Creando filtrado de busqueda en tiempo real
 
 document.getElementById("inputSearch").addEventListener("keyup", buscador_interno);
 
