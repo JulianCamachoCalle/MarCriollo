@@ -4,7 +4,6 @@ echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Procesar los datos del formulario (aquí iría tu código para procesar el formulario)
     
     // Una vez procesado el formulario con éxito, mostramos el mensaje de éxito con SweetAlert2
     echo '<script>';
