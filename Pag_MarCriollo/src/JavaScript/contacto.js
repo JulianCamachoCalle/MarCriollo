@@ -19,8 +19,8 @@ const typed = new Typed('.typed', {
 
 emailjs.init('2PycRQz0__5oeSeui');
 
-const btn = document.getElementById('button');
 const form = document.getElementById('form');
+const btn = document.getElementById('button');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
@@ -33,12 +33,16 @@ form.addEventListener('submit', function(event) {
     // Enviar el formulario utilizando EmailJS
     emailjs.sendForm(serviceID, templateID, this)
         .then(() => {
-            btn.value = 'Enviar mensaje'; // Cambiar el valor del botón de vuelta a 'Enviar Email' después de enviar el formulario
-            alert('¡Enviado!'); // Mostrar una alerta indicando que el mensaje ha sido enviado correctamente
-            form.reset(); // Restablecer los valores del formulario
+            btn.value = 'Enviar Email'; // Cambiar el valor del botón de vuelta a 'Enviar Email' después de enviar el formulario
+            Swal.fire({
+                title: "¡Excelente!",
+                text: "¡Has enviado el mensaje correctamente!",
+                icon: "success"
+            });
+            form.reset(); // Limpiar el formulario después de enviar el mensaje
         })
         .catch((err) => {
-            btn.value = 'Enviar mensaje'; // Cambiar el valor del botón de vuelta a 'Enviar Email' en caso de error
+            btn.value = 'Enviar Email'; // Cambiar el valor del botón de vuelta a 'Enviar Email' en caso de error
             alert(JSON.stringify(err)); // Mostrar una alerta con el mensaje de error
         });
 });
