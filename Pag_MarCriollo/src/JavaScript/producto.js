@@ -1,4 +1,10 @@
-// script.js
+// Cambio de imagen del contenedor Grande
+function cambiarImagen(imagen) {
+    var imagenGrande = document.getElementById("imagen-grande");
+    imagenGrande.src = imagen.src;
+  }
+
+// Ruleta (No implementado)
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);

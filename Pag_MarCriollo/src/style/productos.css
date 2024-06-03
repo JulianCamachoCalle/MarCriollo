@@ -57,7 +57,7 @@
                 cursor: pointer;
                 overflow: hidden;
 
-                img {
+                #imagen-grande {
                     max-width: 100%;
                     max-width: 100%;
                     object-fit: contain;
@@ -69,6 +69,8 @@
             min-width: 400px;
             height: 100%;
             padding-inline: 5px;
+            background-color: rgb(237, 248, 255);
+            border-radius: 10px;
             /* border: 2px solid rgb(245, 20, 230); */
 
             .tipo {
