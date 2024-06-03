@@ -31,13 +31,31 @@ document.getElementById("form").addEventListener("submit", function(event) {
   })
   .then(response => response.text())
   .then(data => {
-      // Mostrar mensaje de éxito
-      alert('Mensaje enviado con éxito!');
+      // Mostrar mensaje de éxito con SweetAlert2
+      Swal.fire({
+          title: "¡Mensaje enviado!",
+          text: data,
+          icon: "success"
+      });
+      // Restablecer el formulario
       document.getElementById("form").reset();
   })
   .catch(error => {
-      // Mostrar mensaje de error
+      // Mostrar mensaje de error en la consola
       console.error('Error:', error);
-      alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+      // Mostrar mensaje de error con SweetAlert2
+      Swal.fire({
+          title: "Error",
+          text: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+          icon: "error"
+      });
   });
+
+  // Envía el formulario utilizando EmailJS
+  emailjs.sendForm('default_service', 'template_g18tx0s', this)
+      .then(function(response) {
+          console.log('Success!', response.status, response.text);
+      }, function(error) {
+          console.error('Failed...', error);
+      });
 });
