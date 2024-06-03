@@ -18,23 +18,26 @@ const typed = new Typed('.typed', {
     contentType: 'html',// html o null para texto sin formato.
 });
 //formulario
-const btn = document.getElementById('button'); //esta capturando el boton
+document.getElementById("form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-document.getElementById('form') // caprtura el id del fotmulario
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+  // Obtener datos del formulario
+  const formData = new FormData(this);
 
-   btn.value = 'Enviando...';//el boton va a decir enviando
-
-   const serviceID = 'default_service';
-   const templateID = 'template_g18tx0s';
-
-   emailjs.sendForm(serviceID, templateID, this)// parametros
-    .then(() => {
-      btn.value = 'Enviar mensaje';
-      alert('Enviado!');// si sale todo bien va a salir enviado
-    }, (err) => {
-      btn.value = 'Enviar mensaje';
-      alert(JSON.stringify(err));//saldra error
-    });
+  // Enviar datos usando Fetch API
+  fetch(this.action, {
+      method: this.method,
+      body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+      // Mostrar mensaje de éxito
+      alert('Mensaje enviado con éxito!');
+      document.getElementById("form").reset();
+  })
+  .catch(error => {
+      // Mostrar mensaje de error
+      console.error('Error:', error);
+      alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+  });
 });

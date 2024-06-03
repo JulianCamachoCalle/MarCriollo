@@ -53,7 +53,7 @@
                     ¡Llámanos para hacer una reserva o para cualquier consulta! Nuestro equipo estará encantado de atenderte y ayudarte con cualquier pregunta que tengas sobre nuestro delicioso menú y nuestros servicios. ¡Esperamos tu llamada!</p>
             </div>
         </section>
-        <form id="form">
+        <form id="form" action="PHP/Contacto.php" method="post">
         <section class="ladoderecho">
             <div class="input-group">
                 <label for="from_name">Nombre</label>
@@ -73,8 +73,6 @@
                 <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
                 <br>
                 <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje" id="button">
-
-
             </div>
         </section>   
     </form>
@@ -106,6 +104,7 @@
         </section>
         &copy; 2024 Creado por Grupo
     </footer>
+    
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -113,7 +112,12 @@
         emailjs.init('2PycRQz0__5oeSeui')</script>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="JavaScript/contacto.js"></script>
+
+
+
 </body>
 </html>
