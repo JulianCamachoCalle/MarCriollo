@@ -1,61 +1,36 @@
-//letras de contactanos
 const typed = new Typed('.typed', {
     strings: [
-        '<i class="contactanoss ">ontactenos </i>', 
-        '<i class="contactanoss">ONTACTENOS </i>' 
+        '<i class="contactanoss ">ontactanos </i>', 
+        '<i class="contactanoss">ONTACTANOS </i>' 
     ],
-    stringsElement: '#cadenas-texto',//ID del elemento que contiene cadenas de texto por mostrar.
-    typeSpeed: 75,//Velocidad en milisegundos para poner una letra.
-    startDelay: 300,//Tiempo de retraso para mostrar la aminacion.
-    backSpeed: 75,//Velocidad en milisegundos para borrar una letra.
-    smartBackspace: true,//Eliminar solamente las palabras que sean nuevas en una cadana de texto.
-    shuffle: false,//Alterar el orden en el que escribe las palabras.
-    backDelay: 1500,//tiempo en espera despues de que termine una palabra.
-    loop: true,//repetit el array de strings.
-    loopCount: false,//Cantidad de veces a repetir el array: false= infinito.
-    showCursor: true,//mostrrar cursor palpitante.
-    cursorChar: '',//Caracter para el cursor.
-    contentType: 'html',// html o null para texto sin formato.
+    typeSpeed: 75,
+    startDelay: 300,
+    backSpeed: 75,
+    smartBackspace: true,
+    shuffle: false,
+    backDelay: 1500,
+    loop: true,
+    loopCount: false,
+    showCursor: true,
+    cursorChar: '',
+    contentType: 'html',
 });
-//formulario
-document.getElementById("form").addEventListener("submit", function(event) {
-  event.preventDefault();
 
-  // Obtener datos del formulario
-  const formData = new FormData(this);
-
-  // Enviar datos usando Fetch API
-  fetch(this.action, {
-      method: this.method,
-      body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-      // Mostrar mensaje de éxito con SweetAlert2
-      Swal.fire({
-          title: "¡Mensaje enviado!",
-          text: data,
-          icon: "success"
-      });
-      // Restablecer el formulario
-      document.getElementById("form").reset();
-  })
-  .catch(error => {
-      // Mostrar mensaje de error en la consola
-      console.error('Error:', error);
-      // Mostrar mensaje de error con SweetAlert2
-      Swal.fire({
-          title: "Error",
-          text: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
-          icon: "error"
-      });
-  });
-
-  // Envía el formulario utilizando EmailJS
-  emailjs.sendForm('default_service', 'template_g18tx0s', this)
-      .then(function(response) {
-          console.log('Success!', response.status, response.text);
-      }, function(error) {
-          console.error('Failed...', error);
-      });
+emailjs.init('2PycRQz0__5oeSeui');
+const form = document.getElementById('form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+    const btn = document.getElementById('button');
+    btn.value = 'Enviando...'; // Cambiar el valor del botón a 'Enviando...' mientras se envía el formulario
+    const serviceID = 'default_service'; // ID del servicio de EmailJS
+    const templateID = 'template_g18tx0s'; // ID de la plantilla de EmailJS
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            // Redirigir al usuario a una página de confirmación
+            window.location.href = 'PHP/contacto.php';
+        })
+        .catch((err) => {
+            btn.value = 'Enviar mensaje'; // Cambiar el valor del botón de vuelta a 'Enviar Email' en caso de error
+            alert(JSON.stringify(err)); // Mostrar una alerta con el mensaje de error
+        });
 });
