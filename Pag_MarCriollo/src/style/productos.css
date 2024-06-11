@@ -3,14 +3,16 @@
 
 
 /* RESPONSIVE*/
-@media only screen and (min-width: 769px) { /*Ventana MAYOR*/
+@media only screen and (min-width: 700px) { /*Ventana MAYOR*/
+
     .productoCarta {    /* Implementacion del diseño ruleta */
-        margin-top: 40px;
-        margin-bottom: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: auto;
         height: 80vh;
         min-height: 500px;
         display: flex;
+        flex-direction: row; /* Fila */
         
         /* border: 2px solid black; */
         .ruletaProducto {
@@ -41,6 +43,7 @@
             }
         }
         .imgProducto {  /* Imagen principal */
+            /* border: 2px solid black; */
             width: 60vw;
             height: 100%;
             display: flex;
@@ -59,7 +62,6 @@
 
                 #imagen-grande {
                     max-width: 100%;
-                    max-width: 100%;
                     object-fit: contain;
                 }
             }
@@ -68,8 +70,8 @@
             width: 50vw;
             min-width: 400px;
             height: 100%;
-            padding-inline: 5px;
-            background-color: rgb(237, 248, 255);
+            padding-inline: 10px;
+            /* background-color: rgb(237, 248, 255); */
             border-radius: 10px;
             margin-right: 20px;
             /* border: 2px solid rgb(245, 20, 230); */
@@ -199,15 +201,13 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-align: center;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 15px;
+                    color: white;
                     transition: background-color 0.2s ease, transform 0.3s ease;
-                    
-                    a {
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                        font-size: 15px;
-                        color: white;
-                    }
                 }
                 .botonPedir:hover {
                     background-color: rgb(89, 176, 238);
@@ -216,12 +216,56 @@
             }
         }
     }
+
+    .conMain-Descripcion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /*Espacio entre los contenedores*/
+        padding-inline: 10%;
+
+        .item {
+            flex: 1 1 calc(33.333% - 20px); /* Ancho flexible, con espacio entre los contenedores */
+            min-width: 200px;
+            height: auto;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-inline: 10px;
+            padding-block: 20px;
+        }
+        .item h1 {
+            color: #071326;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            padding-block: 15px;
+        }
+        .item p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 2;
+        }
+        .con-img {
+            width: auto;
+            height: 100px;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .conMain-Ruleta {
+
+    }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
     .productoCarta {    /* Implementacion del diseño ruleta */
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-bottom: 60px;
         width: auto;
         height: auto;
         display: flex;
@@ -264,8 +308,8 @@
             overflow: hidden;
             /* border: 2px solid rgb(52, 241, 0); */
             .conImagen {
-                width: 85%;
-                height: 85%;
+                width: auto;
+                height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -273,8 +317,7 @@
                 overflow: hidden;
 
                 img {
-                    max-width: 100%;
-                    max-width: 100%;
+                    height: 100%;
                     object-fit: contain;
                 }
             }
@@ -411,15 +454,13 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-align: center;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 15px;
+                    color: white;
                     transition: background-color 0.2s ease, transform 0.3s ease;
-                    
-                    a {
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                        font-size: 15px;
-                        color: white;
-                    }
                 }
                 .botonPedir:hover {
                     background-color: rgb(89, 176, 238);
@@ -427,6 +468,49 @@
                 }
             }
         }
+    }
+    .conMain-Descripcion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /*Espacio entre los contenedores*/
+        padding-inline: 10%;
+
+        .item {
+            flex: 1 1 calc(33.333% - 20px); /* Ancho flexible, con espacio entre los contenedores */
+            min-width: 200px;
+            height: auto;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-inline: 10px;
+            padding-block: 20px;
+        }
+        .item h1 {
+            color: #071326;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            padding-block: 15px;
+        }
+        .item p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 2;
+        }
+        .con-img {
+            width: auto;
+            height: 100px;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .conMain-Ruleta {
+
     }
 }
 
@@ -452,4 +536,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.linea-separadora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    hr {
+        color: black;
+        width: 80%;
+    }
 }
