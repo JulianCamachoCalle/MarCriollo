@@ -4,7 +4,41 @@ function cambiarImagen(imagen) {
     imagenGrande.src = imagen.src;
   }
 
-// Ruleta (No implementado)
+// Ruleta de tarjeta de platos recomendados - No funcional
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.conMain-Ruleta');
+    const cards = document.querySelectorAll('.tarjeta');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = cards.length - 1;
+        }
+        updateCarousel();
+    });
+});
+
+
+
+// Ruleta (No implementado) - No funcional
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(track.children);
