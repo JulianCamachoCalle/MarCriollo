@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../src/intranet.php';
+                window.location = '../intranet.php';
             }
         });
         </script>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['usuario'])) {
                             // Mostrar los datos del usuario
                             echo '<div class="texto">';
                             echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'] . '<br>';
-                            echo 'Correo electrónico: ' . $datos_usuario['correo'] . '<br>';
+                            echo 'Correo: ' . $datos_usuario['correo'] . '<br>';
                             echo 'Direccion: ' . $datos_usuario['direccion'] . '<br>';
                             echo 'Distrito: ' . $datos_usuario['distrito'] . '<br>';
                             echo '</div>';

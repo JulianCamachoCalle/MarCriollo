@@ -3,21 +3,22 @@
 
 
 /* RESPONSIVE*/
-@media only screen and (min-width: 769px) { /*Ventana MAYOR*/
+@media only screen and (min-width: 700px) { /*Ventana MAYOR*/
+
     .productoCarta {    /* Implementacion del diseño ruleta */
         margin-top: 40px;
-        margin-bottom: 10px;
-        width: auto;
-        height: 80vh;
-        min-height: 500px;
+        margin-bottom: 40px;
+        width: 100%;
+        height: auto;
         display: flex;
+        flex-direction: row; /* Fila */
         
         /* border: 2px solid black; */
         .ruletaProducto {
             margin-left: 10px;
             width: 200px;
             max-width: 100px; /* ? */
-            height: 100%;
+            height: auto;
             /* border: 2px solid rgb(0, 119, 224); */
             display: flex;
             flex-direction: column;
@@ -26,7 +27,7 @@
             
             .contenedorImg {
                 width: 100%;
-                height: 20%;
+                height: auto;
                 margin-bottom: 20px;
                 display: flex;
                 align-items: center;
@@ -42,7 +43,7 @@
         }
         .imgProducto {  /* Imagen principal */
             width: 60vw;
-            height: 100%;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -58,7 +59,7 @@
                 overflow: hidden;
 
                 #imagen-grande {
-                    max-width: 100%;
+                    height: 100%;
                     max-width: 100%;
                     object-fit: contain;
                 }
@@ -68,8 +69,8 @@
             width: 50vw;
             min-width: 400px;
             height: 100%;
-            padding-inline: 5px;
-            background-color: rgb(237, 248, 255);
+            padding-inline: 10px;
+            /* background-color: rgb(237, 248, 255); */
             border-radius: 10px;
             margin-right: 20px;
             /* border: 2px solid rgb(245, 20, 230); */
@@ -110,7 +111,8 @@
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     font-size: 15px;
                     color: rgb(103, 103, 103);
-                    line-height: 1.4;
+                    text-align: justify;
+                    line-height: 1.7;
                 }
             }
             
@@ -199,15 +201,13 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-align: center;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 15px;
+                    color: white;
                     transition: background-color 0.2s ease, transform 0.3s ease;
-                    
-                    a {
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                        font-size: 15px;
-                        color: white;
-                    }
                 }
                 .botonPedir:hover {
                     background-color: rgb(89, 176, 238);
@@ -216,12 +216,155 @@
             }
         }
     }
+
+    .conMain-Descripcion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /*Espacio entre los contenedores*/
+        padding-inline: 10%;
+
+        .item {
+            flex: 1 1 calc(33.333% - 20px); /* Ancho flexible, con espacio entre los contenedores */
+            min-width: 200px;
+            height: auto;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-inline: 10px;
+            padding-block: 20px;
+        }
+        .item h1 {
+            color: #071326;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            padding-block: 15px;
+        }
+        .item p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 2;
+        }
+        .con-img {
+            width: auto;
+            height: 100px;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .con-textRuleta { /*Tuvo que estar dentro de .ConMain-Ruleta*/
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: 25px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+    }
+    .conMain-Ruleta {
+        margin-top: 10px;
+        margin-bottom: 50px;
+
+        height: 380px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 50px;
+        gap: 20px;  /*Separa tarjetas*/
+
+        .tarjeta {
+            border: 3px solid rgb(195, 205, 212);
+            height: 100%;
+            width: 250px;
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        
+            #img-tarjeta {
+                background-color: white;
+                border-radius: 10px;
+                width: 100%;
+                height: 150px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 100%;
+                }
+            }
+            #tipo-tarjeta {
+                width: 100%;
+                height: auto;
+                font-size: 12px;
+                color: rgb(103, 103, 103);
+                text-transform: uppercase;
+            }
+            #txt-tarjeta {
+                width: 100%;
+                height: 90px;
+                text-align: center;
+                padding: 5px;
+
+                font-size: 20px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            #boton-tarjeta {
+                width: 90%;
+                height: 40px;
+                border-radius: 10px;
+                
+                background-color: royalblue;
+                color: white;
+                text-decoration: none;
+                text-transform: capitalize;
+                transition: background-color 0.2s ease, transform 0.2s ease;
+            }
+            #boton-tarjeta:hover {
+                background-color: rgb(89, 176, 238);
+                transform: translate(0px, -5px);
+            }
+            #tipo-tarjeta, #boton-tarjeta {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            pointer-events: none;
+        }
+        #prev, #next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            pointer-events: all;
+        }
+    }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
     .productoCarta {    /* Implementacion del diseño ruleta */
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-bottom: 60px;
         width: auto;
         height: auto;
         display: flex;
@@ -264,8 +407,8 @@
             overflow: hidden;
             /* border: 2px solid rgb(52, 241, 0); */
             .conImagen {
-                width: 85%;
-                height: 85%;
+                width: auto;
+                height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -273,8 +416,7 @@
                 overflow: hidden;
 
                 img {
-                    max-width: 100%;
-                    max-width: 100%;
+                    height: 100%;
                     object-fit: contain;
                 }
             }
@@ -322,7 +464,7 @@
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     font-size: 15px;
                     color: rgb(103, 103, 103);
-                    line-height: 1.4;
+                    line-height: 1.7;
                 }
             }
             
@@ -411,20 +553,142 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-align: center;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-size: 15px;
+                    color: white;
                     transition: background-color 0.2s ease, transform 0.3s ease;
-                    
-                    a {
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                        font-size: 15px;
-                        color: white;
-                    }
                 }
                 .botonPedir:hover {
                     background-color: rgb(89, 176, 238);
                     transform: translate(0px, -10px);
                 }
+            }
+        }
+    }
+    .conMain-Descripcion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /*Espacio entre los contenedores*/
+        padding-inline: 10%;
+
+        .item {
+            flex: 1 1 calc(33.333% - 20px); /* Ancho flexible, con espacio entre los contenedores */
+            min-width: 200px;
+            height: auto;
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-inline: 10px;
+            padding-block: 20px;
+        }
+        .item h1 {
+            color: #071326;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            padding-block: 15px;
+        }
+        .item p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 2;
+        }
+        .con-img {
+            width: auto;
+            height: 100px;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .con-textRuleta { /*Tuvo que estar dentro de .ConMain-Ruleta*/
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+    }
+    .conMain-Ruleta {
+        margin-block: 30px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 50px;
+        gap: 20px; /* Separa tarjetas */
+        overflow: hidden;
+
+        .tarjeta {
+            border: 3px solid rgb(195, 205, 212);
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        
+            #img-tarjeta {
+                background-color: white;
+                border-radius: 10px;
+                width: 100%;
+                height: 250px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 100%;
+                }
+            }
+            #tipo-tarjeta {
+                width: 100%;
+                height: auto;
+                font-size: 12px;
+                color: rgb(103, 103, 103);
+                text-transform: uppercase;
+                padding-block: 10px;
+            }
+            #txt-tarjeta {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                padding: 15px;
+
+                font-size: 20px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            #boton-tarjeta {
+                width: 90%;
+                height: 50px;
+                border-radius: 10px;
+                
+                background-color: royalblue;
+                color: white;
+                text-decoration: none;
+                text-transform: capitalize;
+                transition: background-color 0.2s ease, transform 0.2s ease;
+            }
+            #boton-tarjeta:hover {
+                background-color: rgb(89, 176, 238);
+                transform: translate(0px, -5px);
+            }
+            #tipo-tarjeta, #boton-tarjeta {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
         }
     }
@@ -452,4 +716,15 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.linea-separadora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 60px;
+    hr {
+        color: black;
+        width: 80%;
+    }
 }

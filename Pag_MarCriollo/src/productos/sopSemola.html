@@ -42,18 +42,18 @@
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 
-                <div class="contenedorImg"><img src="/productos/img/sopSemola_N.jpg" alt="Imagen 01" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="/productos/img/sopSemola_A.jpg" alt="Imagen 02" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="/productos/img/sopSemola_A.jpg" alt="Imagen 03" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg"><img src="/productos/img/sopSemola_N.png" alt="Imagen 01" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg"><img src="/productos/img/sopSemola_A.png" alt="Imagen 02" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg"><img src="/productos/img/print_Lomo.png" alt="Imagen 03" loading="lazy" onclick="cambiarImagen(this)"></div>
                 
             </div>
             <div class="imgProducto">
                 <div class="conImagen">
-                    <img src="/productos/img/sopSemola_N.jpg" id="imagen-grande" alt="Img Producto">
+                    <img src="/productos/img/sopSemola_N.png" id="imagen-grande" alt="Img Producto">
                 </div>
             </div>
             <div class="descProducto">
-                <div class="tipo"><h2>Platos de Entrada</h2></div>
+                <div class="tipo"><h2>Plato de Entrada</h2></div>
                 <div class="titulo"><h2>Sopa de Semola con Pollo</h2></div>
                 <div class="descripcion"><p>Cada cucharada de nuestra sopa te envolverá en una sensación de confort y satisfacción. El aroma tentador que emana de cada plato te transportará a los recuerdos más cálidos de la infancia, mientras que la suavidad de la sémola cocida a la perfección acariciará tu paladar con cada bocado. <br><br>
                 Pero lo que realmente distingue a nuestra sopa de sémola es su sabor inigualable. El caldo, preparado con vegetales frescos y hierbas aromáticas, es el lienzo perfecto para resaltar el sabor de la sémola y crear una armonía de sabores que te dejará con ganas de más.</p></div>
@@ -68,11 +68,53 @@
                     </div>
                 </div>
                 <div class="conBoton">
-                    <div class="botonPedir"><a href="/contacto.html">Reservar Ahora</a></div>
+                    <a class="botonPedir" href="/contacto.html">reservar ahora</a>
                 </div>
             </div>
         </div>
+        <div class="linea-separadora"><hr></div>
+        <div class="conMain-Descripcion">
+            <div class="item">
+                <div class="con-img"><img src="/productos/img/ico_pollo.png" alt="Vaca"></div>
+                <h1>Pollo Tierno, Sabor Reconfortante</h1>
+                <P>Tiernos trozos de pollo cocidos a la perfección, aportando un sabor reconfortante y delicioso a nuestra sopa de sémola.</P>
+            </div>
+            <div class="item">
+                <div class="con-img"><img src="/productos/img/ico_semilla.png" alt="Verdura"></div>
+                <h1>Sémola Suave, Textura Perfecta</h1>
+                <P>Sémola de alta calidad que se cocina suave y esponjosa, proporcionando una textura perfecta que complementa el caldo.</P>
+            </div>
+            <div class="item">
+                <div class="con-img"><img src="/productos/img/ico_verdura.png" alt="Plato"></div>
+                <h1>Vegetales Frescos, Nutrición y Color</h1>
+                <P>Una mezcla de vegetales frescos que añaden nutrición, color y un toque de frescura a cada cucharada.</P>
+            </div>
+        </div>
+        <div class="linea-separadora"><hr></div>
 
+        <!-- .ConMain-Ruleta. Clase con-textRuleta fuera de .conMain-Ruleta -->
+        <div class="con-textRuleta">Clientes que vieron este plato también vieron:</div>
+        <div class="conMain-Ruleta">
+
+            <div class="tarjeta">
+                <div id="img-tarjeta"><img src="/productos/img/polloHorno_N.png" alt="PolloHorno"></div>
+                <div id="tipo-tarjeta">- Plato de Fondo -</div>
+                <div id="txt-tarjeta">Pollo al Horno</div>
+                <a href="/productos/polloHorno.html" id="boton-tarjeta">ver plato</a>
+            </div>
+            <div class="tarjeta">
+                <div id="img-tarjeta"><img src="/productos/img/papHuancaina_N.png" alt="PapaHuancaina"></div>
+                <div id="tipo-tarjeta">- Plato de Entrada -</div>
+                <div id="txt-tarjeta">Papa a la Huancaina</div>
+                <a href="/productos/papHuanca.html" id="boton-tarjeta">ver plato</a>
+            </div>
+            <div class="tarjeta">
+                <div id="img-tarjeta"><img src="/productos/img/lomo_N.png" alt="LomoSaltado"></div>
+                <div id="tipo-tarjeta">- Plato Ejecutivo -</div>
+                <div id="txt-tarjeta">Lomo Saltado</div>
+                <a href="/productos/lomSaltado.html" id="boton-tarjeta">ver plato</a>
+            </div>
+        </div>
     </main>
     <script src="/JavaScript/producto.js"></script>
     <footer>
