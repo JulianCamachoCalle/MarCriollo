@@ -3,17 +3,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $nombre = $_POST["from_name"];
     $correo = $_POST["email_id"];
+    $telefono = $_POST["phone_id"];
+    $asunto = $_POST["affair_id"];
+    $mensaje = $_POST["message"];
 
     $destinatario = "jhordycontreras08@gmail.com";
-    $asunto = "Nuevo mensaje de contacto";
-    $mensaje = "Nombre: " . $nombre . "\r\n";
-    $mensaje .= "Correo electrónico: " . $correo . "\r\n";
-
+    $asuntoCorreo = "Nuevo mensaje de contacto";
+    $mensajeCorreo = "Nombre: " . $nombre . "\r\n";
+    $mensajeCorreo .= "Correo electrónico: " . $correo . "\r\n";
+    $mensajeCorreo .= "Teléfono: " . $telefono . "\r\n";
+    $mensajeCorreo .= "Asunto: " . $asunto . "\r\n";
+    $mensajeCorreo .= "Mensaje: " . $mensaje . "\r\n";
 
     // Enviar el correo electrónico
-    mail($destinatario, $asunto, $mensaje);
+    mail($destinatario, $asuntoCorreo, $mensajeCorreo);
 
-     // Una vez que el formulario se ha procesado correctamente saldra la alerta que se envio
+    // Una vez que el formulario se ha procesado correctamente saldrá la alerta de que se envió
     echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
     echo '<script>';
     echo 'Swal.fire({';
