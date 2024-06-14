@@ -90,11 +90,17 @@ if (!isset($_SESSION['usuario'])) {
                             $datos_usuario = mysqli_fetch_assoc($consulta);
 
                             // Mostrar los datos del usuario
-                            echo '<div class="texto">';
-                            echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'] . '<br>';
-                            echo 'Correo: ' . $datos_usuario['correo'] . '<br>';
-                            echo 'Direccion: ' . $datos_usuario['direccion'] . '<br>';
-                            echo 'Distrito: ' . $datos_usuario['distrito'] . '<br>';
+                            echo '<div class="textnombres">';
+                            echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'];
+                            echo '</div>';
+                            echo '<div class="textcorreo">';
+                            echo 'Correo: ' . $datos_usuario['correo'];
+                            echo '</div>';
+                            echo '<div class="textdireccion">';
+                            echo 'Direccion: ' . $datos_usuario['direccion'];
+                            echo '</div>';
+                            echo '<div class="textdistrito">';
+                            echo 'Distrito: ' . $datos_usuario['distrito'];
                             echo '</div>';
                         }
                         ?>
