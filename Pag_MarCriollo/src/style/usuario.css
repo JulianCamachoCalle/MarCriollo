@@ -1,0 +1,94 @@
+@import url("headerfooter.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(36, 169, 192);
+}
+
+.container {
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tabla-usuarios-registrados {
+    justify-content: center;
+    background-color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.elementos-accionar,
+.form_busqueda {
+    display: flex;
+    flex-direction: row;
+}
+
+.elementos-accionar {
+    max-width: inherit;
+}
+
+.agregar_usuarios,
+.eliminar_usuarios,
+.form_busqueda,
+.busqueda_usuario {
+    margin: 0 10px;
+}
+
+.btneliminar,
+.btnagregar {
+    width: 300px;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: lightgray;
+    align-items: center;
+}
+
+.btneliminar,
+.btnagregar,
+.inputeliminar {
+    padding: 10px 0;
+    border-radius: 20px;
+    border: none;
+}
+
+.inputeliminar {
+    width: 450px;
+}
+
+.btneditaricon,
+.btneliminaricon {
+    height: 30px;
+    width: 40px;
+    border: none;
+    background-color: inherit;
+}
+
+.form_busqueda {
+    position: relative;
+}
+
+.btnbuscar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin: 0 40px;
+    background-color: inherit;
+    border: none;
+}
