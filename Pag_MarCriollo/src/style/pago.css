@@ -1,0 +1,258 @@
+@import url("headerfooter.css");
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Arial', Helvetica, sans-serif;
+    background-image: url('../img/fondo1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+}
+
+/* Estilos para botones */
+.btn button {
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #007bff; /* Azul para los botones */
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn button:hover {
+    background-color: #0056b3; /* Azul oscuro para hover */
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+/* Estilos para el contenido principal */
+main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Bordes redondeados */
+    flex-grow: 1;
+}
+
+section {
+    flex: 1;
+    padding: 20px;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="month"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff; /* Azul para focus */
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Verde oscuro para hover */
+}
+
+/* Estilos para la barra lateral */
+aside {
+    width: 300px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-left: 1px solid #ccc;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+aside h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+aside p {
+    margin-bottom: 0.5rem;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+/* Estilos para los contenedores de productos y totales */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#total-container {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* Estilos para el formulario de tarjeta */
+.card-info {
+    background-color: #3A0CA3; /* Color de fondo similar al de la imagen */
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-logo {
+    width: 50px; /* Tamaño de los logos */
+    margin-right: 10px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="month"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+input[type="text"]:focus,
+input[type="month"]:focus,
+select:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.receipt-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+footer a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #007bff;
+}
