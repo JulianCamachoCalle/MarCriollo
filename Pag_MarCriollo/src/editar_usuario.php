@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = mysqli_query($conexion, $actualizar_query);
 
     if ($resultado) {
+        echo "<body>";
         echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo "<script>
             Swal.fire({
@@ -27,10 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 confirmButtonText: 'Aceptar',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../src/usuario.php';
+                    window.location.href = '../usuario.php';
                 }
             });
-        </script>";
+        </script>
+        </body>";
         exit;
     } else {
         die("Error al editar: " . mysqli_error($conexion));
@@ -138,7 +140,7 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
                     <input type="email" name="correo" id="correo" value="<?php echo $correo; ?>" placeholder="Correo">
                     <div class="botones-accion">
                         <button type="sumbit" class="btn btn-success">Guardar</button>
-                        <button type="sumbit" class="btn btn-danger">Cerrar</button>
+                        <button type="button" class="btn btn-danger" onclick="window.location.href = '../usuario.php';">Cerrar</button>
                     </div>
                 </form>
             </div>
