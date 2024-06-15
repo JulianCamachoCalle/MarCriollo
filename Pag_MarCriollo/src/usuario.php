@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
-    <link rel="stylesheet" href="style/usuario.css">
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/usuarios.css">
 </head>
 
 <body>
@@ -53,7 +53,7 @@
                         Eliminar
                     </button>
                     <div class="agregar_usuarios">
-                        <button type="button" onclick="window.location.href='agregar_usuario.php'" class="btnagregar">
+                        <button type="button" onclick="window.location.href='agregar_usuarios.php'" class="btnagregar">
                             <i class="fa-solid fa-circle-plus"></i>
                             Agregar
                         </button>

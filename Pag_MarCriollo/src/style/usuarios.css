@@ -95,6 +95,7 @@ a {
     font-style: none;
     border: none;
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .botones .btneditaricon:hover,
@@ -106,17 +107,28 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .elementos-accionar .btneliminar,
-.btnagregar {
+.elementos-accionar .btnagregar {
     display: flex;
     padding: 10px 20px;
     border: none;
+    border-radius: 20px;
     background-color: lightgray;
     font-size: 20px;
     font-family: sans-serif;
     font-weight: bold;
     color: white;
+    cursor: pointer;
+}
+
+.form_busqueda input {
+    padding: 10px 30px;
+}
+
+.form_busqueda button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
