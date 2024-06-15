@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
-    <link rel="stylesheet" href="style/usuario.css" !important>
+    <link rel="stylesheet" href="style/usuario.css">
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">

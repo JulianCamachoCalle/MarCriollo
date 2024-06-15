@@ -49,6 +49,7 @@ main {
     background-color: white;
     border-radius: 10px;
 }
+
 .tabla-usuarios-registrados::-webkit-scrollbar-thumb:hover {
     background-color: rgb(145, 145, 145);
 }
@@ -60,7 +61,7 @@ main {
     align-items: center;
 }
 
-.tabla-usuarios-registrados thead th {  
+.tabla-usuarios-registrados thead th {
     padding: 20px 50px;
 }
 
@@ -68,7 +69,7 @@ main {
     background-image: linear-gradient(to right, rgb(36, 169, 192), rgb(7, 75, 124));
 }
 
-.tabla-usuarios-registrados tbody td{
+.tabla-usuarios-registrados tbody td {
     text-align: center;
     color: white;
     padding: 20px 20px;
@@ -85,7 +86,9 @@ main {
     justify-content: space-evenly;
 }
 
-.botones .btneditaricon, .btneliminaricon, a {
+.botones .btneditaricon,
+.btneliminaricon,
+a {
     background-color: inherit;
     font-size: 20px;
     color: white;
@@ -94,8 +97,26 @@ main {
     transition: transform 0.3s;
 }
 
-.botones .btneditaricon:hover, .btneliminaricon:hover {
+.botones .btneditaricon:hover,
+.btneliminaricon:hover {
     transform: scale(1.2);
 }
 
+.elementos-accionar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+}
+
+.elementos-accionar .btneliminar,
+.btnagregar {
+    display: flex;
+    padding: 10px 20px;
+    border: none;
+    background-color: lightgray;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+}
