@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario'])) {
     header("location: menuprincipal.php");
 }
 
@@ -76,48 +76,14 @@ if(isset($_SESSION['usuario'])) {
                     <input type="direccion" name="direccion" id="direccion" placeholder="Direccion">
                     <select id="distritos" name="distritos">
                         <option value="">Distrito</option>
-                        <option value="Ancón">Ancón</option>
-                        <option value="Ate">Ate</option>
-                        <option value="Barranco">Barranco</option>
-                        <option value="Breña">Breña</option>
-                        <option value="Carabayllo">Carabayllo</option>
-                        <option value="Chaclacayo">Chaclacayo</option>
-                        <option value="Chorrillos">Chorrillos</option>
-                        <option value="Cieneguilla">Cieneguilla</option>
-                        <option value="Comas">Comas</option>
-                        <option value="El Agustino">El Agustino</option>
-                        <option value="Independencia">Independencia</option>
-                        <option value="Jesús María">Jesús María</option>
-                        <option value="La Molina">La Molina</option>
-                        <option value="La Victoria">La Victoria</option>
-                        <option value="Lince">Lince</option>
-                        <option value="Los Olivos">Los Olivos</option>
-                        <option value="Lurigancho">Lurigancho</option>
-                        <option value="Lurín">Lurín</option>
-                        <option value="Magdalena del Mar">Magdalena del Mar</option>
-                        <option value="Miraflores">Miraflores</option>
-                        <option value="Pachacámac">Pachacámac</option>
-                        <option value="Pucusana">Pucusana</option>
-                        <option value="Pueblo Libre">Pueblo Libre</option>
-                        <option value="Puente Piedra">Puente Piedra</option>
-                        <option value="Punta Hermosa">Punta Hermosa</option>
-                        <option value="Punta Negra">Punta Negra</option>
-                        <option value="Rímac">Rímac</option>
-                        <option value="San Bartolo">San Bartolo</option>
-                        <option value="San Borja">San Borja</option>
-                        <option value="San Isidro">San Isidro</option>
-                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
-                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
-                        <option value="San Luis">San Luis</option>
-                        <option value="San Martín de Porres">San Martín de Porres</option>
-                        <option value="San Miguel">San Miguel</option>
-                        <option value="Santa Anita">Santa Anita</option>
-                        <option value="Santa María del Mar">Santa María del Mar</option>
-                        <option value="Santa Rosa">Santa Rosa</option>
-                        <option value="Santiago de Surco">Santiago de Surco</option>
-                        <option value="Surquillo">Surquillo</option>
-                        <option value="Villa El Salvador">Villa El Salvador</option>
-                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                        <?php
+                        
+                        $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclacayo", "Chorrillos", "Cieneguilla", "Comas", "El Agustino", "Independencia", "Jesús María", "La Molina", "La Victoria", "Lince", "Los Olivos", "Lurigancho", "Lurín", "Magdalena del Mar", "Miraflores", "Pachacámac", "Pucusana", "Pueblo Libre", "Puente Piedra", "Punta Hermosa", "Punta Negra", "Rímac", "San Bartolo", "San Borja", "San Isidro", "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis", "San Martín de Porres", "San Miguel", "Santa Anita", "Santa María del Mar", "Santa Rosa", "Santiago de Surco", "Surquillo", "Villa El Salvador", "Villa María del Triunfo");
+
+                        foreach ($distritos as $distrito) {
+                            echo "<option value='$distrito'>$distrito</option>";
+                        }
+                        ?>
                     </select>
                     <input type="email" name="correo" id="correo" placeholder="Correo">
                     <input type="password" name="password" id="password" placeholder="Contraseña">

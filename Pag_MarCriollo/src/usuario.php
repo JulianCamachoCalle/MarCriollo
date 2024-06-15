@@ -7,63 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style/usuario.css" !important>
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <?php
-    session_start();
-
-    include "PHP/conexion.php";
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_user'])) {
-        $id = $_POST['id'];
-        $nombres = $_POST['nombres'];
-        $direccion = $_POST['direccion'];
-        $distrito = $_POST['distrito'];
-        $correo = $_POST['correo'];
-
-        $query = "INSERT INTO usuarios (id, nombres, direccion, distrito, correo) VALUES ('$id', '$nombres', '$direccion', '$distrito', '$correo')";
-        mysqli_query($conexion, $query);
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_users'])) {
-        foreach ($_POST['chk'] as $id) {
-            $query = "DELETE FROM usuarios WHERE id='$id'";
-            mysqli_query($conexion, $query);
-        }
-    }
-
-    $datos = mysqli_query($conexion, "SELECT id, nombres, direccion, distrito, correo FROM usuarios");
-
-    if (!$datos) {
-        die("Query failed: " . mysqli_error($conexion));
-    }
-
-    $lista = [];
-
-    if (mysqli_num_rows($datos) > 0) {
-        while ($row = mysqli_fetch_assoc($datos)) {
-            $lista[] = array(
-                'id' => $row["id"],
-                'nom' => $row["nombres"],
-                'dir' => $row["direccion"],
-                'dis' => $row["distrito"],
-                'cor' => $row["correo"]
-            );
-        }
-    } else {
-        echo "0 results";
-    }
-
-    $_SESSION["dato"] = $lista;
-    ?>
-
     <header>
         <div class="contenedorhead">
             <div class="head">
@@ -94,32 +46,29 @@
 
     <main id="main" class="main">
         <div class="container">
-            <div class="elementos-accionar">
-                <div class="eliminar_usuarios">
+            <form method="POST" action="">
+                <div class="elementos-accionar">
                     <button type="submit" name="eliminar_usuarios" class="btneliminar">
                         <i class="fa-solid fa-trash"></i>
                         Eliminar
                     </button>
-                </div>
-                <div class="agregar_usuarios">
-                    <button type="submit" name="agregar_usuarios" class="btnagregar">
-                        <i class="fa-solid fa-circle-plus"></i>
-                        Agregar
-                    </button>
-                </div>
-                <form method="GET" class="form_busqueda" action="buscar_usuario.php">
-                    <input type="text" class="inputeliminar" id="" placeholder=" Ingrese el nombre o ID del usuario">
-                    <div class="busqueda_usuario">
-                        <button type="submit" class="btnbuscar">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="agregar_usuarios">
+                        <button type="button" onclick="window.location.href='agregar_usuario.php'" class="btnagregar">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Agregar
                         </button>
                     </div>
-                </form>
-            </div>
-
-            <form method="POST" action="">
-                <div class="tabla-usuarios-registrados mt-5">
-                    <table class="table table-striped">
+                    <form method="GET" class="form_busqueda" action="">
+                        <div class="input-group">
+                            <input type="text" class="inputbuscar" id="" placeholder=" Ingrese el nombre o ID del usuario">
+                            <button type="submit" class="btnbuscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabla-usuarios-registrados">
+                    <table>
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -133,25 +82,85 @@
                         </thead>
                         <tbody>
                             <?php
+
+                            session_start();
+
+                            include "PHP/conexion.php";
+
+                            if (isset($_POST['eliminar_id'])) {
+                                $eliminar_id = $_POST['eliminar_id'];
+                                $eliminar_query = "DELETE FROM usuarios WHERE id = $eliminar_id";
+                                $resultado = mysqli_query($conexion, $eliminar_query);
+                                if ($resultado) {
+                                    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+                                    echo "<script>
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Usuario Eliminado!',
+                                                text: 'El usuario ha sido eliminado exitosamente',
+                                                confirmButtonColor: '#3085d6',
+                                                confirmButtonText: 'Aceptar',
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.href = '../usuario.php';
+                                                }
+                                            });
+                                          </script>";
+                                    exit;
+                                } else {
+                                    die("Error al eliminar: " . mysqli_error($conexion));
+                                }
+                            }
+
+                            $datos = mysqli_query($conexion, "SELECT id, nombres, direccion, distrito, correo FROM usuarios");
+
+                            if (!$datos) {
+                                die("Query failed: " . mysqli_error($conexion));
+                            }
+
+                            $lista = [];
+
+                            if (mysqli_num_rows($datos) > 0) {
+                                while ($row = mysqli_fetch_assoc($datos)) {
+                                    $lista[] = array(
+                                        'id' => $row["id"],
+                                        'nom' => $row["nombres"],
+                                        'dir' => $row["direccion"],
+                                        'dis' => $row["distrito"],
+                                        'cor' => $row["correo"]
+                                    );
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+
+                            $_SESSION["dato"] = $lista;
+
                             $lista = $_SESSION["dato"];
+
                             $i = 0;
 
                             foreach ($lista as $item) {
                                 echo "
-                                <tr>
-                                    <td>
-                                        <input type='checkbox' name='chk[]' value='" . $item['id'] . "'>
-                                    </td>
-                                    <td>" . $item['id'] . "</td>
-                                    <td>" . $item['nom'] . "</td>
-                                    <td>" . $item['dir'] . "</td>
-                                    <td>" . $item['dis'] . "</td>
-                                    <td>" . $item['cor'] . "</td>
-                                    <td>
-                                        <button type='button' class='btneditaricon'><i class='fa-solid fa-pen-to-square'></i></button>
-                                        <button type='button' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
-                                    </td>
-                                </tr>";
+                                    <tr>
+                                        <td>
+                                            <input type='checkbox' name='chk[]' value='" . $item['id'] . "'>
+                                        </td>
+                                        <td>" . $item['id'] . "</td>
+                                        <td>" . $item['nom'] . "</td>
+                                        <td>" . $item['dir'] . "</td>
+                                        <td>" . $item['dis'] . "</td>
+                                        <td>" . $item['cor'] . "</td>
+                                        <td>
+                                            <div class='botones'>
+                                                <button type='button' class='btneditaricon'><a href='editar_usuario.php?id=" . $item['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a></button>
+                                                <form action='' method='post'>
+                                                    <input type='hidden' name='eliminar_id' value='" . $item['id'] . "'>
+                                                    <button type='submit' name='eliminar' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>";
                                 $i++;
                             }
                             ?>
@@ -161,7 +170,6 @@
             </form>
         </div>
     </main>
-
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

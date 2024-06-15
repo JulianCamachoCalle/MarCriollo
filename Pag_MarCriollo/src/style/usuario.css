@@ -15,7 +15,7 @@ main {
 }
 
 .container {
-    display: inline-block;
+    display: flexbox;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,71 +24,78 @@ main {
 
 .tabla-usuarios-registrados {
     justify-content: center;
+    align-items: center;
     background-color: white;
     font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
+    font-size: large;
     font-style: normal;
-    max-height: 600px;
+    max-height: 800px;
     overflow-y: auto;
+    margin: 10px 0;
+    background-image: linear-gradient(to right, rgb(27, 123, 139), rgb(5, 45, 73));
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-.elementos-accionar,
-.form_busqueda {
-    display: flex;
-    flex-direction: row;
+.tabla-usuarios-registrados::-webkit-scrollbar-track {
+    background-color: none;
 }
 
-.elementos-accionar {
-    max-width: inherit;
+.tabla-usuarios-registrados::-webkit-scrollbar {
+    width: 20px;
 }
 
-.agregar_usuarios,
-.eliminar_usuarios,
-.form_busqueda,
-.busqueda_usuario {
-    margin: 0 10px;
+.tabla-usuarios-registrados::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+}
+.tabla-usuarios-registrados::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(145, 145, 145);
 }
 
-.btneliminar,
-.btnagregar {
-    width: 300px;
-    font-family: monospace;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: lightgray;
+.tabla-usuarios-registrados thead {
+    background-image: linear-gradient(to right, rgb(36, 169, 192), rgb(7, 75, 124));
+    color: white;
+    justify-content: center;
     align-items: center;
 }
 
-.btneliminar,
-.btnagregar,
-.inputeliminar {
-    padding: 10px 0;
-    border-radius: 20px;
-    border: none;
+.tabla-usuarios-registrados thead th {  
+    padding: 20px 50px;
 }
 
-.inputeliminar {
-    width: 450px;
+.tabla-usuarios-registrados tbody {
+    background-image: linear-gradient(to right, rgb(36, 169, 192), rgb(7, 75, 124));
 }
 
-.btneditaricon,
-.btneliminaricon {
-    height: 30px;
-    width: 40px;
-    border: none;
+.tabla-usuarios-registrados tbody td{
+    text-align: center;
+    color: white;
+    padding: 20px 20px;
+}
+
+.tabla-usuarios-registrados tbody input {
+    height: 18px;
+    width: 18px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.botones .btneditaricon, .btneliminaricon, a {
     background-color: inherit;
-}
-
-.form_busqueda {
-    position: relative;
-}
-
-.btnbuscar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    margin: 0 40px;
-    background-color: inherit;
+    font-size: 20px;
+    color: white;
+    font-style: none;
     border: none;
+    transition: transform 0.3s;
 }
+
+.botones .btneditaricon:hover, .btneliminaricon:hover {
+    transform: scale(1.2);
+}
+
+
