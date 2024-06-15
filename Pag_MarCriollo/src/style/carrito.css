@@ -1,6 +1,6 @@
 @import url("headerfooter.css");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@
     list-style: none;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-image: url('../img/fondo1.jpg');
     background-size: cover;
@@ -16,23 +16,211 @@ body{
     background-position: center;
     background-attachment: fixed;
     margin: 0;
-    padding: 0%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: #333; /* Color de texto principal */
 }
 
-.btn button{
+.btn button {
     font-weight: bold;
     padding: 10px 20px;
     background-color: white;
     color: black;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.btn button:hover{
-    background-color: chocolate;
-    color: white;
+.btn button:hover {
+    background-color: #e0e0e0; /* Cambio de color de fondo al hacer hover */
+    color: black;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex; /* Añadido para alinear resumen del carrito y lista de productos */
+    gap: 20px; /* Espacio entre elementos */
+}
+
+#product-list {
+    flex: 3; /* Ancho para la lista de productos */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product {
+    flex: 1 1 calc(25% - 20px); /* 4 productos por fila con espacio entre ellos */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.product:hover {
+    transform: translateY(-5px); /* Elevación sutil al hacer hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más definida */
+}
+
+.product .product-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 200px; /* Altura fija para las imágenes */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.1); /* Zoom suave al hacer hover */
+}
+
+.product .description-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Inicialmente invisible */
+}
+
+.product:hover .description-button {
+    opacity: 1; /* Mostrar el botón al hacer hover */
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #0056b3;
+}
+
+.product .description {
+    display: none;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.product .description.description-visible {
+    display: block;
+}
+
+#cart-summary {
+    flex: 1; /* Ancho para el resumen del carrito */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-height: calc(95vh - 90px); /* Altura máxima ajustada */
+    overflow-y: auto; /* Scroll vertical si se necesita */
+}
+
+#cart-summary h2 {
+    text-align: center;
+}
+
+#total-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear a la izquierda */
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+#total-container p {
+    margin: 5px 0;
+}
+
+#cart-total {
+    font-weight: bold;
+    margin-top: 10px; /* Espacio arriba del total */
+}
+
+#cart-summary button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espacio arriba del botón */
+}
+
+#cart-summary button:hover {
+    background-color: #218838;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product .description {
+    display: none;
 }

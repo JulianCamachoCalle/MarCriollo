@@ -1,0 +1,163 @@
+@import url("headerfooter.css");
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../img/fondo1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333; /* Color de texto principal */
+    position: relative; /* Añadido para el footer */
+}
+
+/* Estilos para botones */
+.btn button {
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn button:hover {
+    background-color: #28a745; /* Verde similar al usado anteriormente */
+    color: #fff;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+/* Estilos para el contenido principal */
+main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto; /* Ajuste del margen */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Para que ocupe el espacio restante */
+}
+
+section {
+    flex: 1;
+    padding: 20px;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745; /* Verde similar al usado anteriormente */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838; /* Cambio de color al hacer hover */
+}
+
+/* Estilos para la barra lateral */
+aside {
+    flex: 0 0 300px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-left: 1px solid #ccc;
+}
+
+#cart-summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+#cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#total-container {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#total-container p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+#cart-total,
+#discount {
+    font-weight: bold;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    flex-shrink: 0; /* Evita que el footer se reduzca */
+}

@@ -751,6 +751,8 @@ h5 {
     display: none;
 }
 
+
+
 @media only screen and (max-width: 1050px) {
     #ctn-bars-search input{
         width: 700px;
