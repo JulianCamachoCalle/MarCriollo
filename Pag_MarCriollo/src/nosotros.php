@@ -53,8 +53,8 @@ if ($usuario_autenticado) {
             <span class="bar"></span>
         </button>
         <ul class="opciones">
-            <li><a id="seleccionado" href="index.php">Inicio</a></li>
-            <li><a id="no-seleccionado" href="nosotros.php">Nosotros</a></li>
+            <li><a id="no-seleccionado" href="index.php">Inicio</a></li>
+            <li><a id="seleccionado" href="nosotros.php">Nosotros</a></li>
             <li><a id="no-seleccionado" href="servicios.php">Servicios</a></li>
             <li><a id="no-seleccionado" href="redessociales.php">Redes Sociales</a></li>
             <li><a id="no-seleccionado" href="mapas.php">Mapas</a></li>

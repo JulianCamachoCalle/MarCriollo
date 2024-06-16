@@ -81,7 +81,7 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarCriollo</title>
+    <title>Editar Usuario - Marcriollo</title>
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style/editar_usuario.css">
@@ -106,12 +106,12 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
             <span class="bar"></span>
         </button>
         <ul class="opciones">
-            <li><a id="no-seleccionado" href="index.html">Inicio</a></li>
-            <li><a id="no-seleccionado" href="nosotros.html">Nosotros</a></li>
-            <li><a id="no-seleccionado" href="servicios.html">Servicios</a></li>
-            <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
-            <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
-            <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
+            <li><a id="no-seleccionado" href="index.php">Inicio</a></li>
+            <li><a id="no-seleccionado" href="nosotros.php">Nosotros</a></li>
+            <li><a id="no-seleccionado" href="servicios.php">Servicios</a></li>
+            <li><a id="no-seleccionado" href="redessociales.php">Redes Sociales</a></li>
+            <li><a id="no-seleccionado" href="mapas.php">Mapas</a></li>
+            <li><a id="no-seleccionado" href="contacto.php">Contacto</a></li>
             <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
