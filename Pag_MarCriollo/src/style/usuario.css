@@ -111,8 +111,8 @@ a {
     margin: 20px 0;
 }
 
-.elementos-accionar .btneliminar,
-.elementos-accionar .btnagregar {
+.agregar_usuarios .btnagregar,
+.mostrar-todos .btnmostrar {
     display: flex;
     height: 45px;
     width: 300px;
