@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Cargar detalles de entrega guardados en localStorage si existen
-    const deliveryDetails = JSON.parse(localStorage.getItem('deliveryDetails'));
+    const deliveryDetails = JSON.parse(localStorage.getItem('delivery-Details'));
     if (deliveryDetails) {
         document.getElementById('name').value = deliveryDetails.name || '';
         document.getElementById('address').value = deliveryDetails.address || '';
