@@ -211,7 +211,7 @@ function confirmDelivery() {
         }));
 
         // Redirigir a la página de confirmación de entrega
-        window.location.href = 'Pago.php'; // Cambia 'Pago.php' por la URL correcta
+        window.location.href = 'pago.php'; // Cambia 'Pago.php' por la URL correcta
     }
 }
 
