@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     continueShoppingButton.addEventListener('click', function() {
         // Redirigir al usuario a donde desees que continúe comprando
         // Aquí puedes colocar la URL de la página de catálogo o la página anterior
-        window.location.href = 'catalogo.html'; // Cambia 'catalogo.html' por la URL correcta
+        window.location.href = 'carrito.php'; // Cambia 'catalogo.html' por la URL correcta
     });
 
     // Verificar si el carrito está vacío inicialmente para deshabilitar el botón de Pagar
@@ -163,7 +163,7 @@ function goToCheckout() {
     }
 
     // Redirigir a la página de entrega.html
-    window.location.href = 'entrega.html';
+    window.location.href = 'entrega.php';
 }
 
 // Función para mostrar u ocultar la descripción del producto

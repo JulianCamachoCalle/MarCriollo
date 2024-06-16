@@ -134,7 +134,7 @@ function confirmDelivery() {
 // Función para continuar comprando desde la página de entrega
 function continueShopping() {
     // Redirigir al usuario a la página de carrito.html
-    window.location.href = 'carrito.html'; // Cambia 'carrito.html' por la URL correcta
+    window.location.href = 'carrito.php'; // Cambia 'carrito.html' por la URL correcta
 }
 
 // Función para eliminar un producto del carrito

@@ -36,6 +36,25 @@
         </ul>
     </nav>
     <main>
+        <div class="info">
+        <?php
+        session_start();
+        // Verificar el inicio de sesion
+        if (isset($_SESSION['usuario'])) {
+            $correo = $_SESSION['usuario'];
+            // Establecer la conexion
+            include 'PHP/conexion.php';
+            // Consulta a la base de datos para obtener los datos del usuario
+            $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
+            $datos_usuario = mysqli_fetch_assoc($consulta);
+
+            // Mostrar los datos del usuario
+            echo '<div class="textnombres">';
+            echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'];
+            echo '</div>';
+        }
+        ?>
+    </div>
         <section id="product-list">
             <!-- Productos para seleccionar -->
             <div class="product">
