@@ -211,6 +211,7 @@ function confirmDelivery() {
         }));
 
         // Redirigir a la página de confirmación de entrega
+<<<<<<< HEAD
         window.location.href = 'pago.php'; 
     }
 }
