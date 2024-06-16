@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (deliveryDetails) {
         document.getElementById('name').value = deliveryDetails.name || '';
         document.getElementById('address').value = deliveryDetails.address || '';
-        document.getElementById('phone').value = deliveryDetails.phone || '';
         document.getElementById('date').value = deliveryDetails.date || '';
         document.getElementById('time').value = deliveryDetails.time || '';
+        document.getElementById('district').value = deliveryDetails.district || '';
     }
 
     // Configurar el evento para el botón "Pagar"
@@ -107,34 +107,25 @@ function displayDiscountAndTotal() {
 // Función para confirmar la entrega
 function confirmDelivery() {
     // Validar el formulario de entrega antes de proceder a la confirmación
-    const name = document.getElementById('name').value.trim();
-    const address = document.getElementById('address').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const date = document.getElementById('date').value.trim();
-    const time = document.getElementById('time').value.trim();
+    if (validateForm()) {
+        const name = document.getElementById('name').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const date = document.getElementById('date').value.trim();
+        const time = document.getElementById('time').value.trim();
+        const district = document.getElementById('district').value.trim();
 
-    if (name === '' || address === '' || phone === '' || date === '' || time === '') {
-        alert('Por favor completa todos los campos de entrega.');
-        return;
+        // Guardar detalles de entrega en localStorage si es necesario
+        localStorage.setItem('deliveryDetails', JSON.stringify({
+            name: name,
+            address: address,
+            date: date,
+            time: time,
+            district: district
+        }));
+
+        // Redirigir a la página de confirmación de entrega
+        window.location.href = 'Pago.php'; // Cambia 'Pago.php' por la URL correcta
     }
-
-    // Guardar detalles de entrega en localStorage si es necesario
-    localStorage.setItem('deliveryDetails', JSON.stringify({
-        name: name,
-        address: address,
-        phone: phone,
-        date: date,
-        time: time,
-    }));
-
-    // Redirigir a la página de confirmación de entrega
-    window.location.href = 'Pago.html'; // Cambia 'confirmacion.html' por la URL correcta
-}
-
-// Función para continuar comprando desde la página de entrega
-function continueShopping() {
-    // Redirigir al usuario a la página de carrito.html
-    window.location.href = 'carrito.php'; // Cambia 'carrito.html' por la URL correcta
 }
 
 // Función para eliminar un producto del carrito
@@ -151,3 +142,79 @@ function removeFromCart(productName) {
     // Mostrar nuevamente el resumen del carrito
     displayCart(cart);
 }
+
+// Función para validar el formulario antes de enviar
+function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const date = document.getElementById('date').value.trim();
+    const time = document.getElementById('time').value.trim();
+    const district = document.getElementById('district').value.trim();
+
+    if (name === '' || address === '' || date === '' || time === '' || district === '') {
+        alert('Por favor completa todos los campos de entrega.');
+        return false;
+    }
+
+    return true;
+}
+
+// Función para continuar comprando desde la página de entrega
+function continueShopping() {
+    // Redirigir al usuario a la página de carrito.php
+    window.location.href = 'carrito.php'; // Cambiar 'carrito.php' por la URL correcta
+}
+
+// Cargar carrito desde sessionStorage al cargar la página
+loadCartFromSessionStorage();
+
+// Mostrar el descuento y el total con el descuento aplicado
+displayDiscountAndTotal();
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const deliveryOption = document.getElementById('delivery-option');
+    const extraChargeContainer = document.getElementById('extra-charge-container');
+    const extraChargeAmount = document.getElementById('extra-charge-amount');
+    const subtotalElement = document.getElementById('subtotal');
+    const cartTotalElement = document.getElementById('cart-total');
+
+    let discountRate = 0.10; // Descuento del 10%
+    let deliveryChargeRate = 0.14; // Cargo adicional del 13%
+    let extraCharge = 0; // Inicializar el cargo adicional en cero
+    let subtotal = 0;
+
+    deliveryOption.addEventListener('change', function() {
+        if (deliveryOption.value === 'domicilio') {
+            extraCharge = subtotal * deliveryChargeRate;
+            extraChargeContainer.style.display = 'block';
+        } else {
+            extraCharge = 0;
+            extraChargeContainer.style.display = 'none';
+        }
+
+        updateCartTotal();
+    });
+
+    function updateCartTotal() {
+        const cartTotal = subtotal - (subtotal * discountRate) + extraCharge;
+        cartTotalElement.textContent = `$${cartTotal.toFixed(2)}`;
+        extraChargeAmount.textContent = `$${extraCharge.toFixed(2)}`;
+        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    }
+
+    // Lógica para cargar el carrito y calcular el subtotal (debe adaptarse según cómo se obtenga el carrito)
+    function loadCartAndCalculateSubtotal() {
+        // Ejemplo de cálculo de subtotal, deberías adaptar esto a tu lógica específica
+        // Suponiendo que tienes un array de productos en sessionStorage
+        const storedCart = sessionStorage.getItem('cart');
+        if (storedCart) {
+            const cart = JSON.parse(storedCart);
+            subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            updateCartTotal();
+        }
+    }
+
+    // Cargar carrito y calcular subtotal al cargar la página
+    loadCartAndCalculateSubtotal();
+});

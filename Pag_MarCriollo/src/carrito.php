@@ -1,3 +1,19 @@
+
+<?php
+session_start();
+
+// Verificar si el usuario está autenticado
+$usuario_autenticado = isset($_SESSION['usuario']);
+
+// Si el usuario está autenticado, obtener sus datos
+if ($usuario_autenticado) {
+    $correo = $_SESSION['usuario'];
+    include 'PHP/conexion.php';
+    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
+    $datos_usuario = mysqli_fetch_assoc($consulta);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -17,6 +33,19 @@
             <div class="logoprincipal">
                 <img src="img/crab.png" alt="Logo">
             </div>
+            <div class="info">
+            <?php if (!$usuario_autenticado) : ?>
+                <!-- Mostrar botones de Iniciar sesión y Registrarse si el usuario no está autenticado -->
+                <a href="intranet.php" class="info-link">Iniciar sesión</a>
+                <a href="intranet.php" class="info-link">Registrarse</a>
+            <?php else : ?>
+                <!-- Mostrar nombre de usuario y enlace a intranet.php si el usuario está autenticado -->
+                <a href="intranet.php" class="info-link">
+                    <div class="textnombres">
+                        Usuario: <?php echo $datos_usuario['nombres']; ?>
+                    </div>
+                </a>
+            <?php endif; ?>
         </div>
     </header>
     <nav class="navbar">
@@ -26,35 +55,16 @@
             <span class="bar"></span>
         </button>
         <ul class="opciones">
-            <li><a id="seleccionado" href="index.html">Inicio</a></li>
-            <li><a id="no-seleccionado" href="nosotros.html">Nosotros</a></li>
-            <li><a id="no-seleccionado" href="servicios.html">Servicios</a></li>
-            <li><a id="no-seleccionado" href="redessociales.html">Redes Sociales</a></li>
-            <li><a id="no-seleccionado" href="mapas.html">Mapas</a></li>
-            <li><a id="no-seleccionado" href="contacto.html">Contacto</a></li>
+            <li><a id="seleccionado" href="index.php">Inicio</a></li>
+            <li><a id="no-seleccionado" href="nosotros.php">Nosotros</a></li>
+            <li><a id="no-seleccionado" href="servicios.php">Servicios</a></li>
+            <li><a id="no-seleccionado" href="redessociales.php">Redes Sociales</a></li>
+            <li><a id="no-seleccionado" href="mapas.php">Mapas</a></li>
+            <li><a id="no-seleccionado" href="contacto.php">Contacto</a></li>
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
     <main>
-        <div class="info">
-        <?php
-        session_start();
-        // Verificar el inicio de sesion
-        if (isset($_SESSION['usuario'])) {
-            $correo = $_SESSION['usuario'];
-            // Establecer la conexion
-            include 'PHP/conexion.php';
-            // Consulta a la base de datos para obtener los datos del usuario
-            $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-            $datos_usuario = mysqli_fetch_assoc($consulta);
-
-            // Mostrar los datos del usuario
-            echo '<div class="textnombres">';
-            echo 'Nombres y Apellidos: ' . $datos_usuario['nombres'];
-            echo '</div>';
-        }
-        ?>
-    </div>
         <section id="product-list">
             <!-- Productos para seleccionar -->
             <div class="product">

@@ -20,7 +20,7 @@ if ($usuario_autenticado) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MarCriollo</title>
         <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style/entrega.css">
+        <link rel="stylesheet" href="style/contacto.css">
         <link rel="icon" href="img/favicon-32x32.png" type="image/png">
     </head>
 <body>
@@ -63,56 +63,46 @@ if ($usuario_autenticado) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
+    <script src="JavaScript/headerfooter.js"></script>
+    <h2 class="contactanos" >C<span class="typed"></span> </h2>
     <main>
-        <section id="delivery-details">
-            <h2>Detalles de Entrega</h2>
-            <form id="delivery-form">
-    <label for="name">Nombres:</label>
-    <input type="text" id="name" name="name" <?php if ($usuario_autenticado) echo 'value="' . htmlspecialchars($datos_usuario['nombres']) . '"'; ?> required><br><br>
-
-    <label for="address">Dirección:</label>
-    <input type="text" id="address" name="address" <?php if ($usuario_autenticado) echo 'value="' . htmlspecialchars($datos_usuario['direccion']) . '"'; ?> required><br><br>
-
-    <label for="district">Distrito:</label>
-    <input type="text" id="district" name="district" <?php if ($usuario_autenticado) echo 'value="' . htmlspecialchars($datos_usuario['distrito']) . '"'; ?> required><br><br>
-
-    <label for="date">Fecha de entrega:</label>
-    <input type="date" id="date" name="date" required><br><br>
-
-    <label for="time">Hora de entrega:</label>
-    <input type="time" id="time" name="time" required><br><br>
-
-    <label for="delivery-option">Opción de Entrega:</label>
-<select id="delivery-option" name="delivery-option" required>
-    <option value="tienda">Recoger en Tienda </option>
-    <option value="domicilio">Entrega a Domicilio </option>
-</select>
-<br><br>
-
-<div id="extra-charge-container" style="display: none;">
-    <label for="extra-charge-amount">Cargo Adicional:</label>
-    <span id="extra-charge-amount">$0.00</span>
-    <br><br>
-</div>         
-
-    <button type="button" id="pay-button">Pagar</button>
-    <button type="button" id="continue-button">Seguir Comprando</button>
-</form>
+        <section class="ladoizquierdo">
+            <div>
+                <div>
+                <img  src="img/chefcara.jpg" class="contactocara">
+                </div>
+                <p class="informacion">CONTACTO </p>   
+                <a class="chefcont" href="tel:+51950661842">
+                    <img src="img/telef.png" width="15" height="15" alt="Telefono">
+                    +51 950 661 842
+                </a>
+                <p class="info2">
+                    ¡Llámanos para hacer una reserva o para cualquier consulta! Nuestro equipo estará encantado de atenderte y ayudarte con cualquier pregunta que tengas sobre nuestro delicioso menú y nuestros servicios. ¡Esperamos tu llamada!</p>
+            </div>
         </section>
-        <aside id="cart-summary">
-            <h2>Resumen del Carrito</h2>
-            <div id="cart-items">
-                <!-- Aquí se mostrarán los productos agregados -->
+        <form id="form" action="PHP/Contacto.php" method="post">
+        <section class="ladoderecho">
+            <div class="input-group">
+                <label for="from_name">Nombre</label>
+                <input type="text" name="from_name" placeholder="Nombre" id="from_name">
+                <br>
+                <label for="phone_id">Numero de telefono</label>
+                <input type="tel" name="phone_id" id="phone_id" placeholder="Telefono">
+                <br>
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email_id" id="email_id" placeholder="Correo electronico">
+                <br>
+                <label for="affair_id">Asunto</label>
+                <input type="text" name="affair_id" id="affair_id">
+                <br>
+                <label for="message">Pregunta</label>
+                <br>
+                <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                <br>
+                <input type="submit" class="btn-enviar" name="enviar" value="Enviar mensaje" id="button">
             </div>
-            <div id="total-container">
-            <p>Subtotal</p>
-            <span id="subtotal">$0.00</span>
-                <p>Descuento:</p>
-                <p id="discount">$0.00</p>
-                <p>Total:</p>
-                <p id="cart-total">$0.00</p>
-            </div>
-        </aside>
+        </section>   
+    </form>
     </main>
     <footer>
         <section id="redes">
@@ -141,7 +131,21 @@ if ($usuario_autenticado) {
         </section>
         &copy; 2024 Creado por Grupo
     </footer>
+    
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <script src="JavaScript/entrega.js"></script>
+    <script type="text/javascript">
+        emailjs.init('2PycRQz0__5oeSeui')</script>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="JavaScript/contacto.js"></script>
+
+
+
+    
 </body>
 </html>

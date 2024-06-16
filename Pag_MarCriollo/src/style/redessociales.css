@@ -195,3 +195,31 @@ body {
         margin: 0.5vh 0.3vw; /* Margen */
     }
 }
+
+
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info-link {
+    background-color: white;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.info-link:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.textnombres {
+    font-weight: bold;
+    margin-left: 10px;
+}

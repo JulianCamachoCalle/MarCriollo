@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Redirigir a la página de entrega.html al hacer clic en Pagar
-        window.location.href = 'entrega.html';
+        window.location.href = 'entrega.php';
     });
 
     // Configurar el evento para el botón "Seguir Comprando"
