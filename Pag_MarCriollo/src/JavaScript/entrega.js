@@ -215,6 +215,7 @@ function confirmDelivery() {
     }
 }
 
+
 // Función para eliminar un producto del carrito
 function removeFromCart(productName) {
     // Obtener el carrito del sessionStorage
