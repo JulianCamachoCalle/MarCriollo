@@ -78,7 +78,8 @@ if ($usuario_autenticado) {
                 <p class="description">Preparado con pescado fresco en cubos, marinado en limón y
                     mezclado con cebolla roja, ají limo y cilantro, cada bocado combina acidez,
                     picante y sabor herbal. Servido con camote y maíz tostado, ofrece una
-                    mezcla única de texturas y contrastes que deleitan los sentidos.
+                    mezcla única de texturas y contrastes que deleitan los sentidos.<br><br>
+                    <a class="bot_masDetalles" href="productos/ceviche.php">Mas detalles</a>
                 </p>
             </div>
 
@@ -92,9 +93,11 @@ if ($usuario_autenticado) {
                 <button onclick="addToCart('Chaufa de Cecina c/Platano', 21.99)">Añadir al Carrito</button>
                 <p class="description">Este plato combina arroz salteado con cecina ahumada, trozos de
                     plátano frito y otros ingredientes frescos, creando una experiencia culinaria
-                    única que cautiva con cada bocado.</p>
-            </div>
-
+                    única que cautiva con cada bocado.<br><br>
+                    <a class="bot_masDetalles" href="productos/chaufaCecina.php">Mas detalles</a>
+                </p>
+                </div>
+                
             <div class="product">
                 <div class="product-image-container">
                     <img src="platos/chicharronPollo_A.png" alt="Chicharrón de Pollo c/Papas">
@@ -106,7 +109,9 @@ if ($usuario_autenticado) {
                 <p class="description">El chicharrón de pollo es un plato popular que consiste en trozos de
                     pollo marinados y fritos hasta obtener una piel crujiente y dorada, con un
                     interior jugoso y lleno de sabor. Esta delicia culinaria es ideal como plato
-                    principal o acompañamiento en cualquier comida</p>
+                    principal o acompañamiento en cualquier comida.<br><br>
+                    <a class="bot_masDetalles" href="productos/chicharronPollo.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -121,7 +126,9 @@ if ($usuario_autenticado) {
                     ingredientes frescos de la huerta. Esta ensalada mixta combina una variedad
                     de verduras crujientes y coloridas, creando una armonía de texturas y
                     sabores. Su aderezo ligero y delicioso realza cada ingrediente, haciendo de
-                    cada bocado una experiencia refrescante y saludable.</p>
+                    cada bocado una experiencia refrescante y saludable.<br><br>
+                    <a class="bot_masDetalles" href="productos/ensaladaMixta.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -136,7 +143,8 @@ if ($usuario_autenticado) {
                     carne de cerdo se cocinan lentamente con papas y zanahorias en una salsa
                     abundante y sabrosa. Cada ingrediente contribuye con su textura y sabor,
                     creando una armonía deliciosa que se deshace en la boca, convirtiéndo este
-                    plato en un favorito en cualquier mesa.
+                    plato en un favorito en cualquier mesa.<br><br>
+                    <a class="bot_masDetalles" href="productos/guisoCerdo.php">Mas detalles</a>
                 </p>
             </div>
 
@@ -151,7 +159,9 @@ if ($usuario_autenticado) {
                 <p class="description">El encanto de este plato reside en tiernos trozos de carne de res
                     salteados con cebollas, tomates y ajíes, que aportan un toque picante
                     perfecto. Pero lo que lo eleva es su salsa, una mezcla exquisita que
-                    conquista el paladar desde el primer bocado.</p>
+                    conquista el paladar desde el primer bocado.<br><br>
+                    <a class="bot_masDetalles" href="productos/lomSaltado.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -165,7 +175,9 @@ if ($usuario_autenticado) {
                 <p class="description">La milanesa de pollo es un clásico que consiste en pollo tierno y
                     jugoso, empanizado y frito hasta obtener una textura crujiente por fuera y
                     suave por dentro. Es una experiencia gastronómica reconfortante y
-                    satisfactoria, perfecta para cualquier ocasión.</p>
+                    satisfactoria, perfecta para cualquier ocasión.<br><br>
+                    <a class="bot_masDetalles" href="productos/milanesaPollo.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -181,7 +193,8 @@ if ($usuario_autenticado) {
                     experiencia gastronómica memorable. Las papas, cocidas a la perfección, se
                     sirven cubiertas con una generosa porción de salsa huancaína, elaborada
                     con ají amarillo, queso fresco, leche y galletas, que le dan su característico
-                    sabor y textura.
+                    sabor y textura.<br><br>
+                    <a class="bot_masDetalles" href="productos/papHuanca.php">Mas detalles</a>
                 </p>
             </div>
 
@@ -197,7 +210,9 @@ if ($usuario_autenticado) {
                     destaca por su sabor y frescura. La pechuga de pollo se cocina a la plancha
                     para conservar su jugosidad, y se acompaña con papas doradas que añaden
                     una textura crujiente. Esta combinación clásica y nutritiva es ideal para una
-                    comida equilibrada y satisfactoria.</p>
+                    comida equilibrada y satisfactoria.<br><br>
+                    <a class="bot_masDetalles" href="productos/pechugaPlancha.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -211,7 +226,9 @@ if ($usuario_autenticado) {
                 <p class="description">El pollo con champiñones y papas es un plato reconfortante que
                     combina la suavidad del pollo con la riqueza de los champiñones y la textura
                     perfecta de las papas. Cocinado a la perfección, ofrece una mezcla
-                    equilibrada de sabores y texturas que deleitarán tu paladar en cada bocado.</p>
+                    equilibrada de sabores y texturas que deleitarán tu paladar en cada bocado.<br><br>
+                    <a class="bot_masDetalles" href="productos/polloChamp.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -227,7 +244,9 @@ if ($usuario_autenticado) {
                     suavidad de la sémola cocida a la perfección acaricia tu paladar. Lo que
                     destaca en nuestra sopa de sémola es su sabor inigualable: un caldo
                     preparado con vegetales frescos y hierbas aromáticas, que realza el sabor de
-                    la sémola y crea una armonía que te dejará queriendo más.</p>
+                    la sémola y crea una armonía que te dejará queriendo más.<br><br>
+                    <a class="bot_masDetalles" href="productos/sopSemola.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -243,7 +262,9 @@ if ($usuario_autenticado) {
                     la perfección en el horno, su calor envolvente crea una textura irresistible que
                     se derrite en la boca. Nuestra receta especial combina hierbas frescas como
                     romero y tomillo con especias aromáticas y un toque de ajo, creando una
-                    sinfonía de sabores única que deleitará tu paladar.</p>
+                    sinfonía de sabores única que deleitará tu paladar.<br><br>
+                    <a class="bot_masDetalles" href="productos/polloHorno.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -258,7 +279,9 @@ if ($usuario_autenticado) {
                     con un plato nutritivo y lleno de sabor. Este plato emblemático de la
                     gastronomía peruana destaca por su vibrante salsa verde, una deliciosa
                     mezcla de albahaca, espinaca, y queso fresco, fusionada con la cremosidad
-                    de la leche evaporada.</p>
+                    de la leche evaporada.<br><br>
+                    <a class="bot_masDetalles" href="productos/tallVerde.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -273,7 +296,9 @@ if ($usuario_autenticado) {
                     sabroso de carne sazonada, envuelto en hojas de plátano y cocido al vapor.
                     Es una experiencia gastronómica única que evoca tradiciones culinarias
                     auténticas, con ingredientes frescos y especias seleccionadas para deleitar
-                    en cada bocado.</p>
+                    en cada bocado.<br><br>
+                    <a class="bot_masDetalles" href="productos/tamalitoCriollo.php">Mas detalles</a>
+                </p>
             </div>
 
             <div class="product">
@@ -288,7 +313,9 @@ if ($usuario_autenticado) {
                     ingredientes. La trucha, con piel crujiente y un interior jugoso, se acompaña
                     de yuca dorada y arroz blanco esponjoso. Esta combinación ofrece una
                     variedad deliciosa de texturas y sabores, creando una experiencia culinaria
-                    rica y satisfactoria.</p>
+                    rica y satisfactoria.<br><br>
+                    <a class="bot_masDetalles" href="productos/truchaFrita.php">Mas detalles</a>
+                </p>
             </div>
         </section>
 
