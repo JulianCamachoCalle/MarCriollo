@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruleta de Platos</title>
+    <style>
+        /* Aquí va tu CSS existente */
+    </style>
+</head>
+<body>
+    <div class="conMain-Ruleta">
+        <div class="tarjeta">
+            <div class="img-tarjeta"><img src="" alt="Imagen"></div>
+            <div class="tipo-tarjeta">- Tipo de Plato -</div>
+            <div class="txt-tarjeta">Nombre del Plato</div>
+            <a href="" class="boton-tarjeta">ver plato</a>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta"><img src="" alt="Imagen"></div>
+            <div class="tipo-tarjeta">- Tipo de Plato -</div>
+            <div class="txt-tarjeta">Nombre del Plato</div>
+            <a href="" class="boton-tarjeta">ver plato</a>
+        </div>
+        <div class="tarjeta">
+            <div class="img-tarjeta"><img src="" alt="Imagen"></div>
+            <div class="tipo-tarjeta">- Tipo de Plato -</div>
+            <div class="txt-tarjeta">Nombre del Plato</div>
+            <a href="" class="boton-tarjeta">ver plato</a>
+        </div>
+    </div>
+
+    <script>
+        const platos = [
+            {
+                img: "../productos/img/tallVer_N.png",
+                tipo: "- Plato de Fondo -",
+                nombre: "Tallarin Verde",
+                link: "../productos/tallVerde.html"
+            },
+            {
+                img: "../productos/img/papHuancaina_N.png",
+                tipo: "- Plato de Entrada -",
+                nombre: "Papa a la Huancaina",
+                link: "../productos/papHuanca.html"
+            },
+            {
+                img: "../productos/img/tamal_N.png",
+                tipo: "- Plato de Entrada -",
+                nombre: "Tamalito Criollo",
+                link: "../productos/tamalitoCriollo.html"
+            },
+            // Puedes agregar más platos aquí
+        ];
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function asignarPlatos() {
+            const contenedores = document.querySelectorAll('.tarjeta');
+            const platosAleatorios = shuffle(platos.slice());
+
+            contenedores.forEach((contenedor, index) => {
+                const img = contenedor.querySelector('.img-tarjeta img');
+                const tipo = contenedor.querySelector('.tipo-tarjeta');
+                const nombre = contenedor.querySelector('.txt-tarjeta');
+                const link = contenedor.querySelector('.boton-tarjeta');
+
+                img.src = platosAleatorios[index].img;
+                tipo.textContent = platosAleatorios[index].tipo;
+                nombre.textContent = platosAleatorios[index].nombre;
+                link.href = platosAleatorios[index].link;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', asignarPlatos);
+    </script>
+</body>
+</html>
