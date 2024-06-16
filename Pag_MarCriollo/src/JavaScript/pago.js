@@ -2,10 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar carrito desde sessionStorage al cargar la página
     loadCartFromSessionStorage();
 
+    // Mostrar el resumen del carrito y el total con descuento
+    displayCartSummary();
+
     // Configurar el evento para el botón "Confirmar Pago"
     const confirmPaymentButton = document.getElementById('confirm-payment-button');
     confirmPaymentButton.addEventListener('click', function() {
         confirmPayment();
+    });
+
+    // Configurar el evento para el botón "Regresar al Carrito"
+    const backToCartButton = document.getElementById('back-to-cart-button');
+    backToCartButton.addEventListener('click', function() {
+        window.location.href = 'carrito.php'; // Cambiar 'carrito.php' por la URL correcta
     });
 });
 
@@ -26,7 +35,7 @@ function displayCart(cart) {
     cart.forEach(item => {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
-
+        
         const itemName = document.createElement('p');
         itemName.textContent = `${item.name} x ${item.quantity}`;
 
@@ -38,104 +47,49 @@ function displayCart(cart) {
 
         cartItems.appendChild(cartItem);
     });
-
-    // Calcular y mostrar el total del carrito
-    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const discount = calculateDiscount(cart); // Calcular el descuento
-
-    // Mostrar el total con el descuento aplicado
-    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-    document.getElementById('discount').textContent = `$${discount.toFixed(2)}`;
-
-    // Guardar total y descuento en sessionStorage
-    sessionStorage.setItem('cartTotal', total.toFixed(2));
-    sessionStorage.setItem('discount', discount.toFixed(2));
 }
 
-// Función para calcular el descuento
-function calculateDiscount(cart) {
-    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-    let discount = 0;
-
-    if (totalItems >= 2) {
-        discount = totalItems >= 5 ? 0.1 * cart.reduce((acc, item) => acc + item.price * item.quantity, 0) : 4;
-    }
-
-    return discount;
-}
-
-// Función para confirmar el pago y generar la factura en PDF
-function confirmPayment() {
-    // Obtener los detalles de entrega desde localStorage
-    const deliveryDetails = JSON.parse(localStorage.getItem('deliveryDetails'));
-
-    if (!deliveryDetails) {
-        alert('Primero completa los detalles de entrega.');
-        return;
-    }
-
-    // Generar factura en PDF
-    generateReceiptPDF('factura');
-}
-
-// Función para generar boleta o factura en PDF
-function generateReceiptPDF(receiptType) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Obtener los datos del carrito y el total desde sessionStorage
+// Función para mostrar el resumen del carrito y el total con descuento
+function displayCartSummary() {
     const storedCart = sessionStorage.getItem('cart');
-    const cartTotal = sessionStorage.getItem('cartTotal');
-    const discount = sessionStorage.getItem('discount');
-    const cart = JSON.parse(storedCart);
+    if (storedCart) {
+        const cart = JSON.parse(storedCart);
+        const total = calculateTotal(cart);
+        const discount = parseFloat(sessionStorage.getItem('discount')) || 0;
+        const discountedTotal = total - discount;
 
-    // Obtener los detalles de entrega desde localStorage
-    const deliveryDetails = JSON.parse(localStorage.getItem('deliveryDetails'));
-    const { name, address, phone, date, time } = deliveryDetails;
+        document.getElementById('cart-total').textContent = `$${discountedTotal.toFixed(2)}`;
+        document.getElementById('discount').textContent = `$${discount.toFixed(2)}`;
+    }
+}
 
-    // Configurar el título del documento y otros detalles
-    const title = receiptType === 'boleta' ? 'Boleta de Venta' : 'Factura';
-    const today = new Date();
-    const formattedDate = today.toLocaleDateString('es-ES', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+// Función para calcular el total del carrito
+function calculateTotal(cart) {
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+}
 
-    // Configurar el contenido del PDF
-    let yOffset = 20;
-    doc.setFontSize(18);
-    doc.text(title, 105, 10, null, null, 'center');
+// Función para validar y confirmar el pago
+function confirmPayment() {
+    // Validar el formulario de pago antes de proceder a la confirmación
+    if (validatePaymentForm()) {
+        // Aquí deberías enviar los detalles del pago al servidor
+        alert('Pago confirmado correctamente.'); // Aquí puedes agregar la lógica de envío al servidor
+        sessionStorage.removeItem('cart'); // Limpiar el carrito después de confirmar el pago
+        window.location.href = 'index.php'; // Cambiar 'index.php' por la URL correcta después del pago
+    }
+}
 
-    // Información del cliente
-    doc.setFontSize(12);
-    doc.text(`Fecha: ${formattedDate}`, 10, yOffset);
-    doc.text(`Nombre del Titular: ${name}`, 10, yOffset + 10);
-    // Aquí puedes agregar más detalles según sea necesario
+// Función para validar el formulario de pago
+function validatePaymentForm() {
+    const cardNumber = document.getElementById('card-number').value.trim();
+    const cardName = document.getElementById('card-name').value.trim();
+    const expiryDate = document.getElementById('expiry-date').value.trim();
+    const cvv = document.getElementById('cvv').value.trim();
 
-    // Información de entrega
-    doc.text(`Dirección de Entrega: ${address}`, 10, yOffset + 30);
-    doc.text(`Teléfono de Contacto: ${phone}`, 10, yOffset + 40);
-    doc.text(`Fecha de Entrega: ${date}`, 10, yOffset + 50);
-    doc.text(`Hora de Entrega: ${time}`, 10, yOffset + 60);
+    if (cardNumber === '' || cardName === '' || expiryDate === '' || cvv === '') {
+        alert('Por favor completa todos los campos del formulario de pago.');
+        return false;
+    }
 
-    // Detalles de la compra
-    yOffset += 80; // Ajuste para separar los detalles del encabezado
-    doc.setFontSize(14);
-    cart.forEach(item => {
-        doc.text(`${item.name} x ${item.quantity}`, 10, yOffset);
-        doc.text(`Precio unitario: $${item.price.toFixed(2)}`, 80, yOffset);
-        doc.text(`Subtotal: $${(item.price * item.quantity).toFixed(2)}`, 150, yOffset);
-        yOffset += 10;
-    });
-
-    // Descuento y total
-    doc.setFontSize(12);
-    doc.text(`Descuento: $${discount}`, 150, yOffset);
-    yOffset += 10;
-    doc.text(`Total: $${cartTotal}`, 150, yOffset);
-
-    // Descargar el PDF
-    doc.save(`${title}.pdf`);
+    return true;
 }
