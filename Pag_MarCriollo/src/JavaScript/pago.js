@@ -72,10 +72,22 @@ function calculateTotal(cart) {
 function confirmPayment() {
     // Validar el formulario de pago antes de proceder a la confirmación
     if (validatePaymentForm()) {
-        // Aquí deberías enviar los detalles del pago al servidor
-        alert('Pago confirmado correctamente.'); // Aquí puedes agregar la lógica de envío al servidor
-        sessionStorage.removeItem('cart'); // Limpiar el carrito después de confirmar el pago
-        window.location.href = 'index.php'; // Cambiar 'index.php' por la URL correcta después del pago
+        // Simular envío de datos al servidor
+        setTimeout(function() {
+            // Mostrar la notificación de pago exitoso con SweetAlert
+            Swal.fire({
+                title: '¡Pago realizado!',
+                text: '¡El pago se ha realizado exitosamente!',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                // Redirigir a la página principal después de confirmar
+                if (result.isConfirmed || result.isDismissed) {
+                    sessionStorage.removeItem('cart'); // Limpiar el carrito después de confirmar el pago
+                    window.location.href = 'index.php'; // Cambiar 'index.php' por la URL correcta después del pago
+                }
+            });
+        }, 1000); // Simular un tiempo de espera antes de mostrar la notificación (opcional)
     }
 }
 
