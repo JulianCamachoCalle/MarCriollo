@@ -24,7 +24,6 @@ body {
     position: relative; /* Añadido para el footer */
 }
 
-
 .info {
     display: flex;
     align-items: center;
@@ -50,6 +49,7 @@ body {
     font-weight: bold;
     margin-left: 10px;
 }
+
 
 /* Estilos para botones */
 .btn button {
