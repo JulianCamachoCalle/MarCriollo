@@ -4,7 +4,6 @@
 :root {
     --primary-color: rgb(0, 109, 182);
     --secondary-color: rgb(36, 169, 192);
-    --font-family: Arial, sans-serif;
 }
 /* reset */
 * {
@@ -14,7 +13,6 @@
 }
 
 body {
-    font-family: var(--font-family);
     background-image: url('../img/fondo7.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -116,32 +114,4 @@ body {
     .slider-list {
         grid-template-columns: repeat(1, 1fr);
     }
-}
-
-
-
-.info {
-    display: flex;
-    align-items: center;
-}
-
-.info-link {
-    background-color: white;
-    text-decoration: none;
-    color: #000;
-    padding: 8px 12px;
-    margin-right: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.info-link:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-.textnombres {
-    font-weight: bold;
-    margin-left: 10px;
 }

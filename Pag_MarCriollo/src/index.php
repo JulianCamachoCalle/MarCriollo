@@ -20,13 +20,13 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/index.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon-32x32.png" type="image/png">
 </head>
 
 <body>
-<header>
+    <header>
         <div class="contenedorhead">
             <div class="head">
                 MarCriollo
@@ -35,19 +35,19 @@ if ($usuario_autenticado) {
                 <img src="img/crab.png" alt="Logo">
             </div>
             <div class="info">
-            <?php if (!$usuario_autenticado) : ?>
-                <!-- Mostrar botones de Iniciar sesión y Registrarse si el usuario no está autenticado -->
-                <a href="intranet.php" class="info-link">Iniciar sesión</a>
-                <a href="intranet.php" class="info-link">Registrarse</a>
-            <?php else : ?>
-                <!-- Mostrar nombre de usuario y enlace a intranet.php si el usuario está autenticado -->
-                <a href="intranet.php" class="info-link">
-                    <div class="textnombres">
-                        Usuario: <?php echo $datos_usuario['nombres']; ?>
-                    </div>
-                </a>
-            <?php endif; ?>
-        </div>
+                <?php if (!$usuario_autenticado) : ?>
+                    <!-- Mostrar botones de Iniciar sesión y Registrarse si el usuario no está autenticado -->
+                    <a href="intranet.php" class="info-link">Iniciar sesión</a>
+                    <a href="intranet.php" class="info-link">Registrarse</a>
+                <?php else : ?>
+                    <!-- Mostrar nombre de usuario y enlace a intranet.php si el usuario está autenticado -->
+                    <a href="intranet.php" class="info-link">
+                        <div class="textnombres">
+                            Usuario: <?php echo $datos_usuario['nombres']; ?>
+                        </div>
+                    </a>
+                <?php endif; ?>
+            </div>
     </header>
     <button id="scrollUp" onclick="scrollToTop()">↑</button>
     <nav class="navbar">
@@ -73,7 +73,7 @@ if ($usuario_autenticado) {
         </div>
     </nav>
     <script src="JavaScript/headerfooter.js"></script>
-    
+
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué plato desea buscar?">
         <a href="carrito.php"><button id="all-dishes-button">Todos los platos</button></a>
@@ -87,7 +87,7 @@ if ($usuario_autenticado) {
         <li><a href="productos/sopSemola.html"><i class="fas fa-search"></i>Sopa de Sémola</a></li>
     </ul>
     <div id="cover-ctn-search"></div>
-    
+
     <main id="main" class="main">
         <div class="informacion">
             <img src="img/crab.png" alt="crab">
@@ -138,14 +138,14 @@ if ($usuario_autenticado) {
             <div class="carrusel">
                 <div class="plato">
                     <a href="productos/lomSaltado.html">
-                    <img src="img/lomo.jpg" alt="Lomo Saltado"></a>
+                        <img src="img/lomo.jpg" alt="Lomo Saltado"></a>
                     <h5>Lomo Saltado</h5>
                 </div>
                 <div class="plato">
                     <img src="img/ceviche.jpg" alt="Ceviche">
                     <h5>Ceviche</h5>
                 </div>
-                
+
                 <div class="plato">
                     <img src="img/aji.jpg" alt="Aji De Gallina">
                     <h5>Aji De Gallina</h5>
