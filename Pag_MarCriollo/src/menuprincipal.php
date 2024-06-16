@@ -78,7 +78,7 @@ if (!isset($_SESSION['usuario'])) {
                     <img src="img/usuario.webp" alt="img-perfil">
                 </div>
                 <div class="contenedor-informacion">
-                    <div class="info">
+                    <div class="contenido_info">
                         <?php
                         // Verificar el inicio de sesion
                         if (isset($_SESSION['usuario'])) {

@@ -213,6 +213,9 @@ function confirmDelivery() {
         // Redirigir a la página de confirmación de entrega
 <<<<<<< HEAD
         window.location.href = 'pago.php'; 
+=======
+        window.location.href = 'pago.php'; // Cambia 'Pago.php' por la URL correcta
+>>>>>>> a0fd0320cdf5c17333b8f23f2f77f89a45168837
     }
 }
 

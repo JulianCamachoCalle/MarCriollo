@@ -13,91 +13,91 @@ const platos = [
         img: "../productos/img/cevice_N.png",
         tipo: "- Plato de Entrada -",
         nombre: "Ceviche",
-        link: "../productos/ceviche.html"
+        link: "../productos/ceviche.php"
     },
     {   // Chaufa de Cecina
         img: "../productos/img/chaufaCecina_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Chaufa de Cecina c/Platano",
-        link: "../productos/chaufaCecina.html"
+        link: "../productos/chaufaCecina.php"
     },
     {   // Chicharron de Pollo
         img: "../productos/img/chicharronPollo_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Chicharron de Pollo c/Papas",
-        link: "../productos/chicharronPollo.html"
+        link: "../productos/chicharronPollo.php"
     },
     {   // Ensalada Mixta
         img: "../productos/img/ensalada_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Ensalada Mixta c/Verduras",
-        link: "../productos/ensaladaMixta.html"
+        link: "../productos/ensaladaMixta.php"
     },
     {   // Guiso de Cerdo
         img: "../productos/img/guisoCerdo_N.png",
         tipo: "- Plato de Fondo -",
         nombre: "Guiso de Cerdo con Camote",
-        link: "../productos/guisoCerdo.html"
+        link: "../productos/guisoCerdo.php"
     },
     {   // Lomo Saltado
         img: "../productos/img/lomo_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Lomo Saltado",
-        link: "../productos/lomSaltado.html"
+        link: "../productos/lomSaltado.php"
     },
     {   // Milanesa de Pollo
         img: "../productos/img/milanesa_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Milanesa de Pollo c/Papas",
-        link: "../productos/milanesaPollo.html"
+        link: "../productos/milanesaPollo.php"
     },
     {   // Papa a la Huancaina
         img: "../productos/img/papHuancaina_N.png",
         tipo: "- Plato de Entrada -",
         nombre: "Papa a la Huancaina",
-        link: "../productos/papHuanca.html"
+        link: "../productos/papHuanca.php"
     },
     {   // Pechuga a la Plancha
         img: "../productos/img/pechugaPlancha_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Pechuga a la Plancha c/Papas",
-        link: "../productos/pechugaPlancha.html"
+        link: "../productos/pechugaPlancha.php"
     },
     {   // Pollo con Champiñon
         img: "../productos/img/polloChamp_N.png",
         tipo: "- Plato de Fondo -",
         nombre: "Pollo con Champiñones con Papas",
-        link: "../productos/polloChamp.html"
+        link: "../productos/polloChamp.php"
     },
     {   // Pollo al Horno
         img: "../productos/img/polloHorno_N.png",
         tipo: "- Plato de Fondo -",
         nombre: "Pollo al Horno",
-        link: "../productos/polloHorno.html"
+        link: "../productos/polloHorno.php"
     },
     {   // Sopa de Semola
         img: "../productos/img/sopSemola_N.png",
         tipo: "- Plato de Entrada -",
         nombre: "Sopa de Semola con Pollo",
-        link: "../productos/sopSemola.html"
+        link: "../productos/sopSemola.php"
     },
     {   // Tallarin Verde
         img: "../productos/img/tallVer_N.png",
         tipo: "- Plato de Fondo -",
         nombre: "Tallarin Verde",
-        link: "../productos/tallVerde.html"
+        link: "../productos/tallVerde.php"
     },
     {   // Tamalitos Criollos
         img: "../productos/img/tamal_N.png",
         tipo: "- Plato de Entrada -",
         nombre: "Tamalito Criollo",
-        link: "../productos/tamalitoCriollo.html"
+        link: "../productos/tamalitoCriollo.php"
     },
     {   // Tamalitos Criollos
         img: "../productos/img/trucha_N.png",
         tipo: "- Plato Ejecutivo -",
         nombre: "Trucha Frita c/Yuca y Arroz",
-        link: "../productos/truchaFrita.html"
+        link: "../productos/truchaFrita.php"
     }
 
     // Puedes agregar más platos aquí ...

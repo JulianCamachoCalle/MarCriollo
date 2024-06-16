@@ -80,11 +80,21 @@ if ($usuario_autenticado) {
     </div>
 
     <ul id="box-search">
-        <li><a href="productos/papHuanca.html"><i class="fas fa-search"></i>Papa a la Huancaina</a></li>
-        <li><a href="productos/lomSaltado.html"><i class="fas fa-search"></i>Lomo Saltado</a></li>
-        <li><a href="productos/tallVerde.html"><i class="fas fa-search"></i>Tallarines Verdes</a></li>
-        <li><a href="productos/polloHorno.html"><i class="fas fa-search"></i>Pollo al Horno</a></li>
-        <li><a href="productos/sopSemola.html"><i class="fas fa-search"></i>Sopa de Sémola</a></li>
+        <li><a href="productos/ceviche.php"><i class="fas fa-search"></i>Ceviche</a></li>
+        <li><a href="productos/chaufaCecina.php"><i class="fas fa-search"></i>Chaufa de Cecina</a></li>
+        <li><a href="productos/chicharronPollo.php"><i class="fas fa-search"></i>Chicharron de Pollo</a></li>
+        <li><a href="productos/ensaladaMixta.php"><i class="fas fa-search"></i>Ensalada Mixta</a></li>
+        <li><a href="productos/guisoCerdo.php"><i class="fas fa-search"></i>Guiso de Cerdo</a></li>
+        <li><a href="productos/lomSaltado.php"><i class="fas fa-search"></i>Lomo Saltado</a></li>
+        <li><a href="productos/milanesaPollo.php"><i class="fas fa-search"></i>Milanesa de Pollo</a></li>
+        <li><a href="productos/papHuanca.php"><i class="fas fa-search"></i>Papa a la Huancaina</a></li>
+        <li><a href="productos/pechugaPlancha.php"><i class="fas fa-search"></i>Pechuga a la Plancha</a></li>
+        <li><a href="productos/polloChamp.php"><i class="fas fa-search"></i>Pollo con Champiñon</a></li>
+        <li><a href="productos/polloHorno.php"><i class="fas fa-search"></i>Pollo al Horno</a></li>
+        <li><a href="productos/sopSemola.php"><i class="fas fa-search"></i>Sopa de Semola</a></li>
+        <li><a href="productos/tallVerde.php"><i class="fas fa-search"></i>Tallarin Verde</a></li>
+        <li><a href="productos/tamalitoCriollo.php"><i class="fas fa-search"></i>Tamalito Criollo</a></li>
+        <li><a href="productos/truchaFrita.php"><i class="fas fa-search"></i>Trucha Frita</a></li>
     </ul>
     <div id="cover-ctn-search"></div>
 

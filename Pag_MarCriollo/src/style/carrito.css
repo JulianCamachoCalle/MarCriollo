@@ -133,6 +133,22 @@ main {
     text-align: left;
     font-size: 0.9em;
     line-height: 1.4;
+    text-align: center;
+}
+
+.bot_masDetalles {      /* Boton de >>Mas Detalles<< en Ver Descripcion de cada plato*/
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.4s ease text-decoration 0.3 ease;
+}
+.bot_masDetalles:hover {
+    color: rgb(53, 53, 53);
+    text-decoration: underline;
 }
 
 .product .description.description-visible {

@@ -12,10 +12,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/usuarios.css">
+    <link rel="stylesheet" href="style/usuario.css">
 </head>
 
 <body>
+    <?php
+    session_start();
+    include "PHP/conexion.php";
+
+    //Eliminar
+    if (isset($_POST['eliminar_id'])) {
+        $eliminar_id = $_POST['eliminar_id'];
+        $eliminar_query = "DELETE FROM usuarios WHERE id = '$eliminar_id'";
+        $resultado = mysqli_query($conexion, $eliminar_query);
+        if ($resultado) {
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+            echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Usuario Eliminado!',
+            text: 'El usuario ha sido eliminado exitosamente',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'usuario.php';
+            }
+        });
+        </script>";
+            exit;
+        } else {
+            die("Error al eliminar: " . mysqli_error($conexion));
+        }
+    }
+
+    $sql = "SELECT id, nombres, direccion, distrito, correo FROM usuarios";
+    $datos = mysqli_query($conexion, $sql);
+
+    $lista = [];
+    if (mysqli_num_rows($datos) > 0) {
+        while ($row = mysqli_fetch_assoc($datos)) {
+            $lista[] = array(
+                'id' => $row["id"],
+                'nom' => $row["nombres"],
+                'dir' => $row["direccion"],
+                'dis' => $row["distrito"],
+                'cor' => $row["correo"]
+            );
+        }
+    } else {
+        echo "<tr><td colspan='7'>No se encontraron resultados</td></tr>";
+    }
+
+    $_SESSION["dato"] = $lista;
+    ?>
     <header>
         <div class="contenedorhead">
             <div class="head">
@@ -48,26 +98,42 @@
         <div class="container">
             <form method="POST" action="">
                 <div class="elementos-accionar">
-                    <button type="submit" name="eliminar_usuarios" class="btneliminar">
-                        <i class="fa-solid fa-trash"></i>
-                        Eliminar
-                    </button>
                     <div class="agregar_usuarios">
                         <button type="button" onclick="window.location.href='agregar_usuarios.php'" class="btnagregar">
                             <i class="fa-solid fa-circle-plus"></i>
                             Agregar
                         </button>
                     </div>
-                    <form method="GET" action="">
-                        <div class="input-group">
-                            <input type="text" class="inputbuscar" name="query" placeholder=" Ingrese el nombre o ID del usuario">
-                            <button type="submit" class="btnbuscar">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                    </form>
+                    <div class="input-group">
+                        <input type="text" name="textn" id="textn">
+                        <button class="btnbuscar" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <div class="mostrar-todos">
+                        <button type="submit" name="show_all" value="true" class="btnmostrar">
+                            <i class="fa-solid fa-eye"></i>
+                            Mostrar Todos
+                        </button>
+                    </div>
+                    <?php
+                    if (isset($_POST['show_all']) && $_POST['show_all'] == 'true') {
+                        $txtn = count($lista);
+                    } else {
+                        if (empty($_POST["textn"])) {
+                            $txtn = count($lista);
+                        } else {
+                            $txtn = $_POST["textn"];
+                        }
+                    }
+                    $f = ($txtn <= count($lista) ? $txtn : count($lista));
+                    ?>
+                    <input type="hidden" name="txtn" value="<?php echo $txtn; ?>">
                 </div>
-                <div class="tabla-usuarios-registrados">
+            </form>
+
+            <div class="tabla-usuarios-registrados">
+                <form method="POST" action="">
                     <table>
                         <thead>
                             <tr>
@@ -82,64 +148,35 @@
                         </thead>
                         <tbody>
                             <?php
-
-                            session_start();
-
-                            include "PHP/conexion.php";
-
-                            $query = "";
-                            if (isset($_GET['query'])) {
-                                $query = mysqli_real_escape_string($conexion, $_GET['query']);
-                            }
-
-                            $sql = "SELECT id, nombres, direccion, distrito, correo FROM usuarios WHERE nombres LIKE '%$query%' OR id LIKE '%$query%'";
-                            $datos = mysqli_query($conexion, $sql);
-
-                            if (!$datos) {
-                                die("Query failed: " . mysqli_error($conexion));
-                            }
-
-                            $lista = [];
-                            if (mysqli_num_rows($datos) > 0) {
-                                while ($row = mysqli_fetch_assoc($datos)) {
-                                    $lista[] = array(
-                                        'id' => $row["id"],
-                                        'nom' => $row["nombres"],
-                                        'dir' => $row["direccion"],
-                                        'dis' => $row["distrito"],
-                                        'cor' => $row["correo"]
-                                    );
-                                }
-                            } else {
-                                echo "<tr><td colspan='7'>No se encontraron resultados</td></tr>";
-                            }
-
-                            foreach ($lista as $item) {
+                            $i = 0;
+                            do {
                                 echo "
-    <tr>
-        <td>
-            <input type='checkbox' name='chk[]' value='" . $item['id'] . "'>
-        </td>
-        <td>" . $item['id'] . "</td>
-        <td>" . $item['nom'] . "</td>
-        <td>" . $item['dir'] . "</td>
-        <td>" . $item['dis'] . "</td>
-        <td>" . $item['cor'] . "</td>
-        <td>
-            <div class='botones'>
-                <button type='button' class='btneditaricon'><a href='editar_usuario.php?id=" . $item['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a></button>
-                <form action='' method='post'>
-                    <input type='hidden' name='eliminar_id' value='" . $item['id'] . "'>
-                    <button type='submit' name='eliminar' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
+                        <tr>
+                            <td>
+                                <input type='checkbox' name='chk$i' value='" . $lista[$i]['id'] . "'>
+                            </td>
+                            <td>" . $lista[$i]['id'] . "</td>
+                            <td>" . $lista[$i]['nom'] . "</td>
+                            <td>" . $lista[$i]['dir'] . "</td>
+                            <td>" . $lista[$i]['dis'] . "</td>
+                            <td>" . $lista[$i]['cor'] . "</td>
+                            <td>
+                                <div class='botones'>
+                                    <button type='button' class='btneditaricon'><a href='editar_usuario.php?id=" . $lista[$i]['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a></button>
+                                    <form method='POST' action=''>
+                                        <input type='hidden' name='eliminar_id' value='" . $lista[$i]['id'] . "'>
+                                        <button type='submit' name='eliminar' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>";
+                                $i++;
+                            } while ($i < $f);
+                            ?>
+                        </tbody>
+                    </table>
                 </form>
             </div>
-        </td>
-    </tr>";
-                            }
-                            ?>
-                    </table>
-                </div>
-            </form>
         </div>
     </main>
     <footer>
