@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-session_destroy();
-header("location: ../intranet.php");
+session_unset(); // Elimina todas las variables de sesión
+session_destroy(); // Destruye la sesión
+
+header("location: ../../intranet.php");
+exit();
 
 ?>

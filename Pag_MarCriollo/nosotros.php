@@ -4,14 +4,24 @@ session_start();
 // Verificar si el usuario está autenticado
 $usuario_autenticado = isset($_SESSION['usuario']);
 
-// Si el usuario está autenticado, obtener sus datos
 if ($usuario_autenticado) {
     $correo = $_SESSION['usuario'];
-    include 'PHP/conexion.php';
-    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-    $datos_usuario = mysqli_fetch_assoc($consulta);
+
+    // Incluir el archivo de conexión
+    include 'Controlador/BD/Conexion.php';
+    
+    // Establecer la conexión
+    $conexion = new Conexion();
+    $con = $conexion->getcon();
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $consulta = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+    $consulta->bindParam(':correo', $correo, PDO::PARAM_STR);
+    $consulta->execute();
+    $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +29,8 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo - Nosotros</title>
-    <link rel="stylesheet" href="style/nosotros.css">
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Recursos/style/nosotros.css">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
 </head>
 <body>
 <header>
@@ -29,7 +39,7 @@ if ($usuario_autenticado) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
             <div class="info">
             <?php if (!$usuario_autenticado) : ?>
@@ -62,14 +72,14 @@ if ($usuario_autenticado) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
     
     <!-- ... -->
 
     <main>
         <div class="conVideo">
             <video autoplay loop muted playsinline>
-                <source src="img/Cinematic_Restaurant.mp4" type="video/mp4">
+                <source src="Recursos/img/Cinematic_Restaurant.mp4" type="video/mp4">
             </video>
             <div id="capaGris"></div>
             <div id="texCocina">
@@ -107,9 +117,9 @@ if ($usuario_autenticado) {
                 <div id="conTexto">
                     <h1>"Su pasión por la cocina costera lo convirtió en un referente en la escena gastronómica marina del país".</h1>
                 </div>
-                <img src="img/cocina.jpg" id="carta01">
-                <img src="img/familia.jpg" id="carta02">
-                <img src="img/fundador.jpg" id="carta03"> <!-- Imagen Principal -->
+                <img src="Recursos/img/cocina.jpg" id="carta01">
+                <img src="Recursos/img/familia.jpg" id="carta02">
+                <img src="Recursos/img/fundador.jpg" id="carta03"> <!-- Imagen Principal -->
             </div>
         </div>
         <div class="conMetas">
@@ -128,11 +138,11 @@ if ($usuario_autenticado) {
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
                     <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
                     <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -142,11 +152,11 @@ if ($usuario_autenticado) {
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>                
         </section>

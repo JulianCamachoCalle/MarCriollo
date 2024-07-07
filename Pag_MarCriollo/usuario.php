@@ -6,32 +6,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios - Marcriollo</title>
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/usuario.css">
+    <link rel="stylesheet" href="Recursos/style/usuario.css">
 </head>
 
 <body>
     <?php
     session_start();
-    include "PHP/conexion.php";
+    include "Controlador/BD/Conexion.php";
 
-    //Eliminar
+    // Eliminar usuario
     if (isset($_POST['eliminar_id'])) {
-        $eliminar_id = $_POST['eliminar_id'];
-        $eliminar_query = "DELETE FROM usuarios WHERE id = '$eliminar_id'";
-        $resultado = mysqli_query($conexion, $eliminar_query);
-        if ($resultado) {
-            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
-            echo "<script>
+        try {
+            $eliminar_id = $_POST['eliminar_id'];
+
+            // Establecer la conexión
+            $conexion = new Conexion();
+            $con = $conexion->getcon();
+
+            // Preparar la consulta para eliminar usuario
+            $eliminar_query = "DELETE FROM usuarios WHERE id = :id";
+            $stmt = $con->prepare($eliminar_query);
+            $stmt->bindParam(':id', $eliminar_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Verificar si se eliminó correctamente
+            if ($stmt->rowCount() > 0) {
+                mostrarAlerta('success', 'Usuario Eliminado!', 'El usuario ha sido eliminado exitosamente');
+            } else {
+                mostrarAlerta('error', 'Error al eliminar', 'No se encontró el usuario o ocurrió un error');
+            }
+        } catch (PDOException $e) {
+            echo "Error al eliminar usuario: " . $e->getMessage();
+        }
+    }
+
+    // Consultar usuarios
+    try {
+        // Establecer la conexión
+        $conexion = new Conexion();
+        $con = $conexion->getcon();
+
+        // Preparar y ejecutar la consulta SQL
+        $sql = "SELECT id, nombres, direccion, distrito, correo FROM usuarios";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+
+        $lista = [];
+        if ($stmt->rowCount() > 0) {
+            $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            echo "<tr><td colspan='7'>No se encontraron resultados</td></tr>";
+        }
+
+        $_SESSION["dato"] = $lista;
+    } catch (PDOException $e) {
+        echo "Error al consultar usuarios: " . $e->getMessage();
+    }
+
+    function mostrarAlerta($icono, $titulo, $texto)
+    {
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>";
+        echo "<script>
         Swal.fire({
-            icon: 'success',
-            title: 'Usuario Eliminado!',
-            text: 'El usuario ha sido eliminado exitosamente',
+            icon: '$icono',
+            title: '$titulo',
+            text: '$texto',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Aceptar'
         }).then((result) => {
@@ -40,39 +85,17 @@
             }
         });
         </script>";
-            exit;
-        } else {
-            die("Error al eliminar: " . mysqli_error($conexion));
-        }
+        exit;
     }
-
-    $sql = "SELECT id, nombres, direccion, distrito, correo FROM usuarios";
-    $datos = mysqli_query($conexion, $sql);
-
-    $lista = [];
-    if (mysqli_num_rows($datos) > 0) {
-        while ($row = mysqli_fetch_assoc($datos)) {
-            $lista[] = array(
-                'id' => $row["id"],
-                'nom' => $row["nombres"],
-                'dir' => $row["direccion"],
-                'dis' => $row["distrito"],
-                'cor' => $row["correo"]
-            );
-        }
-    } else {
-        echo "<tr><td colspan='7'>No se encontraron resultados</td></tr>";
-    }
-
-    $_SESSION["dato"] = $lista;
     ?>
+
     <header>
         <div class="contenedorhead">
             <div class="head">
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
         </div>
     </header>
@@ -92,7 +115,7 @@
             <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
 
     <main id="main" class="main">
         <div class="container">
@@ -118,17 +141,21 @@
                     </div>
                     <?php
                     if (isset($_POST['show_all']) && $_POST['show_all'] == 'true') {
-                        $txtn = count($lista);
+                        $txtn = count($lista); // Mostrar todos los elementos si se solicita explícitamente
                     } else {
                         if (empty($_POST["textn"])) {
-                            $txtn = count($lista);
+                            $txtn = count($lista); // Mostrar todos si no se proporciona un valor específico
                         } else {
-                            $txtn = $_POST["textn"];
+                            $txtn = $_POST["textn"]; // Mostrar la cantidad especificada por el usuario
                         }
                     }
+
+                    // Limitar $f al tamaño máximo de $lista para evitar índices fuera de rango
                     $f = ($txtn <= count($lista) ? $txtn : count($lista));
                     ?>
+
                     <input type="hidden" name="txtn" value="<?php echo $txtn; ?>">
+
                 </div>
             </form>
 
@@ -151,28 +178,29 @@
                             $i = 0;
                             do {
                                 echo "
-                        <tr>
-                            <td>
-                                <input type='checkbox' name='chk$i' value='" . $lista[$i]['id'] . "'>
-                            </td>
-                            <td>" . $lista[$i]['id'] . "</td>
-                            <td>" . $lista[$i]['nom'] . "</td>
-                            <td>" . $lista[$i]['dir'] . "</td>
-                            <td>" . $lista[$i]['dis'] . "</td>
-                            <td>" . $lista[$i]['cor'] . "</td>
-                            <td>
-                                <div class='botones'>
-                                    <button type='button' class='btneditaricon'><a href='editar_usuario.php?id=" . $lista[$i]['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a></button>
-                                    <form method='POST' action=''>
-                                        <input type='hidden' name='eliminar_id' value='" . $lista[$i]['id'] . "'>
-                                        <button type='submit' name='eliminar' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>";
+        <tr>
+            <td>
+                <input type='checkbox' name='chk$i' value='" . $lista[$i]['id'] . "'>
+            </td>
+            <td>" . $lista[$i]['id'] . "</td>
+            <td>" . $lista[$i]['nombres'] . "</td>
+            <td>" . $lista[$i]['direccion'] . "</td>
+            <td>" . $lista[$i]['distrito'] . "</td>
+            <td>" . $lista[$i]['correo'] . "</td>
+            <td>
+                <div class='botones'>
+                    <button type='button' class='btneditaricon'><a href='editar_usuario.php?id=" . $lista[$i]['id'] . "'><i class='fa-solid fa-pen-to-square'></i></a></button>
+                    <form method='POST' action=''>
+                        <input type='hidden' name='eliminar_id' value='" . $lista[$i]['id'] . "'>
+                        <button type='submit' name='eliminar' class='btneliminaricon'><i class='fa-solid fa-trash'></i></button>
+                    </form>
+                </div>
+            </td>
+        </tr>";
                                 $i++;
-                            } while ($i < $f);
+                            } while ($i < count($lista));
                             ?>
+
                         </tbody>
                     </table>
                 </form>
@@ -182,11 +210,11 @@
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
             <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
             <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -196,11 +224,11 @@
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>
         </section>

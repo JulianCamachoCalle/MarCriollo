@@ -15,8 +15,8 @@ if (isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
-    <link rel="stylesheet" href="style/intranet.css">
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Recursos/style/intranet.css">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
     <script src="https://kit.fontawesome.com/d2b7381cec.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@ if (isset($_SESSION['usuario'])) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
         </div>
     </header>
@@ -51,11 +51,11 @@ if (isset($_SESSION['usuario'])) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
     <main id="main" class="main">
         <div class="contenedor" id="contenedor">
             <div class="form-contenedor crear-cuenta">
-                <form action="PHP/registrar.php" method="POST">
+                <form action="Modelo/PHP/registrar.php" method="POST">
                     <h1>Create una Cuenta</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -92,7 +92,7 @@ if (isset($_SESSION['usuario'])) {
                 </form>
             </div>
             <div class="form-contenedor iniciar-sesion">
-                <form action="PHP/iniciosesion.php" method="POST">
+                <form action="Modelo/PHP/iniciosesion.php" method="POST">
                     <h1>Inicia Sesion</h1>
                     <div class="social-iconos">
                         <a href="#" class="iconos">
@@ -131,16 +131,16 @@ if (isset($_SESSION['usuario'])) {
             </div>
         </div>
     </main>
-    <script src="JavaScript/intranet.js"></script>
+    <script src="Modelo/JavaScript/intranet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
             <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
             <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -150,11 +150,11 @@ if (isset($_SESSION['usuario'])) {
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>
         </section>

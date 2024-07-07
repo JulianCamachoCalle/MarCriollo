@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'PHP/conexion.php';
+include 'Controlador/BD/Conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombres'];
@@ -10,94 +10,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST['password'];
     $contrasena2 = $_POST['password2'];
 
+    // Validación de campos vacíos
     if (empty($nombre) || empty($direccion) || empty($distrito) || empty($correo) || empty($contrasena) || empty($contrasena2)) {
-        echo "<body>";
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Por favor, rellene todos los campos!',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = '../usuario.php';
-                }
-            });
-            </script>
-            </body>";
+        mostrarAlerta('error', 'Oops...', 'Por favor, rellene todos los campos!');
         exit();
     }
 
+    // Validación de contraseñas coincidentes
     if ($contrasena != $contrasena2) {
-        echo "<body>";
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Las contraseñas no coinciden, por favor verifique!',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = '../usuario.php';
-                }
-            });
-            </script>
-            </body>";
+        mostrarAlerta('error', 'Oops...', 'Las contraseñas no coinciden, por favor verifique!');
         exit();
     }
 
-    $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo'");
+    try {
+        // Establecer la conexión
+        $conexion = new Conexion();
+        $con = $conexion->getcon();
 
-    if (mysqli_num_rows($verificar_correo) > 0) {
-        echo "<body>";
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        // Verificar si el correo ya está en uso
+        $stmt = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+        $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+        $stmt->execute();
 
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Este Correo ya está en uso, pruebe con uno diferente!',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = '../usuario.php';
-                }
-            });
-            </script>
-            </body>";
-        exit();
+        if ($stmt->rowCount() > 0) {
+            mostrarAlerta('error', 'Oops...', 'Este Correo ya está en uso, pruebe con uno diferente!');
+            exit();
+        }
+
+        // Insertar nuevo usuario
+        $stmt = $con->prepare("INSERT INTO usuarios (nombres, direccion, distrito, correo, contrasena) VALUES (:nombre, :direccion, :distrito, :correo, :contrasena)");
+        $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+        $stmt->bindParam(':distrito', $distrito, PDO::PARAM_STR);
+        $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+        $stmt->bindParam(':contrasena', $contrasena, PDO::PARAM_STR);
+        $stmt->execute();
+
+        // Mostrar mensaje de éxito
+        mostrarAlerta('success', 'Usuario agregado', 'El usuario ha sido agregado exitosamente!');
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
+}
 
-    $query = "INSERT INTO usuarios(nombres, direccion, distrito, correo, contrasena) VALUES('$nombre','$direccion','$distrito','$correo','$contrasena')";
-
-    if (mysqli_query($conexion, $query)) {
-        echo "<body>";
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
-        echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Usuario agregado',
-                text: 'El usuario ha sido agregado exitosamente!',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = '../usuario.php';
-                }
-            });
-            </script>
-            </body>";
-    } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conexion);
-    }
+function mostrarAlerta($icono, $titulo, $texto)
+{
+    echo "<body>";
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+    echo "<script>
+        Swal.fire({
+            icon: '$icono',
+            title: '$titulo',
+            text: '$texto',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Aceptar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = 'usuario.php';
+            }
+        });
+        </script>
+        </body>";
+    exit();
 }
 ?>
 
@@ -108,9 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/agregar_usuarios.css">
+    <link rel="stylesheet" href="Recursos/style/agregar_usuarios.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
@@ -121,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
         </div>
     </header>
@@ -141,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
 
     <main id="main" class="main">
         <div class="editar-usuario">
@@ -164,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
                     <div class="botones-accion">
                         <button type="sumbit" class="btn btn-success">Guardar</button>
-                        <button type="button" class="btn btn-danger" onclick="window.location.href = '../usuario.php';">Cerrar</button>
+                        <button type="button" class="btn btn-danger" onclick="window.location.href = 'usuario.php';">Cerrar</button>
                     </div>
                 </form>
             </div>
@@ -175,11 +149,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
             <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
             <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -189,11 +163,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>
         </section>

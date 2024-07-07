@@ -1,7 +1,12 @@
 <?php
+// Incluye la clase de conexión
+include '../../Controlador/BD/Conexion.php';
 
-include 'conexion.php';
+// Obtén la conexión
+$conexion = new Conexion();
+$con = $conexion->getcon();
 
+// Captura los datos del formulario
 $nombre = $_POST['nombres'];
 $direccion = $_POST['direccion'];
 $distrito = $_POST['distritos'];
@@ -9,10 +14,10 @@ $correo = $_POST['correo'];
 $contrasena = $_POST['password'];
 $contrasena2 = $_POST['password2'];
 
+// Verifica que todos los campos estén llenos
 if (empty($nombre) || empty($direccion) || empty($distrito) || empty($correo) || empty($contrasena) || empty($contrasena2)) {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'error',
@@ -22,7 +27,7 @@ if (empty($nombre) || empty($direccion) || empty($distrito) || empty($correo) ||
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
@@ -30,10 +35,10 @@ if (empty($nombre) || empty($direccion) || empty($distrito) || empty($correo) ||
     exit();
 }
 
+// Verifica que las contraseñas coincidan
 if ($contrasena != $contrasena2) {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'error',
@@ -43,7 +48,7 @@ if ($contrasena != $contrasena2) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
@@ -51,14 +56,13 @@ if ($contrasena != $contrasena2) {
     exit();
 }
 
-$query = "INSERT INTO usuarios(nombres, direccion, distrito, correo, contrasena) VALUES('$nombre','$direccion','$distrito','$correo','$contrasena')";
-
-$verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo = '$correo' ");
-
-if (mysqli_num_rows($verificar_correo) > 0) {
+// Verifica si el correo ya está en uso
+$stmt = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+$stmt->bindParam(':correo', $correo);
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'error',
@@ -68,7 +72,7 @@ if (mysqli_num_rows($verificar_correo) > 0) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
@@ -76,12 +80,13 @@ if (mysqli_num_rows($verificar_correo) > 0) {
     exit();
 }
 
-$verificar_nombres = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nombres = '$nombre' ");
-
-if (mysqli_num_rows($verificar_nombres) > 0) {
+// Verifica si el nombre ya está en uso
+$stmt = $con->prepare("SELECT * FROM usuarios WHERE nombres = :nombre");
+$stmt->bindParam(':nombre', $nombre);
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'error',
@@ -91,7 +96,7 @@ if (mysqli_num_rows($verificar_nombres) > 0) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
@@ -99,12 +104,18 @@ if (mysqli_num_rows($verificar_nombres) > 0) {
     exit();
 }
 
-$ejecutar = mysqli_query($conexion, $query);
+// Inserta el nuevo usuario
+$query = "INSERT INTO usuarios (nombres, direccion, distrito, correo, contrasena) VALUES (:nombre, :direccion, :distrito, :correo, :contrasena)";
+$stmt = $con->prepare($query);
+$stmt->bindParam(':nombre', $nombre);
+$stmt->bindParam(':direccion', $direccion);
+$stmt->bindParam(':distrito', $distrito);
+$stmt->bindParam(':correo', $correo);
+$stmt->bindParam(':contrasena', $contrasena);
 
-if ($ejecutar) {
+if ($stmt->execute()) {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'success',
@@ -114,7 +125,7 @@ if ($ejecutar) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
@@ -129,15 +140,9 @@ if ($ejecutar) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>
         </body>";
 }
-
-
-?>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">

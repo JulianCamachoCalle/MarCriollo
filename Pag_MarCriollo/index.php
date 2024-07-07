@@ -4,14 +4,24 @@ session_start();
 // Verificar si el usuario está autenticado
 $usuario_autenticado = isset($_SESSION['usuario']);
 
-// Si el usuario está autenticado, obtener sus datos
 if ($usuario_autenticado) {
     $correo = $_SESSION['usuario'];
-    include 'PHP/conexion.php';
-    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-    $datos_usuario = mysqli_fetch_assoc($consulta);
+
+    // Incluir el archivo de conexión
+    include 'Controlador/BD/Conexion.php';
+
+    // Establecer la conexión
+    $conexion = new Conexion();
+    $con = $conexion->getcon();
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $consulta = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+    $consulta->bindParam(':correo', $correo, PDO::PARAM_STR);
+    $consulta->execute();
+    $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,9 +30,9 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo</title>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="Recursos/style/index.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
 </head>
 
 <body>
@@ -32,7 +42,7 @@ if ($usuario_autenticado) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
             <div class="info">
                 <?php if (!$usuario_autenticado) : ?>
@@ -72,7 +82,7 @@ if ($usuario_autenticado) {
             <a href="carrito.php"><i class="fas fa-shopping-cart" id="icon-cart"></i></a>
         </div>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
 
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué plato desea buscar?">
@@ -80,27 +90,27 @@ if ($usuario_autenticado) {
     </div>
 
     <ul id="box-search">
-        <li><a href="productos/ceviche.php"><i class="fas fa-search"></i>Ceviche</a></li>
-        <li><a href="productos/chaufaCecina.php"><i class="fas fa-search"></i>Chaufa de Cecina</a></li>
-        <li><a href="productos/chicharronPollo.php"><i class="fas fa-search"></i>Chicharron de Pollo</a></li>
-        <li><a href="productos/ensaladaMixta.php"><i class="fas fa-search"></i>Ensalada Mixta</a></li>
-        <li><a href="productos/guisoCerdo.php"><i class="fas fa-search"></i>Guiso de Cerdo</a></li>
-        <li><a href="productos/lomSaltado.php"><i class="fas fa-search"></i>Lomo Saltado</a></li>
-        <li><a href="productos/milanesaPollo.php"><i class="fas fa-search"></i>Milanesa de Pollo</a></li>
-        <li><a href="productos/papHuanca.php"><i class="fas fa-search"></i>Papa a la Huancaina</a></li>
-        <li><a href="productos/pechugaPlancha.php"><i class="fas fa-search"></i>Pechuga a la Plancha</a></li>
-        <li><a href="productos/polloChamp.php"><i class="fas fa-search"></i>Pollo con Champiñon</a></li>
-        <li><a href="productos/polloHorno.php"><i class="fas fa-search"></i>Pollo al Horno</a></li>
-        <li><a href="productos/sopSemola.php"><i class="fas fa-search"></i>Sopa de Semola</a></li>
-        <li><a href="productos/tallVerde.php"><i class="fas fa-search"></i>Tallarin Verde</a></li>
-        <li><a href="productos/tamalitoCriollo.php"><i class="fas fa-search"></i>Tamalito Criollo</a></li>
-        <li><a href="productos/truchaFrita.php"><i class="fas fa-search"></i>Trucha Frita</a></li>
+        <li><a href="Recursos/productos/ceviche.php"><i class="fas fa-search"></i>Ceviche</a></li>
+        <li><a href="Recursos/productos/chaufaCecina.php"><i class="fas fa-search"></i>Chaufa de Cecina</a></li>
+        <li><a href="Recursos/productos/chicharronPollo.php"><i class="fas fa-search"></i>Chicharron de Pollo</a></li>
+        <li><a href="Recursos/productos/ensaladaMixta.php"><i class="fas fa-search"></i>Ensalada Mixta</a></li>
+        <li><a href="Recursos/productos/guisoCerdo.php"><i class="fas fa-search"></i>Guiso de Cerdo</a></li>
+        <li><a href="Recursos/productos/lomSaltado.php"><i class="fas fa-search"></i>Lomo Saltado</a></li>
+        <li><a href="Recursos/productos/milanesaPollo.php"><i class="fas fa-search"></i>Milanesa de Pollo</a></li>
+        <li><a href="Recursos/productos/papHuanca.php"><i class="fas fa-search"></i>Papa a la Huancaina</a></li>
+        <li><a href="Recursos/productos/pechugaPlancha.php"><i class="fas fa-search"></i>Pechuga a la Plancha</a></li>
+        <li><a href="Recursos/productos/polloChamp.php"><i class="fas fa-search"></i>Pollo con Champiñon</a></li>
+        <li><a href="Recursos/productos/polloHorno.php"><i class="fas fa-search"></i>Pollo al Horno</a></li>
+        <li><a href="Recursos/productos/sopSemola.php"><i class="fas fa-search"></i>Sopa de Semola</a></li>
+        <li><a href="Recursos/productos/tallVerde.php"><i class="fas fa-search"></i>Tallarin Verde</a></li>
+        <li><a href="Recursos/productos/tamalitoCriollo.php"><i class="fas fa-search"></i>Tamalito Criollo</a></li>
+        <li><a href="Recursos/productos/truchaFrita.php"><i class="fas fa-search"></i>Trucha Frita</a></li>
     </ul>
     <div id="cover-ctn-search"></div>
 
     <main id="main" class="main">
         <div class="informacion">
-            <img src="img/crab.png" alt="crab">
+            <img src="Recursos/img/crab.png" alt="crab">
             <h1>Bienvenido a MarCriollo</h1>
             <p>¡Tenemos los platos más ricos de todo el Perú!</p>
             <br>
@@ -109,7 +119,7 @@ if ($usuario_autenticado) {
         <div class="descripcion">
             <div class="division">
                 <div class="circulo-verde">
-                    <img src="img/cafe.png" width="40" height="40" alt="Telefono">
+                    <img src="Recursos/img/cafe.png" width="40" height="40" alt="Telefono">
                 </div>
                 <br>
                 <h2>Desayuno</h2>
@@ -119,7 +129,7 @@ if ($usuario_autenticado) {
             </div>
             <div class="division">
                 <div class="circulo-gris">
-                    <img src="img/tenedor.png" width="30" height="40" alt="Tenedor">
+                    <img src="Recursos/img/tenedor.png" width="30" height="40" alt="Tenedor">
                 </div>
                 <br>
                 <h2>Almuerzo</h2>
@@ -129,7 +139,7 @@ if ($usuario_autenticado) {
             </div>
             <div class="division">
                 <div class="circulo-azul">
-                    <img src="img/copa.png" width="30" height="40" alt="Copa">
+                    <img src="Recursos/img/copa.png" width="30" height="40" alt="Copa">
                 </div>
                 <br>
                 <h2>Cena</h2>
@@ -147,33 +157,33 @@ if ($usuario_autenticado) {
             <button id="anteriorBtn" onclick="cambiarPlato('anterior')"></button>
             <div class="carrusel">
                 <div class="plato">
-                    <a href="productos/lomSaltado.html">
-                        <img src="img/lomo.jpg" alt="Lomo Saltado"></a>
+                    <a href="Recursos/productos/lomSaltado.html">
+                        <img src="Recursos/img/lomo.jpg" alt="Lomo Saltado"></a>
                     <h5>Lomo Saltado</h5>
                 </div>
                 <div class="plato">
-                    <img src="img/ceviche.jpg" alt="Ceviche">
+                    <img src="Recursos/img/ceviche.jpg" alt="Ceviche">
                     <h5>Ceviche</h5>
                 </div>
 
                 <div class="plato">
-                    <img src="img/aji.jpg" alt="Aji De Gallina">
+                    <img src="Recursos/img/aji.jpg" alt="Aji De Gallina">
                     <h5>Aji De Gallina</h5>
                 </div>
                 <div class="plato">
-                    <img src="img/arrozpollo.jpg" alt="Arroz Con Pollo">
+                    <img src="Recursos/img/arrozpollo.jpg" alt="Arroz Con Pollo">
                     <h5>Arroz Con Pollo</h5>
                 </div>
                 <div class="plato">
-                    <img src="img/causa.jpg" alt="Causa">
+                    <img src="Recursos/img/causa.jpg" alt="Causa">
                     <h5>Causa</h5>
                 </div>
                 <div class="plato">
-                    <img src="img/tacutacu.jpg" alt="Tacu Tacu">
+                    <img src="Recursos/img/tacutacu.jpg" alt="Tacu Tacu">
                     <h5>Tacu Tacu</h5>
                 </div>
                 <div class="plato">
-                    <img src="img/tallarineshuancaina.jpg" alt="Tallarines a La Huancaina">
+                    <img src="Recursos/img/tallarineshuancaina.jpg" alt="Tallarines a La Huancaina">
                     <h5>Tallarines</h5>
                 </div>
             </div>
@@ -191,15 +201,15 @@ if ($usuario_autenticado) {
             </div>
         </div>
     </main>
-    <script src="JavaScript/index.js"></script>
+    <script src="Modelo/JavaScript/index.js"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
             <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
             <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -209,11 +219,11 @@ if ($usuario_autenticado) {
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>
         </section>

@@ -28,13 +28,13 @@
         </button>
         <ul class="opciones">
             <!-- Modificar -->
-            <li><a id="no-seleccionado" href="../index.html">Inicio</a></li>
-            <li><a id="no-seleccionado" href="../nosotros.html">Nosotros</a></li>
-            <li><a id="no-seleccionado" href="../servicios.html">Servicios</a></li>
-            <li><a id="no-seleccionado" href="../redessociales.html">Redes Sociales</a></li>
-            <li><a id="no-seleccionado" href="../mapas.html">Mapas</a></li>
-            <li><a id="no-seleccionado" href="../contacto.html">Contacto</a></li>
-            <li><a id="no-seleccionado" href="../intranet.php">Intranet</a></li>
+            <li><a id="no-seleccionado" href="../../index.php">Inicio</a></li>
+            <li><a id="no-seleccionado" href="../../nosotros.php">Nosotros</a></li>
+            <li><a id="no-seleccionado" href="../../servicios.php">Servicios</a></li>
+            <li><a id="no-seleccionado" href="../../redessociales.php">Redes Sociales</a></li>
+            <li><a id="no-seleccionado" href="../../mapas.php">Mapas</a></li>
+            <li><a id="no-seleccionado" href="../../contacto.php">Contacto</a></li>
+            <li><a id="no-seleccionado" href="../../intranet.php">Intranet</a></li>
         </ul>
     </nav>
     <script src="../JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
@@ -100,7 +100,7 @@
             -->
         </div>
     </main>
-    <script src="../JavaScript/producto.js"></script>
+    <script src="../../Modelo/JavaScript/producto.js"></script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

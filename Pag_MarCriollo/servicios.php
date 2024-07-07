@@ -4,14 +4,24 @@ session_start();
 // Verificar si el usuario está autenticado
 $usuario_autenticado = isset($_SESSION['usuario']);
 
-// Si el usuario está autenticado, obtener sus datos
 if ($usuario_autenticado) {
     $correo = $_SESSION['usuario'];
-    include 'PHP/conexion.php';
-    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-    $datos_usuario = mysqli_fetch_assoc($consulta);
+
+    // Incluir el archivo de conexión
+    include 'Controlador/BD/Conexion.php';
+    
+    // Establecer la conexión
+    $conexion = new Conexion();
+    $con = $conexion->getcon();
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $consulta = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+    $consulta->bindParam(':correo', $correo, PDO::PARAM_STR);
+    $consulta->execute();
+    $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <html>
@@ -19,8 +29,8 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - MarCriollo</title>
-    <link rel="stylesheet" href="style/servicios.css"> <!-- Hoja de estilos externa llamado servicios.css -->
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Recursos/style/servicios.css"> <!-- Hoja de estilos externa llamado servicios.css -->
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
 </head>
 <body> <!-- Contenido visible de la página web -->
 <header>
@@ -29,7 +39,7 @@ if ($usuario_autenticado) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
             <div class="info">
             <?php if (!$usuario_autenticado) : ?>
@@ -62,7 +72,7 @@ if ($usuario_autenticado) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
     <main>
         <div class="contenedor-titulo">
             <div class="titulo">
@@ -72,7 +82,7 @@ if ($usuario_autenticado) {
         <section class="services-slider">
             <ul class="slider-list">
                 <li class="animate-slide">
-                    <img src="images/carrusel1.jpg" alt="Barra y Cocteles">
+                    <img src="Recursos/images/carrusel1.jpg" alt="Barra y Cocteles">
                     <div class="slider-content">
                         <h3>Barra y Cocteles</h3>
                         <p>Vive un momento especial e inolvidable en nuestro bar...</p>
@@ -80,7 +90,7 @@ if ($usuario_autenticado) {
                     </div>
                 </li>
                 <li class="animate-slide">
-                    <img src="images/carrusel2.jpg" alt="">
+                    <img src="Recursos/images/carrusel2.jpg" alt="">
                     <div class="slider-content">
                         <h3>Buffet</h3>
                         <p>
@@ -91,7 +101,7 @@ if ($usuario_autenticado) {
                         </div>
                     </li>
                     <li class="animate-slide">
-                        <img src="images/carrusel3.jpg" alt="">
+                        <img src="Recursos/images/carrusel3.jpg" alt="">
                         <div class="slider-content">
                             <h3>Catering</h3>
                             <p>Somos tu mejor aliado en servicios de catering para eventos.</p>
@@ -102,7 +112,7 @@ if ($usuario_autenticado) {
                         </div>
                     </li>
                     <li class="animate-slide">
-                        <img src="images/carrusel4.jpg" alt="">
+                        <img src="Recursos/images/carrusel4.jpg" alt="">
                         <div class="slider-content">
                             <h3>Salón de eventos</h3>
                             <P>
@@ -120,11 +130,11 @@ if ($usuario_autenticado) {
         <footer>
             <section id="redes">
                 <a href="https://www.instagram.com/">
-                    <img src="img/logoig.png" alt="Instagram"></a>
+                    <img src="Recursos/img/logoig.png" alt="Instagram"></a>
                         <a href="https://twitter.com/">
-                    <img src="img/logotw.png" alt="Twitter"></a>
+                    <img src="Recursos/img/logotw.png" alt="Twitter"></a>
                         <a href="https://Facebook.com/">
-                    <img src="img/face.png" alt="Facebook"></a>
+                    <img src="Recursos/img/face.png" alt="Facebook"></a>
             </section>
             Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
             <section id="licencias">
@@ -134,16 +144,16 @@ if ($usuario_autenticado) {
             </section>
             <section id="contacto">
                 <a href="tel:+51950661842">
-                    <img src="img/telef.png" alt="Telefono">
+                    <img src="Recursos/img/telef.png" alt="Telefono">
                     +51 950 661 842
                 </a>
                 <a href="mailto:MarCriollo@gmail.com">
-                    <img src="img/correo.png" alt="Correo">
+                    <img src="Recursos/img/correo.png" alt="Correo">
                     MarCriollo@gmail.com
                 </a>                
             </section>
             &copy; 2024 Creado por Grupo
         </footer>
-        <script src="JavaScript/sliderservicios.js"></script>
+        <script src="Modelo/JavaScript/sliderservicios.js"></script>
 </body>
 </html>

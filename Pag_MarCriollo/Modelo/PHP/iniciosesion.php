@@ -2,21 +2,27 @@
 
 session_start();
 
-include 'conexion.php';
+include '../../Controlador/BD/Conexion.php';
 
 $correo = $_POST['correo'];
 $contrasena = $_POST['password'];
 
-$validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo' and contrasena='$contrasena' ");
+$conexion = new Conexion();
+$con = $conexion->getcon();
 
-if(mysqli_num_rows($validar_login) > 0) {
+$query = "SELECT * FROM usuarios WHERE correo = :correo AND contrasena = :contrasena";
+$stmt = $con->prepare($query);
+$stmt->bindParam(':correo', $correo);
+$stmt->bindParam(':contrasena', $contrasena);
+$stmt->execute();
+
+if($stmt->rowCount() > 0) {
     $_SESSION['usuario'] = $correo;
-    header("location: ../menuprincipal.php");
+    header("location: ../../menuprincipal.php");
     exit();
 } else {
     echo "<body>";
     echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     echo "<script>
         Swal.fire({
             icon: 'error',
@@ -26,7 +32,7 @@ if(mysqli_num_rows($validar_login) > 0) {
             confirmButtonText: 'Aceptar',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = '../intranet.php';
+                window.location = '../../intranet.php';
             }
         });
         </script>

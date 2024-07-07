@@ -1,18 +1,27 @@
-
 <?php
 session_start();
 
 // Verificar si el usuario está autenticado
 $usuario_autenticado = isset($_SESSION['usuario']);
 
-// Si el usuario está autenticado, obtener sus datos
 if ($usuario_autenticado) {
     $correo = $_SESSION['usuario'];
-    include 'PHP/conexion.php';
-    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-    $datos_usuario = mysqli_fetch_assoc($consulta);
+
+    // Incluir el archivo de conexión
+    include 'Controlador/BD/Conexion.php';
+    
+    // Establecer la conexión
+    $conexion = new Conexion();
+    $con = $conexion->getcon();
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $consulta = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+    $consulta->bindParam(':correo', $correo, PDO::PARAM_STR);
+    $consulta->execute();
+    $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -21,8 +30,8 @@ if ($usuario_autenticado) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MarCriollo</title>
         <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style/carrito.css">
-        <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+        <link rel="stylesheet" href="Recursos/style/carrito.css">
+        <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
     </head>
 <body>
     <header>
@@ -31,7 +40,7 @@ if ($usuario_autenticado) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
             <div class="info">
             <?php if (!$usuario_autenticado) : ?>
@@ -64,12 +73,13 @@ if ($usuario_autenticado) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
     <main>
         <section id="product-list">
             <!-- Productos para seleccionar -->
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/ceviche_A.png" alt="ceviche">
+                    <img src="Recursos/platos/ceviche_A.png" alt="ceviche">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>ceviche</p>
@@ -79,13 +89,13 @@ if ($usuario_autenticado) {
                     mezclado con cebolla roja, ají limo y cilantro, cada bocado combina acidez,
                     picante y sabor herbal. Servido con camote y maíz tostado, ofrece una
                     mezcla única de texturas y contrastes que deleitan los sentidos.<br><br>
-                    <a class="bot_masDetalles" href="productos/ceviche.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/ceviche.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/chaufaCecina_A.png" alt="Chaufa de Cecina c/Platano">
+                    <img src="Recursos/platos/chaufaCecina_A.png" alt="Chaufa de Cecina c/Platano">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Chaufa de Cecina c/Platano</p>
@@ -94,13 +104,13 @@ if ($usuario_autenticado) {
                 <p class="description">Este plato combina arroz salteado con cecina ahumada, trozos de
                     plátano frito y otros ingredientes frescos, creando una experiencia culinaria
                     única que cautiva con cada bocado.<br><br>
-                    <a class="bot_masDetalles" href="productos/chaufaCecina.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/chaufaCecina.php">Mas detalles</a>
                 </p>
                 </div>
                 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/chicharronPollo_A.png" alt="Chicharrón de Pollo c/Papas">
+                    <img src="Recursos/platos/chicharronPollo_A.png" alt="Chicharrón de Pollo c/Papas">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Chicharrón de Pollo c/Papas</p>
@@ -110,13 +120,13 @@ if ($usuario_autenticado) {
                     pollo marinados y fritos hasta obtener una piel crujiente y dorada, con un
                     interior jugoso y lleno de sabor. Esta delicia culinaria es ideal como plato
                     principal o acompañamiento en cualquier comida.<br><br>
-                    <a class="bot_masDetalles" href="productos/chicharronPollo.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/chicharronPollo.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/ensalada_N.png" alt="Ensalada Mixta c/Verduras">
+                    <img src="Recursos/platos/ensalada_N.png" alt="Ensalada Mixta c/Verduras">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Ensalada Mixta c/Verduras</p>
@@ -127,13 +137,13 @@ if ($usuario_autenticado) {
                     de verduras crujientes y coloridas, creando una armonía de texturas y
                     sabores. Su aderezo ligero y delicioso realza cada ingrediente, haciendo de
                     cada bocado una experiencia refrescante y saludable.<br><br>
-                    <a class="bot_masDetalles" href="productos/ensaladaMixta.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/ensaladaMixta.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/guisoCerdo_N.png" alt="Guiso de Cerdo con Camote">
+                    <img src="Recursos/platos/guisoCerdo_N.png" alt="Guiso de Cerdo con Camote">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Guiso de Cerdo con Camote</p>
@@ -144,13 +154,13 @@ if ($usuario_autenticado) {
                     abundante y sabrosa. Cada ingrediente contribuye con su textura y sabor,
                     creando una armonía deliciosa que se deshace en la boca, convirtiéndo este
                     plato en un favorito en cualquier mesa.<br><br>
-                    <a class="bot_masDetalles" href="productos/guisoCerdo.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/guisoCerdo.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/lomo_N.png" alt="Lomo Saltado">
+                    <img src="Recursos/platos/lomo_N.png" alt="Lomo Saltado">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Lomo Saltado</p>
@@ -160,13 +170,13 @@ if ($usuario_autenticado) {
                     salteados con cebollas, tomates y ajíes, que aportan un toque picante
                     perfecto. Pero lo que lo eleva es su salsa, una mezcla exquisita que
                     conquista el paladar desde el primer bocado.<br><br>
-                    <a class="bot_masDetalles" href="productos/lomSaltado.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/lomSaltado.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/milanesa_A.png" alt="Milanesa de Pollo c/Papas">
+                    <img src="Recursos/platos/milanesa_A.png" alt="Milanesa de Pollo c/Papas">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Milanesa de Pollo c/Papas</p>
@@ -176,13 +186,13 @@ if ($usuario_autenticado) {
                     jugoso, empanizado y frito hasta obtener una textura crujiente por fuera y
                     suave por dentro. Es una experiencia gastronómica reconfortante y
                     satisfactoria, perfecta para cualquier ocasión.<br><br>
-                    <a class="bot_masDetalles" href="productos/milanesaPollo.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/milanesaPollo.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/papHuancaina_N.png" alt="Papa a la Huancaina">
+                    <img src="Recursos/platos/papHuancaina_N.png" alt="Papa a la Huancaina">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Papa a la Huancaina</p>
@@ -194,13 +204,13 @@ if ($usuario_autenticado) {
                     sirven cubiertas con una generosa porción de salsa huancaína, elaborada
                     con ají amarillo, queso fresco, leche y galletas, que le dan su característico
                     sabor y textura.<br><br>
-                    <a class="bot_masDetalles" href="productos/papHuanca.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/papHuanca.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/pechugaPlancha_A.png" alt="Pechuga a la Plancha c/Papas">
+                    <img src="Recursos/platos/pechugaPlancha_A.png" alt="Pechuga a la Plancha c/Papas">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Pechuga a la Plancha c/Papas</p>
@@ -211,13 +221,13 @@ if ($usuario_autenticado) {
                     para conservar su jugosidad, y se acompaña con papas doradas que añaden
                     una textura crujiente. Esta combinación clásica y nutritiva es ideal para una
                     comida equilibrada y satisfactoria.<br><br>
-                    <a class="bot_masDetalles" href="productos/pechugaPlancha.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/pechugaPlancha.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/polloChamp_N.png" alt="Pollo con Champiñones con papas">
+                    <img src="Recursos/platos/polloChamp_N.png" alt="Pollo con Champiñones con papas">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Pollo con Champiñones con papas</p>
@@ -227,13 +237,13 @@ if ($usuario_autenticado) {
                     combina la suavidad del pollo con la riqueza de los champiñones y la textura
                     perfecta de las papas. Cocinado a la perfección, ofrece una mezcla
                     equilibrada de sabores y texturas que deleitarán tu paladar en cada bocado.<br><br>
-                    <a class="bot_masDetalles" href="productos/polloChamp.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/polloChamp.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/sopSemola_A.png" alt="Sopa de Semola">
+                    <img src="Recursos/platos/sopSemola_A.png" alt="Sopa de Semola">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Sopa de Semola</p>
@@ -245,13 +255,13 @@ if ($usuario_autenticado) {
                     destaca en nuestra sopa de sémola es su sabor inigualable: un caldo
                     preparado con vegetales frescos y hierbas aromáticas, que realza el sabor de
                     la sémola y crea una armonía que te dejará queriendo más.<br><br>
-                    <a class="bot_masDetalles" href="productos/sopSemola.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/sopSemola.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/polloHorno_A.png" alt="Pollo al Horno">
+                    <img src="Recursos/platos/polloHorno_A.png" alt="Pollo al Horno">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Pollo al Horno</p>
@@ -263,13 +273,13 @@ if ($usuario_autenticado) {
                     se derrite en la boca. Nuestra receta especial combina hierbas frescas como
                     romero y tomillo con especias aromáticas y un toque de ajo, creando una
                     sinfonía de sabores única que deleitará tu paladar.<br><br>
-                    <a class="bot_masDetalles" href="productos/polloHorno.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/polloHorno.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/tallVer_N.png" alt="Tallarin Verde con Pollo al Horno">
+                    <img src="Recursos/platos/tallVer_N.png" alt="Tallarin Verde con Pollo al Horno">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Tallarin Verde con Pollo al Horno</p>
@@ -280,13 +290,13 @@ if ($usuario_autenticado) {
                     gastronomía peruana destaca por su vibrante salsa verde, una deliciosa
                     mezcla de albahaca, espinaca, y queso fresco, fusionada con la cremosidad
                     de la leche evaporada.<br><br>
-                    <a class="bot_masDetalles" href="productos/tallVerde.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/tallVerde.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/tamal_N.png" alt="Tamalito Criollo">
+                    <img src="Recursos/platos/tamal_N.png" alt="Tamalito Criollo">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Tamalito Criollo</p>
@@ -297,13 +307,13 @@ if ($usuario_autenticado) {
                     Es una experiencia gastronómica única que evoca tradiciones culinarias
                     auténticas, con ingredientes frescos y especias seleccionadas para deleitar
                     en cada bocado.<br><br>
-                    <a class="bot_masDetalles" href="productos/tamalitoCriollo.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/tamalitoCriollo.php">Mas detalles</a>
                 </p>
             </div>
 
             <div class="product">
                 <div class="product-image-container">
-                    <img src="platos/trucha_N.png" alt="Trucha Frita c/Yuca y Arroz">
+                    <img src="Recursos/platos/trucha_N.png" alt="Trucha Frita c/Yuca y Arroz">
                     <button class="description-button" onclick="toggleDescription(this)">Ver Descripción</button>
                 </div>
                 <p>Trucha Frita c/Yuca y Arroz</p>
@@ -314,7 +324,7 @@ if ($usuario_autenticado) {
                     de yuca dorada y arroz blanco esponjoso. Esta combinación ofrece una
                     variedad deliciosa de texturas y sabores, creando una experiencia culinaria
                     rica y satisfactoria.<br><br>
-                    <a class="bot_masDetalles" href="productos/truchaFrita.php">Mas detalles</a>
+                    <a class="bot_masDetalles" href="Recursos/productos/truchaFrita.php">Mas detalles</a>
                 </p>
             </div>
         </section>
@@ -335,11 +345,11 @@ if ($usuario_autenticado) {
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
                     <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
                     <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -349,17 +359,17 @@ if ($usuario_autenticado) {
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>                
         </section>
         &copy; 2024 Creado por Grupo
     </footer>
 
-    <script src="JavaScript/carrito.js"></script>
+    <script src="Modelo/JavaScript/carrito.js"></script>
 </body>
 </html>

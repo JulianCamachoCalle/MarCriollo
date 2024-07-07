@@ -1,18 +1,27 @@
-
 <?php
 session_start();
 
 // Verificar si el usuario está autenticado
 $usuario_autenticado = isset($_SESSION['usuario']);
 
-// Si el usuario está autenticado, obtener sus datos
 if ($usuario_autenticado) {
     $correo = $_SESSION['usuario'];
-    include 'PHP/conexion.php';
-    $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
-    $datos_usuario = mysqli_fetch_assoc($consulta);
+
+    // Incluir el archivo de conexión
+    include 'Controlador/BD/Conexion.php';
+    
+    // Establecer la conexión
+    $conexion = new Conexion();
+    $con = $conexion->getcon();
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $consulta = $con->prepare("SELECT * FROM usuarios WHERE correo = :correo");
+    $consulta->bindParam(':correo', $correo, PDO::PARAM_STR);
+    $consulta->execute();
+    $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,8 +29,8 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redes Sociales - MarCriollo</title>
-    <link rel="stylesheet" href="style/redessociales.css">
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Recursos/style/redessociales.css">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
 </head>
 <body>
 <header>
@@ -30,7 +39,7 @@ if ($usuario_autenticado) {
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
             <div class="info">
             <?php if (!$usuario_autenticado) : ?>
@@ -63,7 +72,7 @@ if ($usuario_autenticado) {
             <li><a id="no-seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
     <main>
         <div class="red1">
             <div class="section-title">Nuestras Redes</div>
@@ -80,32 +89,32 @@ if ($usuario_autenticado) {
             <button id="scrollUp" onclick="scrollToTop()">↑</button>
         <ul class="social-media">
             <li>
-                <a href="https://www.facebook.com/" class="social-link"><img src="img/logoface.png" width="31" height="31" alt="Facebook"> Facebook</a>
+                <a href="https://www.facebook.com/" class="social-link"><img src="Recursos/img/logoface.png" width="31" height="31" alt="Facebook"> Facebook</a>
                 <p>Síguenos en Facebook para obtener actualizaciones diarias y participar en nuestras promociones exclusivas.</p>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/eVVfsLg--aA" frameborder="0" allow="autoplay" allowfullscreen></iframe>
             </li>
             <li>
-                <a href="https://twitter.com/" class="social-link"><img src="img/logox.png" width="31" height="31" alt="Twitter"> Twitter</a>
+                <a href="https://twitter.com/" class="social-link"><img src="Recursos/img/logox.png" width="31" height="31" alt="Twitter"> Twitter</a>
                 <p>Únete a nuestra comunidad en Twitter y mantente informado sobre eventos especiales y noticias de última hora.</p>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/n8YwWZy3bcM" frameborder="0" allow="autoplay"></iframe>
             </li>
             <li>
-                <a href="https://web.whatsapp.com/" class="social-link whatsapp"><img src="img/logowhat1.png" width="31" height="31" alt="whatsapp"> WhatsApp</a>
+                <a href="https://web.whatsapp.com/" class="social-link whatsapp"><img src="Recursos/img/logowhat1.png" width="31" height="31" alt="whatsapp"> WhatsApp</a>
                 <p>¡Contacta con nosotros a través de WhatsApp y recibe atención personalizada de nuestro equipo!</p>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/BME9Kzky724" frameborder="0" allow="autoplay" allowfullscreen></iframe>
             </li>
         </ul>
     </main>
-    <script src="JavaScript/redes sociales.js"></script>
+    <script src="Modelo/JavaScript/redes sociales.js"></script>
     
 <footer>
     <section id="redes">
         <a href="https://www.instagram.com/">
-            <img src="img/logoig.png" alt="Instagram"></a>
+            <img src="Recursos/img/logoig.png" alt="Instagram"></a>
                 <a href="https://twitter.com/">
-            <img src="img/logotw.png" alt="Twitter"></a>
+            <img src="Recursos/img/logotw.png" alt="Twitter"></a>
                 <a href="https://Facebook.com/">
-            <img src="img/face.png" alt="Facebook"></a>
+            <img src="Recursos/img/face.png" alt="Facebook"></a>
     </section>
     Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
     <section id="licencias">
@@ -115,11 +124,11 @@ if ($usuario_autenticado) {
     </section>
     <section id="contacto">
         <a href="tel:+51950661842">
-            <img src="img/telef.png" alt="Telefono">
+            <img src="Recursos/img/telef.png" alt="Telefono">
             +51 950 661 842
         </a>
         <a href="mailto:MarCriollo@gmail.com">
-            <img src="img/correo.png" alt="Correo">
+            <img src="Recursos/img/correo.png" alt="Correo">
             MarCriollo@gmail.com
         </a>                
     </section>

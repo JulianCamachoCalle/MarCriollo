@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "PHP/conexion.php";
+include "Controlador/BD/Conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
@@ -10,49 +10,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $distrito = $_POST['distritos'];
     $correo = $_POST['correo'];
 
-    // Preparar la consulta SQL para actualizar los datos del usuario
-    $actualizar_query = "UPDATE usuarios SET nombres = '$nombres', direccion = '$direccion', distrito = '$distrito', correo = '$correo' WHERE id = '$codigo'";
+    try {
+        // Establecer la conexión
+        $conexion = new Conexion();
+        $con = $conexion->getcon();
 
-    // Ejecutar la consulta SQL
-    $resultado = mysqli_query($conexion, $actualizar_query);
+        // Preparar la consulta SQL para actualizar los datos del usuario
+        $actualizar_query = "UPDATE usuarios SET nombres = :nombres, direccion = :direccion, distrito = :distrito, correo = :correo WHERE id = :codigo";
+        $stmt = $con->prepare($actualizar_query);
+        $stmt->bindParam(':nombres', $nombres, PDO::PARAM_STR);
+        $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+        $stmt->bindParam(':distrito', $distrito, PDO::PARAM_STR);
+        $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+        $stmt->bindParam(':codigo', $codigo, PDO::PARAM_INT);
+        $stmt->execute();
 
-    if ($resultado) {
-        echo "<body>";
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-        echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Usuario Editado!',
-                text: 'El usuario ha sido editado exitosamente',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../usuario.php';
-                }
-            });
-        </script>
-        </body>";
-        exit;
-    } else {
-        die("Error al editar: " . mysqli_error($conexion));
+        // Verificar el éxito de la consulta
+        if ($stmt->rowCount() > 0) {
+            echo "<body>";
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario Editado!',
+                    text: 'El usuario ha sido editado exitosamente',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'usuario.php';
+                    }
+                });
+            </script>
+            </body>";
+            exit;
+        } else {
+            echo "No se realizaron cambios";
+        }
+    } catch (PDOException $e) {
+        echo "Error al actualizar usuario: " . $e->getMessage();
     }
 }
 
-// Verifica si se ha proporcionado un ID de usuario en la URL
+// Verificar si se ha proporcionado un ID de usuario en la URL
 if (isset($_GET['id'])) {
     // Obtiene el ID del usuario de la URL
     $id_usuario = $_GET['id'];
 
-    // Realiza una consulta para obtener los datos del usuario
-    $consulta_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id = $id_usuario");
+    try {
+        // Establecer la conexión
+        $conexion = new Conexion();
+        $con = $conexion->getcon();
 
-    if ($consulta_usuario) {
-        // Verifica si se encontraron datos del usuario
-        if (mysqli_num_rows($consulta_usuario) > 0) {
-            // Obtiene los datos del usuario
-            $datos_usuario = mysqli_fetch_assoc($consulta_usuario);
-            // Asigna los datos del usuario a variables individuales
+        // Realizar una consulta para obtener los datos del usuario
+        $consulta_usuario = $con->prepare("SELECT * FROM usuarios WHERE id = :id");
+        $consulta_usuario->bindParam(':id', $id_usuario, PDO::PARAM_INT);
+        $consulta_usuario->execute();
+
+        // Verificar si se encontraron datos del usuario
+        if ($consulta_usuario->rowCount() > 0) {
+            // Obtener los datos del usuario
+            $datos_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);
+            // Asignar los datos del usuario a variables individuales
             $codigo = $datos_usuario['id'];
             $nombres = $datos_usuario['nombres'];
             $direccion = $datos_usuario['direccion'];
@@ -60,20 +79,20 @@ if (isset($_GET['id'])) {
             $correo = $datos_usuario['correo'];
         } else {
             echo "No se encontraron datos para el usuario con ID: $id_usuario";
-            exit; // Termina la ejecución del script
+            exit; // Terminar la ejecución del script
         }
-    } else {
-        echo "Error al consultar la base de datos: " . mysqli_error($conexion);
-        exit; // Termina la ejecución del script
+    } catch (PDOException $e) {
+        echo "Error al consultar la base de datos: " . $e->getMessage();
     }
 } else {
     echo "No se proporcionó un ID de usuario en la URL";
-    exit; // Termina la ejecución del script
+    exit; // Terminar la ejecución del script
 }
 
 $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclacayo", "Chorrillos", "Cieneguilla", "Comas", "El Agustino", "Independencia", "Jesús María", "La Molina", "La Victoria", "Lince", "Los Olivos", "Lurigancho", "Lurín", "Magdalena del Mar", "Miraflores", "Pachacámac", "Pucusana", "Pueblo Libre", "Puente Piedra", "Punta Hermosa", "Punta Negra", "Rímac", "San Bartolo", "San Borja", "San Isidro", "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis", "San Martín de Porres", "San Miguel", "Santa Anita", "Santa María del Mar", "Santa Rosa", "Santiago de Surco", "Surquillo", "Villa El Salvador", "Villa María del Triunfo");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <html>
@@ -82,9 +101,9 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuario - Marcriollo</title>
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/editar_usuario.css">
+    <link rel="stylesheet" href="Recursos/style/editar_usuario.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
@@ -95,7 +114,7 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
                 MarCriollo
             </div>
             <div class="logoprincipal">
-                <img src="img/crab.png" alt="Logo">
+                <img src="Recursos/img/crab.png" alt="Logo">
             </div>
         </div>
     </header>
@@ -115,7 +134,7 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
             <li><a id="seleccionado" href="intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="JavaScript/headerfooter.js"></script>
+    <script src="Modelo/JavaScript/headerfooter.js"></script>
 
     <main id="main" class="main">
         <div class="editar-usuario">
@@ -140,7 +159,7 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
                     <input type="email" name="correo" id="correo" value="<?php echo $correo; ?>" placeholder="Correo">
                     <div class="botones-accion">
                         <button type="sumbit" class="btn btn-success">Guardar</button>
-                        <button type="button" class="btn btn-danger" onclick="window.location.href = '../usuario.php';">Cerrar</button>
+                        <button type="button" class="btn btn-danger" onclick="window.location.href = 'usuario.php';">Cerrar</button>
                     </div>
                 </form>
             </div>
@@ -151,11 +170,11 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">
-                <img src="img/logoig.png" alt="Instagram"></a>
+                <img src="Recursos/img/logoig.png" alt="Instagram"></a>
             <a href="https://twitter.com/">
-                <img src="img/logotw.png" alt="Twitter"></a>
+                <img src="Recursos/img/logotw.png" alt="Twitter"></a>
             <a href="https://Facebook.com/">
-                <img src="img/face.png" alt="Facebook"></a>
+                <img src="Recursos/img/face.png" alt="Facebook"></a>
         </section>
         Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
         <section id="licencias">
@@ -165,11 +184,11 @@ $distritos = array("Ancón", "Ate", "Barranco", "Breña", "Carabayllo", "Chaclac
         </section>
         <section id="contacto">
             <a href="tel:+51950661842">
-                <img src="img/telef.png" alt="Telefono">
+                <img src="Recursos/img/telef.png" alt="Telefono">
                 +51 950 661 842
             </a>
             <a href="mailto:MarCriollo@gmail.com">
-                <img src="img/correo.png" alt="Correo">
+                <img src="Recursos/img/correo.png" alt="Correo">
                 MarCriollo@gmail.com
             </a>
         </section>
