@@ -1,0 +1,117 @@
+@import url("headerfooter.css");
+
+/* variables */
+:root {
+    --primary-color: rgb(0, 109, 182);
+    --secondary-color: rgb(36, 169, 192);
+}
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../img/fondo7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.contenedor-titulo {
+    display: flex;
+    margin-top: 15px;
+}
+
+.titulo {
+    font-size: 30px;
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 25px;
+    border-radius: 40px;
+    margin: 0 auto;
+}
+
+/* Contenedor del Slider */
+.services-slider {
+    position: relative;
+    max-width: 100%;
+    margin: 15px auto;
+    padding: 20px;
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+    overflow: hidden;
+}
+
+/* Lista de slides */
+.slider-list {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Elementos de la Lista: */
+.slider-list li {
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+    min-width: 100%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    list-style-type: none;
+    color: white;
+}
+
+/* Botones de navegación */
+.slider-prev,.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slider-prev {
+    left: 1px;
+}
+
+.slider-next {
+    right: 1px;
+}
+
+.slider-list img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    border-radius: 10px 10px 0 0;
+}
+
+.slider-list h3 {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+.slider-list p {
+    font-size: 40px;
+}
+
+/* Diseño responsivo */
+/* dispositivos medianos */
+@media (max-width: 768px) {
+    .services-slider {
+        max-width: 600px;
+    }
+    .slider-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* dispositivos pequeños */
+@media (max-width: 480px) {
+    .services-slider {
+        max-width: 400px;
+    }
+    .slider-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
