@@ -1,10 +1,10 @@
 <?php
 class Conexion
 {
-    private $local = "bv7xx9bbke21yomtrc0m-mysql.services.clever-cloud.com";
-    private $usu = "uu57wycwjgena4uo";
-    private $pas = "tvX7fUiY8xKHp0zVuOMx";
-    private $bd = "bv7xx9bbke21yomtrc0m";
+    private $local = "localhost";
+    private $usu = "root";
+    private $pas = "";
+    private $bd = "bdmarcriollo";
     private $port = "3306";
 
     public function getcon()
