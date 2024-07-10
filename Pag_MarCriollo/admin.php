@@ -207,18 +207,6 @@
                                         <p>Lista</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="Vista/plugin/index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="Vista/plugin/index3.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
@@ -235,15 +223,10 @@
                                 <li class="nav-item">
                                     <a href="#" onclick="getClick('VProductos.php')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista</p>
+                                        <p>Menu</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="Vista/plugin/productos.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard Productos</p>
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
                     </ul>
