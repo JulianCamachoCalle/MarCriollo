@@ -86,7 +86,6 @@ if ($usuario_autenticado) {
 
     <div id="ctn-bars-search">
         <input type="text" id="inputSearch" placeholder="¿Qué plato desea buscar?">
-        <a href="carrito.php"><button id="all-dishes-button">Todos los platos</button></a>
     </div>
 
     <ul id="box-search">
