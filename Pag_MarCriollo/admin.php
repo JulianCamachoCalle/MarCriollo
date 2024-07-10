@@ -171,8 +171,7 @@
                         <img src="Vista/plugin/dist/img/usuario.webp" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Administrador
-                        </a>
+                        <a href="#" class="d-block">Administrador</a>
                     </div>
                 </div>
 
@@ -223,6 +222,30 @@
                             </ul>
                         </li>
 
+                        <!-- Nueva sección para Productos -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-box"></i>
+                                <p>
+                                    Productos
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" onclick="getClick('VProductos.php')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Lista</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Vista/plugin/productos.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard Productos</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
