@@ -21,7 +21,7 @@ if ($usuario_autenticado) {
     $datos_usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 }
 ?>
-
+    
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -106,17 +106,30 @@ if ($usuario_autenticado) {
                     </select>
 
                     <label>Tipo de comprobante:</label>
-                    <div class="receipt-options">
-                        <input type="radio" id="boleta" name="receipt-type" value="boleta" required>
-                        <label for="boleta">Boleta</label>
-                        <input type="radio" id="factura" name="receipt-type" value="factura">
-                        <label for="factura">Factura</label>
-                    </div>
+                <div class="receipt-options">
+                    <input type="radio" id="boleta" name="receipt-type" value="boleta" required>
+                    <label for="boleta">Boleta</label>
+                    <input type="radio" id="factura" name="receipt-type" value="factura">
+                    <label for="factura">Factura</label>
                 </div>
 
-                <button type="button" id="confirm-payment-button">Confirmar Pago</button>
-                <button type="button" id="back-to-cart-button">Regresar al Carrito</button>
-            </form>
+                <div id="boleta-fields" class="additional-fields" style="display: none;">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni">
+                </div>
+
+                <div id="factura-fields" class="additional-fields" style="display: none;">
+                    <label for="ruc">RUC:</label>
+                    <input type="text" id="ruc" name="ruc">
+                    <label for="razon-social">Razón Social:</label>
+                    <input type="text" id="razon-social" name="razon-social">
+                    <label for="direccion-fiscal">Dirección Fiscal:</label>
+                    <input type="text" id="direccion-fiscal" name="direccion-fiscal">
+                </div>
+            </div>
+            <button type="button" id="confirm-payment-button">Confirmar Pago</button>
+            <button type="button" id="back-to-cart-button">Regresar al Carrito</button>
+        </form>
         </section>
         <aside id="cart-summary">
             <h2>Resumen del Carrito</h2>
@@ -159,6 +172,6 @@ if ($usuario_autenticado) {
         &copy; 2024 Creado por Grupo
     </footer>
 
-    <script src="Modelo/JavaScript/pago.js"></script>
+    <script src="Modelo/JavaScript/pago.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
