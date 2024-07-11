@@ -243,12 +243,6 @@ function validateForm() {
     return true;
 }
 
-// Función para continuar comprando desde la página de entrega
-function continueShopping() {
-    // Redirigir al usuario a la página de carrito.php
-    window.location.href = 'carrito.php'; // Cambiar 'carrito.php' por la URL correcta
-}
-
 // Función para calcular el cargo adicional basado en la opción de entrega seleccionada
 function calculateExtraCharge() {
     const deliveryOption = document.getElementById('delivery-option').value;

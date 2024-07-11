@@ -154,18 +154,6 @@ function updatePayButtonState() {
     payButton.disabled = cart.length === 0;
 }
 
-// Función para redirigir a la página de entrega.html al hacer clic en Pagar
-function goToCheckout() {
-    // Verificar una última vez si hay productos en el carrito
-    if (cart.length === 0) {
-        alert('Agrega al menos un producto al carrito antes de proceder al pago.');
-        return;
-    }
-
-    // Redirigir a la página de entrega.html
-    window.location.href = 'entrega.php';
-}
-
 // Función para mostrar u ocultar la descripción del producto
 function toggleDescription(button) {
     const description = button.parentElement.parentElement.querySelector('.description');
