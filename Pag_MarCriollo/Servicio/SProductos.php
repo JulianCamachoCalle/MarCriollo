@@ -3,8 +3,8 @@
 header('Content-Type: application/json');
 
 require_once '../Controlador/BD/Conexion.php';
-require_once '../Controlador/DAO/DProductos.php'; 
-require_once '../Modelo/Productos.php'; 
+require_once '../Controlador/DAO/DProductos.php';
+require_once '../Modelo/Productos.php';
 
 // Instancia del DAO de Productos
 $dProductos = new DProductos();
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                 echo json_encode(['success' => true]);
                 break;
-                
+
             case 'delete':
                 if (isset($_POST['id'])) {
                     $id = $_POST['id'];
@@ -100,3 +100,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo json_encode(['error' => 'Método no soportado']);
 }
 
+?>

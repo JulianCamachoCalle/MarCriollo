@@ -86,8 +86,8 @@
                         <input type="text" class="form-control" id="editDescripcion" name="edit_descripcion">
                     </div>
                     <div class="form-group">
-                        <label for="editPrecio">Precio:</label>
-                        <input type="text" class="form-control" id="editPrecio" name="edit_precio">
+                        <label for="agregarPrecio">Precio:</label>
+                        <input type="text" class="form-control" id="agregarPrecio" name="precio">
                     </div>
                     <div class="form-group">
                         <label for="editImagen">Imagen:</label>
