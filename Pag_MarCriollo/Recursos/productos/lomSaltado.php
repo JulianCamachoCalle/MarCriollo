@@ -37,14 +37,31 @@
             <li><a id="no-seleccionado" href="../../intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="../JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
+    <script src="../../Modelo/JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
     <main>
+        <!---->
+        <div id="overlayContainer" class="overlay-container" style="display: none;">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Contenido del overlay -->
+                    <div id="container3D">
+                        <div id="demoText">- Demostracion Modelo 3D -</div>
+                    </div>
+                    <script>
+                    const modelPath = "../../Recursos/productos/assets/plato/plato.gltf";
+                    const model = "";
+                    </script>
+                </div>
+            </div>
+            <!-- Botón de cerrar -->
+            <button id="closeOverlayButton" class="close-button">×</button>
+        </div>
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 
                 <div class="contenedorImg"><img src="../productos/img/lomo_N.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 <div class="contenedorImg"><img src="../productos/img/lomo_A.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="../productos/img/print_Lomo.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="overlayButton"><img src="../../Recursos/productos/img/ico_3D.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 
             </div>
             <div class="imgProducto">
@@ -67,7 +84,7 @@
                     </div>
                 </div>
                 <div class="conBoton">
-                    <a class="botonPedir" href="../carrito.html">pedir ahora</a>
+                    <a class="botonPedir" href="../../carrito.php">pedir ahora</a>
                 </div>
             </div>
         </div>
@@ -100,7 +117,16 @@
             -->
         </div>
     </main>
-    <script src="../../Modelo/JavaScript/producto.js"></script>
+    <script type="module" src="../../Modelo/JavaScript/producto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script>
+        function cambiarImagen(imagen) {
+            var imagenGrande = document.getElementById("imagen-grande");
+            imagenGrande.src = imagen.src;
+        }
+    </script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

@@ -37,14 +37,31 @@
             <li><a id="no-seleccionado" href="../../intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="../JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
+    <script src="../../Modelo/JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
     <main>
+        <!---->
+        <div id="overlayContainer" class="overlay-container" style="display: none;">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Contenido del overlay -->
+                    <div id="container3D">
+                        <div id="demoText">- Demostracion Modelo 3D -</div>
+                    </div>
+                    <script>
+                    const modelPath = "../../Recursos/productos/assets/plato/plato.gltf";
+                    const model = "";
+                    </script>
+                </div>
+            </div>
+            <!-- Botón de cerrar -->
+            <button id="closeOverlayButton" class="close-button">×</button>
+        </div>
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 
                 <div class="contenedorImg"><img src="../productos/img/guisoCerdo_N.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 <div class="contenedorImg"><img src="../productos/img/guisoCerdo_A.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="../productos/img/print_Lomo.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="overlayButton"><img src="../../Recursos/productos/img/ico_3D.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 
             </div>
             <div class="imgProducto">
@@ -67,7 +84,7 @@
                     </div>
                 </div>
                 <div class="conBoton">
-                    <a class="botonPedir" href="../carrito.html">Pedir Ahora</a>
+                    <a class="botonPedir" href="../../carrito.php">Pedir Ahora</a>
                 </div>
             </div>
         </div>
@@ -102,7 +119,13 @@
             </div>
         </div>
     </main>
-    <script src="../../Modelo/JavaScript/producto.js"></script>
+    <script type="module" src="../../Modelo/JavaScript/producto.js"></script>
+    <script>
+        function cambiarImagen(imagen) {
+            var imagenGrande = document.getElementById("imagen-grande");
+            imagenGrande.src = imagen.src;
+        }
+    </script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

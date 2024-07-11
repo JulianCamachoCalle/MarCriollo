@@ -37,14 +37,14 @@
             <li><a id="no-seleccionado" href="../../intranet.php">Intranet</a></li>
         </ul>
     </nav>
-    <script src="../JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
+    <script src="../../Modelo/JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
     <main>
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 
                 <div class="contenedorImg"><img src="../productos/img/trucha_N.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 <div class="contenedorImg"><img src="../productos/img/trucha_A.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="../productos/img/print_Lomo.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="overlayButton"><img src="../../Recursos/productos/img/ico_3D.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 
             </div>
             <div class="imgProducto">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="conBoton">
-                    <a class="botonPedir" href="../carrito.html">pedir ahora</a>
+                    <a class="botonPedir" href="../../carrito.php">pedir ahora</a>
                 </div>
             </div>
         </div>
@@ -100,7 +100,13 @@
             -->
         </div>
     </main>
-   <script src="../../Modelo/JavaScript/producto.js"></script>
+    <script type="module" src="../../Modelo/JavaScript/producto.js"></script>
+    <script>
+        function cambiarImagen(imagen) {
+            var imagenGrande = document.getElementById("imagen-grande");
+            imagenGrande.src = imagen.src;
+        }
+    </script>
     <footer>
         <section id="redes">
             <a href="https://www.instagram.com/">

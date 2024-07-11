@@ -1,10 +1,11 @@
 /* CAMBIO DE IMAGEN AL PRESIONAR */
 
 // Cambio de imagen del contenedor Grande
-function cambiarImagen(imagen) {
+/*function cambiarImagen(imagen) {
+    console.log("Hola");
     var imagenGrande = document.getElementById("imagen-grande");
     imagenGrande.src = imagen.src;
-  }
+  }*/
 
 
 /* MOSTRAR TARJETAS ALEATORIAS (class="conMain-Ruleta") */
@@ -153,4 +154,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const numContenedores = 3; // Cambia este número para generar más contenedores
     generarContenedores(numContenedores);
 });
+/* A4 */
+
+
 /* */
+// Obtener elementos del DOM
+const overlayButton = document.getElementById('overlayButton');
+const overlayContainer = document.getElementById('overlayContainer');
+const closeOverlayButton = document.getElementById('closeOverlayButton');
+const closeButton = document.querySelector('.close-button');
+
+// Importar la función que carga el modelo 3D
+import { loadModel3D } from "./three-model.js";
+
+// Mostrar el overlay al hacer clic en el botón
+overlayButton.addEventListener('click', () => {
+    overlayContainer.style.display = 'flex'; // Mostrar el contenedor del overlay
+    loadModel3D(); // Llamar a la función que carga el modelo 3D
+});
+
+// Ocultar el overlay al hacer clic en el botón de cerrar
+closeOverlayButton.addEventListener('click', () => {
+    overlayContainer.style.display = 'none'; // Ocultar el contenedor del overlay
+});
+
+// Cerrar el overlay al hacer clic en el botón circular
+closeButton.addEventListener('click', () => {
+    overlayContainer.style.display = 'none'; // Ocultar el contenedor del overlay
+});
