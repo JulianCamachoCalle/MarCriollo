@@ -39,6 +39,23 @@
     </nav>
     <script src="../../Modelo/JavaScript/headerfooter.js"></script> <!-- Script para el funcionamiento de la Hamburguesa -->
     <main>
+        <!---->
+        <div id="overlayContainer" class="overlay-container" style="display: none;">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Contenido del overlay -->
+                    <div id="container3D">
+                        <div id="demoText">- Demostracion Modelo 3D -</div>
+                    </div>
+                    <script>
+                    const modelPath = "../../Recursos/productos/assets/plato/plato.gltf";
+                    const model = "";
+                    </script>
+                </div>
+            </div>
+            <!-- Botón de cerrar -->
+            <button id="closeOverlayButton" class="close-button">×</button>
+        </div>
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 

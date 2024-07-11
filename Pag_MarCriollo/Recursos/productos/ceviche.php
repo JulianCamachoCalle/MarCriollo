@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="conBoton">
-                    <a class="botonPedir" href="../../carrito.php">Pedir Ahora</a>
+                    <a class="botonPedir" href="../../Vista/carrito.php">Pedir Ahora</a>
                 </div>
             </div>
         </div>
