@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mostrar el resumen del carrito y el total con descuento
     displayCartSummary();
 
+    // Configurar eventos para tipo de comprobante
+    const boletaRadio = document.getElementById('boleta');
+    const facturaRadio = document.getElementById('factura');
+    const boletaFields = document.getElementById('boleta-fields');
+    const facturaFields = document.getElementById('factura-fields');
+
+    boletaRadio.addEventListener('change', function() {
+        boletaFields.style.display = 'block';
+        facturaFields.style.display = 'none';
+    });
+
+    facturaRadio.addEventListener('change', function() {
+        boletaFields.style.display = 'none';
+        facturaFields.style.display = 'block';
+    });
+
     // Configurar el evento para el botón "Confirmar Pago"
     const confirmPaymentButton = document.getElementById('confirm-payment-button');
     confirmPaymentButton.addEventListener('click', function() {
@@ -18,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Función para cargar el carrito desde sessionStorage
+// Función para cargar carrito desde sessionStorage
 function loadCartFromSessionStorage() {
     const storedCart = sessionStorage.getItem('cart');
     if (storedCart) {
