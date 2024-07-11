@@ -79,7 +79,7 @@ if ($usuario_autenticado) {
             <i class="fas fa-search" id="icon-search"></i>
         </div>
         <div id="ctn-icon-cart">
-            <a href="carrito.php"><i class="fas fa-shopping-cart" id="icon-cart"></i></a>
+            <a href="Vista/carrito.php"><i class="fas fa-shopping-cart" id="icon-cart"></i></a>
         </div>
     </nav>
     <script src="Modelo/JavaScript/headerfooter.js"></script>

@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión
-include 'Controlador/BD/Conexion.php';
+include '../Controlador/BD/Conexion.php';
 
 // Establecer la conexión
 $conexion = new Conexion();
@@ -19,8 +19,8 @@ $productos = $consulta_productos->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo - Productos</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Recursos/style/carrito.css">
-    <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="../Recursos/style/carrito.css">
+    <link rel="icon" href="../Recursos/img/favicon-32x32.png" type="image/png">
 </head>
 <body>
 <header>
@@ -29,19 +29,19 @@ $productos = $consulta_productos->fetchAll(PDO::FETCH_ASSOC);
             MarCriollo
         </div>
         <div class="logoprincipal">
-            <img src="Recursos/img/crab.png" alt="Logo">
+            <img src="../Recursos/img/crab.png" alt="Logo">
         </div>
     </div>
 </header>
 
 <nav class="navbar">
     <ul class="opciones">
-        <li><a id="seleccionado" href="index.php">Inicio</a></li>
-        <li><a id="no-seleccionado" href="nosotros.php">Nosotros</a></li>
-        <li><a id="no-seleccionado" href="servicios.php">Servicios</a></li>
-        <li><a id="no-seleccionado" href="redessociales.php">Redes Sociales</a></li>
-        <li><a id="no-seleccionado" href="mapas.php">Mapas</a></li>
-        <li><a id="no-seleccionado" href="contacto.php">Contacto</a></li>
+        <li><a id="seleccionado" href="../index.php">Inicio</a></li>
+        <li><a id="no-seleccionado" href="../nosotros.php">Nosotros</a></li>
+        <li><a id="no-seleccionado" href="../servicios.php">Servicios</a></li>
+        <li><a id="no-seleccionado" href="../redessociales.php">Redes Sociales</a></li>
+        <li><a id="no-seleccionado" href="../mapas.php">Mapas</a></li>
+        <li><a id="no-seleccionado" href="../contacto.php">Contacto</a></li>
     </ul>
 </nav>
 
@@ -79,11 +79,11 @@ $productos = $consulta_productos->fetchAll(PDO::FETCH_ASSOC);
 <footer>
     <section id="redes">
         <a href="https://www.instagram.com/">
-            <img src="Recursos/img/logoig.png" alt="Instagram"></a>
+            <img src="../Recursos/img/logoig.png" alt="Instagram"></a>
         <a href="https://twitter.com/">
-            <img src="Recursos/img/logotw.png" alt="Twitter"></a>
+            <img src="../Recursos/img/logotw.png" alt="Twitter"></a>
         <a href="https://Facebook.com/">
-            <img src="Recursos/img/face.png" alt="Facebook"></a>
+            <img src="../Recursos/img/face.png" alt="Facebook"></a>
     </section>
     Jirón Salaverry 110 Magdalena del Mar Municipalidad Metropolitana de Lima LIMA, 17
     <section id="licencias">
@@ -93,18 +93,18 @@ $productos = $consulta_productos->fetchAll(PDO::FETCH_ASSOC);
     </section>
     <section id="contacto">
         <a href="tel:+51950661842">
-            <img src="Recursos/img/telef.png" alt="Telefono">
+            <img src="../Recursos/img/telef.png" alt="Telefono">
             +51 950 661 842
         </a>
         <a href="mailto:MarCriollo@gmail.com">
-            <img src="Recursos/img/correo.png" alt="Correo">
+            <img src="../Recursos/img/correo.png" alt="Correo">
             MarCriollo@gmail.com
         </a>
     </section>
     &copy; 2024 Creado por Grupo
 </footer>
 
-<script src="Modelo/JavaScript/carrito.js"></script>
-<script src="Modelo/JavaScript/headerfooter.js"></script>
+<script src="../Modelo/JavaScript/carrito.js"></script>
+<script src="../Modelo/JavaScript/headerfooter.js"></script>
 </body>
 </html>
