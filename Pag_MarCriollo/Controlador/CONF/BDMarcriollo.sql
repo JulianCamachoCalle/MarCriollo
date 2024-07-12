@@ -240,3 +240,209 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- Crear la tabla boletas
+CREATE TABLE boletas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    dni VARCHAR(8) NOT NULL,
+    numero_de_cuotas INT NOT NULL,
+    fecha_emision DATE NOT NULL,
+    pago_final DECIMAL(10, 2) NOT NULL
+);
+
+-- Insertar datos de ejemplo en la tabla boletas
+INSERT INTO boletas (nombre, dni, numero_de_cuotas, fecha_emision, pago_final) VALUES
+('Juan Pérez', '12345678', 3, '2024-07-10', 50.75),
+('María Gómez', '23456789', 6, '2024-07-09', 30.50),
+('Pedro Rodríguez', '34567890', 1, '2024-07-08', 48.00);
+
+-- Procedimientos CRUD para la tabla boletas
+
+-- Obtener boletas
+DROP PROCEDURE IF EXISTS SP_OBTENER_BOLETAS;
+DELIMITER //
+
+CREATE PROCEDURE SP_OBTENER_BOLETAS(IN bus VARCHAR(255))
+BEGIN
+    SELECT id, nombre, dni, numero_de_cuotas, fecha_emision, pago_final
+    FROM boletas
+    WHERE id LIKE CONCAT('%', bus, '%')
+       OR nombre LIKE CONCAT('%', bus, '%')
+       OR dni LIKE CONCAT('%', bus, '%')
+       OR numero_de_cuotas LIKE CONCAT('%', bus, '%')
+       OR fecha_emision LIKE CONCAT('%', bus, '%')
+       OR pago_final LIKE CONCAT('%', bus, '%');
+END //
+
+DELIMITER ;
+
+-- Insertar una nueva boleta
+DROP PROCEDURE IF EXISTS SP_INSERTAR_BOLETA;
+DELIMITER //
+
+CREATE PROCEDURE SP_INSERTAR_BOLETA(
+    IN p_nombre VARCHAR(100),
+    IN p_dni VARCHAR(8),
+    IN p_numero_de_cuotas INT,
+    IN p_fecha_emision DATE,
+    IN p_pago_final DECIMAL(10, 2)
+)
+BEGIN
+    INSERT INTO boletas (nombre, dni, numero_de_cuotas, fecha_emision, pago_final)
+    VALUES (p_nombre, p_dni, p_numero_de_cuotas, p_fecha_emision, p_pago_final);
+END //
+
+DELIMITER ;
+
+-- Obtener una boleta por su ID
+DROP PROCEDURE IF EXISTS SP_OBTENER_BOLETA_POR_ID;
+DELIMITER //
+
+CREATE PROCEDURE SP_OBTENER_BOLETA_POR_ID(
+    IN p_id INT
+)
+BEGIN
+    SELECT * FROM boletas WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+-- Actualizar una boleta
+DROP PROCEDURE IF EXISTS SP_ACTUALIZAR_BOLETA;
+DELIMITER //
+
+CREATE PROCEDURE SP_ACTUALIZAR_BOLETA(
+    IN p_id INT, 
+    IN p_nombre VARCHAR(100), 
+    IN p_dni VARCHAR(8), 
+    IN p_numero_de_cuotas INT, 
+    IN p_fecha_emision DATE, 
+    IN p_pago_final DECIMAL(10, 2)
+)
+BEGIN
+    UPDATE boletas
+    SET nombre = p_nombre, dni = p_dni, numero_de_cuotas = p_numero_de_cuotas, fecha_emision = p_fecha_emision, pago_final = p_pago_final
+    WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+-- Eliminar una boleta
+DROP PROCEDURE IF EXISTS SP_ELIMINAR_BOLETA;
+DELIMITER //
+
+CREATE PROCEDURE SP_ELIMINAR_BOLETA(
+    IN p_id INT
+)
+BEGIN
+    DELETE FROM boletas WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+
+
+-- Crear la tabla facturas
+CREATE TABLE facturas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    RUC VARCHAR(11) NOT NULL,
+    razon_social VARCHAR(255) NOT NULL,
+    direccion_fiscal VARCHAR(255) NOT NULL,
+    fecha_emision DATE NOT NULL,
+    pago_final DECIMAL(10, 2) NOT NULL
+);
+
+-- Insertar datos de ejemplo en la tabla facturas
+INSERT INTO facturas (nombre, RUC, razon_social, direccion_fiscal, fecha_emision, pago_final) VALUES
+('Mioshi', '12345678901', 'Mioshi S.A.C.', 'Av. Principal 456', '2024-07-10', 120.00),
+('Restaurante El Sabor', '23456789012', 'El Sabor S.R.L.', 'Jr. delicioso 789', '2024-07-09', 180.50),
+('Pescadería Marítima', '34567890123', 'Pescadería Marítima E.I.R.L.', 'Calle del Mar 123', '2024-07-08', 150.25);
+
+-- Procedimientos CRUD para la tabla facturas
+
+-- Obtener facturas
+DROP PROCEDURE IF EXISTS SP_OBTENER_FACTURAS;
+DELIMITER //
+
+CREATE PROCEDURE SP_OBTENER_FACTURAS(IN bus VARCHAR(255))
+BEGIN
+    SELECT id, nombre, RUC, razon_social, direccion_fiscal, fecha_emision, pago_final
+    FROM facturas
+    WHERE id LIKE CONCAT('%', bus, '%')
+       OR nombre LIKE CONCAT('%', bus, '%')
+       OR RUC LIKE CONCAT('%', bus, '%')
+       OR razon_social LIKE CONCAT('%', bus, '%')
+       OR direccion_fiscal LIKE CONCAT('%', bus, '%')
+       OR fecha_emision LIKE CONCAT('%', bus, '%')
+       OR pago_final LIKE CONCAT('%', bus, '%');
+END //
+
+DELIMITER ;
+
+-- Insertar una nueva factura
+DROP PROCEDURE IF EXISTS SP_INSERTAR_FACTURA;
+DELIMITER //
+
+CREATE PROCEDURE SP_INSERTAR_FACTURA(
+    IN p_nombre VARCHAR(100),
+    IN p_RUC VARCHAR(11),
+    IN p_razon_social VARCHAR(255),
+    IN p_direccion_fiscal VARCHAR(255),
+    IN p_fecha_emision DATE,
+    IN p_pago_final DECIMAL(10, 2)
+)
+BEGIN
+    INSERT INTO facturas (nombre, RUC, razon_social, direccion_fiscal, fecha_emision, pago_final)
+    VALUES (p_nombre, p_RUC, p_razon_social, p_direccion_fiscal, p_fecha_emision, p_pago_final);
+END //
+
+DELIMITER ;
+
+-- Obtener una factura por su ID
+DROP PROCEDURE IF EXISTS SP_OBTENER_FACTURA_POR_ID;
+DELIMITER //
+
+CREATE PROCEDURE SP_OBTENER_FACTURA_POR_ID(
+    IN p_id INT
+)
+BEGIN
+    SELECT * FROM facturas WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+-- Actualizar una factura
+DROP PROCEDURE IF EXISTS SP_ACTUALIZAR_FACTURA;
+DELIMITER //
+
+CREATE PROCEDURE SP_ACTUALIZAR_FACTURA(
+    IN p_id INT, 
+    IN p_nombre VARCHAR(100), 
+    IN p_RUC VARCHAR(11), 
+    IN p_razon_social VARCHAR(255), 
+    IN p_direccion_fiscal VARCHAR(255), 
+    IN p_fecha_emision DATE, 
+    IN p_pago_final DECIMAL(10, 2)
+)
+BEGIN
+    UPDATE facturas
+    SET nombre = p_nombre, RUC = p_RUC, razon_social = p_razon_social, direccion_fiscal = p_direccion_fiscal, fecha_emision = p_fecha_emision, pago_final = p_pago_final
+    WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+-- Eliminar una factura
+DROP PROCEDURE IF EXISTS SP_ELIMINAR_FACTURA;
+DELIMITER //
+
+CREATE PROCEDURE SP_ELIMINAR_FACTURA(
+    IN p_id INT
+)
+BEGIN
+    DELETE FROM facturas WHERE id = p_id;
+END //
+
+DELIMITER ;
