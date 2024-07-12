@@ -253,9 +253,9 @@ CREATE TABLE boletas (
 
 -- Insertar datos de ejemplo en la tabla boletas
 INSERT INTO boletas (nombre, dni, numero_de_cuotas, fecha_emision, pago_final) VALUES
-('Juan Pérez', '12345678', 3, '2024-07-10', 150.75),
-('María Gómez', '23456789', 6, '2024-07-09', 300.50),
-('Pedro Rodríguez', '34567890', 1, '2024-07-08', 100.00);
+('Juan Pérez', '12345678', 3, '2024-07-10', 50.75),
+('María Gómez', '23456789', 6, '2024-07-09', 30.50),
+('Pedro Rodríguez', '34567890', 1, '2024-07-08', 48.00);
 
 -- Procedimientos CRUD para la tabla boletas
 
@@ -356,9 +356,9 @@ CREATE TABLE facturas (
 
 -- Insertar datos de ejemplo en la tabla facturas
 INSERT INTO facturas (nombre, RUC, razon_social, direccion_fiscal, fecha_emision, pago_final) VALUES
-('Empresa ABC', '12345678901', 'ABC S.A.', 'Av. Ejemplo 123', '2024-07-10', 1000.50),
-('Empresa XYZ', '23456789012', 'XYZ S.A.C.', 'Jr. Prueba 456', '2024-07-09', 2000.75),
-('Empresa 123', '34567890123', '123 S.R.L.', 'Calle Demo 789', '2024-07-08', 1500.00);
+('Mioshi', '12345678901', 'Mioshi S.A.C.', 'Av. Principal 456', '2024-07-10', 120.00),
+('Restaurante El Sabor', '23456789012', 'El Sabor S.R.L.', 'Jr. delicioso 789', '2024-07-09', 180.50),
+('Pescadería Marítima', '34567890123', 'Pescadería Marítima E.I.R.L.', 'Calle del Mar 123', '2024-07-08', 150.25);
 
 -- Procedimientos CRUD para la tabla facturas
 
