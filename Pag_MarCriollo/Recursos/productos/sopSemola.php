@@ -48,7 +48,7 @@
                         <div id="demoText">- Demostracion Modelo 3D -</div>
                     </div>
                     <script>
-                    const modelPath = "../../Recursos/productos/assets/plato/plato.gltf";
+                    const modelPath = "../../Recursos/productos/assets/sopaSemola/sopaSemola.gltf";
                     const model = "";
                     </script>
                 </div>
@@ -59,9 +59,9 @@
         <div class="productoCarta">
             <div class="ruletaProducto"> <!-- Ruleta de imagenes de referencia -->
 
-                <div class="contenedorImg"><img src="../productos/img/sopSemola_N.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg"><img src="../productos/img/sopSemola_A.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
-                <div class="contenedorImg" id="overlayButton"><img src="../../Recursos/productos/img/ico_3D.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="conImg"><img src="../productos/img/sopSemola_N.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="conImg"><img src="../productos/img/sopSemola_A.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
+                <div class="contenedorImg" id="overlayButton"><img src="../../Recursos/productos/img/semola3D.png" alt="Imagen" loading="lazy" onclick="cambiarImagen(this)"></div>
                 
             </div>
             <div class="imgProducto">
