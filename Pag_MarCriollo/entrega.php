@@ -80,7 +80,7 @@ if ($usuario_autenticado) {
     <main>
         <section id="delivery-details">
             <h2>Detalles de Entrega</h2>
-            <form id="delivery-form">
+            <form action="Entrega_Domicilio.php" method="POST" id="delivery-form">
                 <label for="name">Nombres:</label>
                 <input type="text" id="name" name="name" <?php if ($usuario_autenticado) echo 'value="' . htmlspecialchars($datos_usuario['nombres']) . '"'; ?> required><br><br>
 
@@ -109,6 +109,7 @@ if ($usuario_autenticado) {
                     <br><br>
                 </div>
 
+                <button type="button" id="delivery-home-button" style="display:none;">Entrega a Domicilio</button>
                 <button type="button" id="pay-button">Pagar</button>
                 <button type="button" onclick="continueShopping()" id="continue-button">Seguir Comprando</button>
             </form>
@@ -158,10 +159,22 @@ if ($usuario_autenticado) {
 
     <script src="Modelo/JavaScript/entrega.js"></script>
     <script>
+        document.getElementById('delivery-option').addEventListener('change', function() {
+            const deliveryHomeButton = document.getElementById('delivery-home-button');
+            if (this.value === 'domicilio') {
+                deliveryHomeButton.style.display = 'block';
+                deliveryHomeButton.addEventListener('click', function() {
+                    window.location.href = 'Entrega_Domicilio.php';
+                });
+            } else {
+                deliveryHomeButton.style.display = 'none';
+            }
+        });
+
         // Función para continuar comprando desde la página de entrega
         function continueShopping() {
             // Redirigir al usuario a la página de carrito.php
-            window.location.href = 'Vista/carrito.php'; // Cambiar 'carrito.php' por la URL correcta
+            window.location.href = 'Vista/carrito.php'; 
         }
     </script>
 </body>
