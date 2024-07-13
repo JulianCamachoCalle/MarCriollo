@@ -40,6 +40,16 @@
                     width: 100%;
                 }
             }
+
+            .contenedorImg {
+                border-radius: 15px;
+                transition: background-color 0.2s ease, transform 0.3s ease;
+            }
+            .contenedorImg:hover {
+                border-radius: 25px;
+                background-color: #e6f0f0;
+                transform: translate(15px, 0px);
+            }
         }
         .imgProducto {  /* Imagen principal */
             width: 60vw;
@@ -48,6 +58,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+
             /* border: 2px solid rgb(52, 241, 0); */
             .conImagen {
                 width: 80%;
@@ -57,6 +68,7 @@
                 justify-content: center;
                 cursor: pointer;
                 overflow: hidden;
+                transition: transform 0.5s ease;
 
                 #imagen-grande {
                     height: 100%;
@@ -64,7 +76,11 @@
                     object-fit: contain;
                 }
             }
+            .conImagen:hover {
+                transform: scale(1.03);
+            }
         }
+
         .descProducto { /*Descripcion del producto*/
             width: 50vw;
             min-width: 400px;
@@ -379,6 +395,7 @@
             align-items: center;
             justify-content: center;
             
+            
             .contenedorImg {
                 width: 80px;
                 height: auto;
@@ -393,6 +410,15 @@
                     height: auto;
                     width: 100%;
                 }
+            }
+            .contenedorImg {
+                border-radius: 15px;
+                transition: background-color 0.2s ease, transform 0.3s ease;
+            }
+            .contenedorImg:hover {
+                border-radius: 25px;
+                background-color: #e6f0f0;
+                transform: translate(0px, 10px);
             }
         }
         .imgProducto {  /* Imagen principal */
@@ -414,12 +440,16 @@
                 justify-content: center;
                 cursor: pointer;
                 overflow: hidden;
+                transition: transform 0.5s ease;
 
                 img {
                     height: 100%;
                     max-width: 100%;
                     object-fit: contain;
                 }
+            }
+            .conImagen:hover {
+                transform: scale(1.03);
             }
         }
         .descProducto { /*Descripcion del producto*/

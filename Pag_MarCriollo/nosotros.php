@@ -29,6 +29,7 @@ if ($usuario_autenticado) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarCriollo - Nosotros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
     <link rel="stylesheet" href="Recursos/style/nosotros.css">
     <link rel="icon" href="Recursos/img/favicon-32x32.png" type="image/png">
 </head>
@@ -107,6 +108,37 @@ if ($usuario_autenticado) {
                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+
+        <section class="container my-5" id="carrus">
+            <h2 class="section-title text-center">Misión y Visión</h2>
+            <div id="missionVisionCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" id="carrusImg">
+                        <img src="Recursos/img/mision.jpg" class="d-block w-100" alt="Misión">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3">
+                            <h3>Misión</h3>
+                            <p>Nuestra misión es ofrecer una experiencia gastronómica excepcional que celebre los sabores del mar, utilizando ingredientes frescos y sostenibles, y brindando un servicio cálido y acogedor a cada uno de nuestros clientes.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" id="carrusImg">
+                        <img src="Recursos/img/familia.jpg" class="d-block w-100" alt="Visión">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3">
+                            <h3>Visión</h3>
+                            <p>Ser reconocidos como el restaurante líder en cocina marina en la región, destacándonos por nuestra innovación culinaria, nuestro compromiso con la calidad y nuestra dedicación a la satisfacción del cliente.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#missionVisionCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#missionVisionCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
         <div class="conTex-Fundador">
             <div id="titulo">
                 <h1 id="tit01">nuestro fundador</h1>
@@ -118,22 +150,91 @@ if ($usuario_autenticado) {
                     <h1>"Su pasión por la cocina costera lo convirtió en un referente en la escena gastronómica marina del país".</h1>
                 </div>
                 <img src="Recursos/img/cocina.jpg" id="carta01">
-                <img src="Recursos/img/familia.jpg" id="carta02">
+                <img src="Recursos/img/fondo2.jpeg" id="carta02">
                 <img src="Recursos/img/fundador.jpg" id="carta03"> <!-- Imagen Principal -->
             </div>
         </div>
-        <div class="conMetas">
-            <div id="conCuadros">
-                <div id="conMision">
-                    <h1>mision</h1>
-                    <p>MarCriollo ofrece una fusión única de cocina marina y criolla. Con pasión por la frescura, cada plato refleja autenticidad y atención al detalle. Nuestra mision es deleitar a los clientes con sabores inigualables, invitándolos a un viaje culinario que celebra nuestras tradiciones y el esplendor del mar.</p>
-                </div>
-                <div id="conVision">
-                    <h1>Vision</h1>
-                    <p>En MarCriollo, aspiramos a ser el destino gastronómico de referencia para los amantes de los sabores criollos y marinos en un ambiente acogedor. Destacamos por nuestra excelencia culinaria y atención al cliente, siendo un lugar donde cada experiencia sea única y memorable, dejando una huella duradera en nuestros clientes y en la comunidad gastronómica.</p>
+
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="section-title text-center">Nuestro Equipo</h2>
+                <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/juan_perez.jpg" class="card-img-top" alt="Team Member 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Juan Pérez</h5>
+                                            <p class="card-text">Chef Ejecutivo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/ana_lopez.jpg" class="card-img-top" alt="Team Member 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ana López</h5>
+                                            <p class="card-text">Chef Pastelera</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/carlos_garcia.jpg" class="card-img-top" alt="Team Member 3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Carlos García</h5>
+                                            <p class="card-text">Gerente de Restaurante</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/maria_fernandez.jpg" class="card-img-top" alt="Team Member 4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">María Fernández</h5>
+                                            <p class="card-text">Sommelier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/pedro_sanchez.jpg" class="card-img-top" alt="Team Member 5">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pedro Sánchez</h5>
+                                            <p class="card-text">Jefe de Cocina</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="Recursos/img/laura_torres.jpg" class="card-img-top" alt="Team Member 6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Laura Torres</h5>
+                                            <p class="card-text">Encargada de Eventos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
                 </div>
             </div>
-        </div>
+        </section>    
+
     </main>
     <footer>
         <section id="redes">
@@ -162,5 +263,7 @@ if ($usuario_autenticado) {
         </section>
         &copy; 2024 Creado por Grupo
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
