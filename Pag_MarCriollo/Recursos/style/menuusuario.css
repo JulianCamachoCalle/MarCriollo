@@ -1,45 +1,7 @@
 @import url("headerfooter.css");
 
+
 @media only screen and (min-width: 1440px) {
-
-    .contenedor-principal,
-    .contenedor-slider {
-        height: 45%;
-    }
-
-    .cerrar-sesion {
-        margin: 30px 0;
-    }
-
-    .cerrar-sesion a {
-        font-size: 40px;
-        padding: 20px;
-    }
-
-    .contenedor-principal {
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: row;
-    }
-
-    .textnombres,
-    .textcorreo,
-    .textdireccion,
-    .textdistrito {
-        font-size: 60px;
-        padding: 10px 0;
-    }
-
-    .contenedor-informacion {
-        padding: 40px 0;
-    }
-
-    .contenedor-foto {
-        height: 90%;
-    }
-}
-
-@media only screen and (max-width: 1440px) {
 
     .contenedor-principal,
     .contenedor-slider {
