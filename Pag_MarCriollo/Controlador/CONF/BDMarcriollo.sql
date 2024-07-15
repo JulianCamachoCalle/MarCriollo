@@ -356,16 +356,14 @@ CREATE TABLE facturas (
 
 -- Insertar datos de ejemplo en la tabla facturas
 INSERT INTO facturas (nombre, RUC, razon_social, direccion_fiscal, fecha_emision, pago_final) VALUES
-('Corporación Inca', '20123456789', 'Inca Trading S.A.', 'Av. Los Incas 123, Lima', '2024-07-10', 3500.75),
-('Gastronomía Andina', '20234567890', 'Andina Foods S.A.C.', 'Jr. Los Andes 456, Cusco', '2024-07-11', 2750.40),
-('Exportaciones Perú', '20345678901', 'Peru Export S.A.', 'Calle Comercio 789, Arequipa', '2024-07-12', 4100.00),
-('Servicios Turísticos', '20456789012', 'Turismo Perú E.I.R.L.', 'Av. Miraflores 321, Lima', '2024-07-13', 1500.60),
-('Hotel Machu Picchu', '20567890123', 'Machu Picchu Hotel S.A.C.', 'Jr. Cusco 654, Cusco', '2024-07-14', 5900.30),
-('Consultoría Empresarial', '20678901234', 'Empresarial Consulting S.R.L.', 'Calle Negocios 987, Lima', '2024-07-15', 3200.00),
-('Restaurante Ceviche', '20789012345', 'Ceviche del Mar S.A.', 'Av. Pescadores 222, Callao', '2024-07-16', 4800.20),
-('Distribuidora Quinoa', '20890123456', 'Quinoa Export E.I.R.L.', 'Jr. Agricultura 333, Puno', '2024-07-17', 2600.45),
-('Industrias Textiles', '20901234567', 'Textiles Andinos S.A.', 'Av. Tejidos 444, Lima', '2024-07-18', 6700.55),
-('Corporación Alpaca', '21012345678', 'Alpaca Corp. S.A.', 'Calle Lana 555, Arequipa', '2024-07-19', 5200.60);
+('Carlos Ramírez', '20345678901', 'Carlos Ramírez Mendoza', 'Calle Los Álamos 789, Arequipa', '2024-07-12', 410.00),
+('Ana Fernández', '20456789012', 'Ana Fernández Vega', 'Av. Las Palmas 321, Trujillo', '2024-07-13', 120.60),
+('Luis García', '20567890123', 'Luis García Torres', 'Jr. Las Orquídeas 654, Lima', '2024-07-14', 590.30),
+('Sofía Rodríguez', '20678901234', 'Sofía Rodríguez Paredes', 'Calle Los Jazmines 987, Piura', '2024-07-15', 320.00),
+('Ricardo Díaz', '20789012345', 'Ricardo Díaz Huamán', 'Av. Los Eucaliptos 222, Chiclayo', '2024-07-16', 480.20),
+('Patricia Romero', '20890123456', 'Patricia Romero Ruiz', 'Jr. Los Laureles 333, Iquitos', '2024-07-17', 260.45),
+('Miguel Torres', '20901234567', 'Miguel Torres León', 'Av. Las Magnolias 444, Lima', '2024-07-18', 670.55),
+('Carmen Flores', '21012345678', 'Carmen Flores Morales', 'Calle Los Robles 555, Arequipa', '2024-07-19', 520.60);
 
 -- Procedimientos CRUD para la tabla facturas
 
